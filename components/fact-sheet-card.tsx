@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Download } from 'lucide-react';
+import { Download, FileText } from 'lucide-react';
 import type { FactSheet } from '@/lib/site';
 
 /**
@@ -22,15 +22,25 @@ export function FactSheetCard({
       rel="noopener noreferrer"
       className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-navy-300 hover:bg-sky-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
     >
-      <div className="relative aspect-[695/900] overflow-hidden border-b border-border bg-muted">
-        <Image
-          src={sheet.cover}
-          alt=""
-          fill
-          sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 90vw"
-          priority={priority}
-          className="object-cover object-top"
-        />
+      <div className="relative flex aspect-[695/900] items-center justify-center overflow-hidden border-b border-border bg-muted">
+        {sheet.cover ? (
+          <Image
+            src={sheet.cover}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 90vw"
+            priority={priority}
+            className="object-cover object-top"
+          />
+        ) : (
+          // Off-site documents have no page render to show; a plain document
+          // glyph keeps the grid even rather than leaving a broken tile.
+          <FileText
+            className="size-14 text-navy-300"
+            aria-hidden="true"
+            strokeWidth={1.25}
+          />
+        )}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <h3 className="font-heading text-base leading-snug font-semibold text-primary">

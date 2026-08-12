@@ -1,309 +1,346 @@
 import Link from 'next/link';
-import { ArrowRight, FileText, ShieldCheck, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Container, Eyebrow, Section } from '@/components/layout-primitives';
-import { FactSheetCard } from '@/components/fact-sheet-card';
-import { StatBand } from '@/components/stat-band';
+import { Cite } from '@/components/cite';
 import { SubscribeForm } from '@/components/subscribe-form';
-import { factSheets } from '@/lib/site';
+import { homeFootnotes, sources } from '@/lib/sources';
+
+/**
+ * Homepage. Copy is verbatim from the 2026-08-11 content document.
+ *
+ * The document's Sections 2 and 3 restate the opening of the Preserve
+ * Financial Choice and Consequences pages. That repetition is intentional in
+ * the source: the homepage carries the summary and hands off to the full
+ * argument, which is how the "Learn more" lines in the document read.
+ */
+
+const protections = [
+  {
+    title: 'Every credit access business must be licensed',
+    body: 'Credit Access Businesses (CABs) must obtain and maintain a state license and operate under the continuing supervision of the OCCC.',
+    source: sources.occcIndustries,
+  },
+  {
+    title: 'Consumers receive a standardized cost disclosure',
+    body: 'Texas consumers are shown what the transaction costs before they agree to it, including the fees, interest, APR and total repayment obligation.',
+    source: sources.occcDisclosure,
+  },
+  {
+    title: 'Fees must be disclosed before they are charged',
+    body: 'Transparency is not optional under Texas law. A licensed provider cannot charge a fee that has not been disclosed.',
+  },
+  {
+    title: 'Consumers have a cancellation right',
+    body: 'Texas law gives consumers a three-day right to cancel the credit-services contract without a cancellation penalty.',
+  },
+  {
+    title: 'Providers are subject to regulatory examinations',
+    body: 'State oversight is more than paperwork. The OCCC can examine the underlying transaction files and determine whether required disclosures and consumer protections were followed.',
+  },
+  {
+    title: 'Market activity is reported and published',
+    body: 'Texas requires licensed providers to report their activity throughout the year. That information is aggregated and published, giving regulators, lawmakers and the public visibility into the market.',
+  },
+  {
+    title: 'The Texas Office of Consumer Credit Commissioner (OCCC)',
+    body: 'These requirements have consequences. The OCCC can penalize violations, order corrective action and prevent a company from continuing to operate.',
+  },
+];
+
+const consequences = [
+  {
+    title: 'The Alternatives Can Cost More',
+    body: 'Overdraft charges, utility reconnection fees, rent penalties and credit-card late fees can carry annualized costs reaching hundreds or even thousands of percent—and impose new costs without providing the money needed to solve the original emergency.',
+    cta: 'Compare the Costs',
+    href: '/consequences#alternatives',
+  },
+  {
+    title: 'Rate Caps Can Put Credit Out of Reach',
+    body: 'Interest-rate caps may reduce costs for those who still qualify, but they can also make small-dollar loans economically unworkable. Research shows that restrictive caps can result in fewer loans, tighter approval standards and reduced access for consumers with imperfect credit.',
+    cta: 'See What the Research Shows',
+    href: '/consequences#rate-caps',
+  },
+  {
+    title: 'Where Will Texans Turn?',
+    body: 'Bank loans, fintech products, employer advances and earned-wage access can provide valuable alternatives—but none serves every consumer or every emergency. Before eliminating a regulated option, policymakers must determine whether a viable replacement is available at the speed and scale Texans need.',
+    cta: 'Read the Analysis',
+    href: '/consequences#alternatives-compete',
+  },
+];
+
+/** Figure callout. The document marks these "Graphic 1 / Graphic 2" without
+    supplying artwork; rendering them as live type keeps them legible on small
+    screens, selectable, and readable by search engines and screen readers. */
+function Figure({
+  stat,
+  body,
+  footnote,
+}: {
+  stat: string;
+  body: string;
+  footnote: number;
+}) {
+  return (
+    <div className="rounded-lg border border-border bg-card p-7">
+      <p className="tabular font-heading text-4xl leading-none font-bold text-primary lg:text-5xl">
+        {stat}
+      </p>
+      <p className="mt-4 leading-relaxed text-foreground">
+        {body}
+        <a
+          href={`#fn-${footnote}`}
+          className="ml-0.5 rounded-sm align-super text-xs text-sky-700 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        >
+          {footnote}
+          <span className="sr-only"> — see footnote {footnote}</span>
+        </a>
+      </p>
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
     <>
-      {/* ---------------------------------------------------------------
-          Hero — "We Are Hard-Working Texans"
-          Static and text-first. Replaces the legacy Slider Revolution
-          carousel that baked its copy into low-res JPEGs
-          (teardown.md anti-pattern #1).
-          --------------------------------------------------------------- */}
+      {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-background">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 bg-sky-50 lg:block"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 bg-sky-50 lg:block"
         />
         <Container className="relative">
-          <div className="grid items-center gap-14 py-20 lg:grid-cols-2 lg:gap-20 lg:py-28">
-            <div>
-              <Eyebrow>Texans For Financial Choice</Eyebrow>
-              <h1 className="mt-4 font-heading text-4xl leading-[1.1] font-bold text-primary sm:text-5xl lg:text-6xl">
-                We Are Hard-Working Texans
-              </h1>
-              <div className="mt-7 max-w-[60ch] space-y-5 text-lg leading-relaxed text-foreground">
-                <p>
-                  We are neighbors, friends, and hard-working Texans from all
-                  walks of life who are dedicated to sharing information about
-                  making smart, reasonable choices when faced with a financial
-                  emergency.
-                </p>
-                <p>
-                  Many of us have few realistic options, but we are committed to
-                  understanding the fundamentals of consumer choices, new
-                  financial products and services, and &ldquo;making our voices
-                  heard&rdquo; about simple and sustainable policy options.
-                </p>
-              </div>
-              <div className="mt-9 flex flex-wrap gap-4">
-                <Button
-                  render={<Link href="/action" />}
-                  nativeButton={false}
-                  size="lg"
-                  className="tracking-wide"
-                >
-                  TAKE ACTION NOW
-                </Button>
-                <Button
-                  render={<Link href="/key-facts" />}
-                  nativeButton={false}
-                  size="lg"
-                  variant="outline"
-                >
-                  See the key facts
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Button>
-              </div>
-            </div>
-
-            {/* The three pillars the site's argument rests on. The heading is
-                visually hidden: the cards need to sit under a section heading
-                so the outline stays h1 -> h2 -> h3, but showing it would
-                duplicate what the cards already say. */}
-            <div className="relative">
-              <h2 id="pillars-heading" className="sr-only">
-                Why this matters
-              </h2>
-              <ul aria-labelledby="pillars-heading" className="grid gap-4">
-                {[
-                  {
-                    icon: Users,
-                    title: 'Texans deserve the choice',
-                    body: '34 percent of Texans are underbanked, and 40 percent of Americans could not handle a $400 emergency.',
-                  },
-                  {
-                    icon: ShieldCheck,
-                    title: 'The industry is heavily regulated',
-                    body: 'Credit Access Businesses comply with more than 26 federal and state laws and are examined by the OCCC.',
-                  },
-                  {
-                    icon: FileText,
-                    title: 'The record is public',
-                    body: 'Complaints against CABs are the lowest of any business the OCCC regulates — one per 21,000 transactions.',
-                  },
-                ].map((item) => (
-                  <li
-                    key={item.title}
-                    className="flex gap-4 rounded-lg border border-border bg-card p-5"
-                  >
-                    <item.icon
-                      className="mt-0.5 size-6 shrink-0 text-navy-600"
-                      aria-hidden="true"
-                      strokeWidth={1.5}
-                    />
-                    <div>
-                      <h3 className="font-heading text-lg font-semibold text-primary">
-                        {item.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                        {item.body}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+          {/* This document's headline runs 18 words, where the previous one ran
+              four. Held at 5xl on a wide measure it reads as a statement; at
+              display size it would fill the viewport on its own. */}
+          <div className="max-w-[54ch] py-20 lg:py-28">
+            <Eyebrow>Texans For Financial Choice</Eyebrow>
+            <h1 className="mt-5 font-heading text-3xl leading-[1.12] font-bold text-primary sm:text-4xl lg:text-5xl">
+              Hard Working Texas Families Deserve Access to Safe, Transparent
+              and Regulated Financial Choices—Not Fewer Options.
+            </h1>
+            <p className="mt-7 max-w-[62ch] text-lg leading-relaxed text-foreground">
+              Texas families need responsible credit and transparent, regulated
+              choices. Smart policies should protect consumers from harmful
+              practices without eliminating lawful options or pushing them
+              toward riskier alternatives.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Button
+                render={<Link href="/action" />}
+                nativeButton={false}
+                size="lg"
+                className="tracking-wide"
+              >
+                TAKE ACTION
+              </Button>
+              <Button
+                render={<Link href="/preserve-financial-choice" />}
+                nativeButton={false}
+                size="lg"
+                variant="outline"
+              >
+                How Texas regulates credit
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Button>
             </div>
           </div>
         </Container>
       </section>
 
-      <StatBand />
-
-      {/* ---------------------------------------------------------------
-          Access To Credit
-          --------------------------------------------------------------- */}
-      <Section id="access" aria-labelledby="access-heading">
+      {/* Section 1 — The Texas Reality */}
+      <Section tone="sunken" aria-labelledby="reality-heading">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
-            {/* Sticks alongside the prose on tall viewports so the column
-                doesn't read as dead space. */}
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <Eyebrow>The Issue</Eyebrow>
-              <h2
-                id="access-heading"
-                className="mt-4 font-heading text-3xl leading-tight font-semibold text-primary lg:text-4xl"
-              >
-                Access To Credit
-              </h2>
-              <span
-                aria-hidden="true"
-                className="mt-6 block h-1 w-16 rounded-full bg-sky-300"
-              />
-            </div>
-            <div className="max-w-[65ch] space-y-5 text-lg leading-relaxed text-foreground">
-              <p>
-                For years, far-left activists and media organizations have
-                distorted the truth about Credit Access Businesses (CABs) and
-                hard working Texans that need access to credit during financial
-                emergencies. Despite high demand for credit, these activists
-                wish to eliminate more than $2 billion in credit in Texas
-                without providing reasonable alternatives outside of
-                government-subsidized banking through places such as the US
-                Postal Service.
-              </p>
-              <p>
-                Texans deserve the right to choose - without government mandates
-                - what is best for them and their families. Learn the truth
-                about our issue below:
-              </p>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Button
-                  render={<Link href="/action" />}
-                  nativeButton={false}
-                  size="lg"
-                  className="tracking-wide"
-                >
-                  TAKE ACTION NOW
-                </Button>
-                <Button
-                  render={<Link href="/about" />}
-                  nativeButton={false}
-                  size="lg"
-                  variant="ghost"
-                >
-                  About the issue
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ---------------------------------------------------------------
-          Hear From Real Customers
-          Rendered ONCE — the legacy DOM duplicated this block for mobile
-          (teardown.md anti-pattern #6).
-          --------------------------------------------------------------- */}
-      <Section tone="sunken" id="customers" aria-labelledby="customers-heading">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Satisfaction</Eyebrow>
-            <h2
-              id="customers-heading"
-              className="mt-4 font-heading text-3xl leading-tight font-semibold text-primary lg:text-4xl"
-            >
-              Hear From Real Customers
-            </h2>
-            <div className="mx-auto mt-7 max-w-[65ch] space-y-5 text-lg leading-relaxed text-foreground">
-              <p>
-                While many liberal media organizations have created a false
-                narrative about our industry, an overwhelming majority of
-                short-term borrowing clients value the services and are
-                satisfied with the product offerings.
-              </p>
-              <p>
-                The short-term borrowing industry has the least complaints of
-                all financial services companies in Texas and nationally with
-                the Consumer Financial Protection Bureau (CFPB).
-              </p>
-            </div>
-          </div>
-
-          <ul className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-3">
-            {[
-              {
-                value: '98%',
-                label: 'were satisfied with their most recent loan experience',
-              },
-              {
-                value: '93%',
-                label:
-                  'carefully weighed the risks and benefits before borrowing',
-              },
-              {
-                value: '95%',
-                label: 'value having the option to take out a short-term loan',
-              },
-            ].map((item) => (
-              <li
-                key={item.value}
-                className="rounded-lg border border-border bg-card p-6 text-center"
-              >
-                <p className="tabular font-heading text-4xl font-bold text-primary">
-                  {item.value}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {item.label}
-                </p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-center text-xs text-muted-foreground">
-            Source: Harris Interactive poll of short-term lending customers.
+          <Eyebrow>Section One</Eyebrow>
+          <h2
+            id="reality-heading"
+            className="mt-4 max-w-[24ch] font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
+          >
+            The Texas Reality: Unexpected Expenses Can&apos;t Wait, and Not
+            Every Family Has the Same Financial Choices.
+          </h2>
+          <p className="mt-6 max-w-[65ch] text-lg leading-relaxed text-foreground">
+            Working Texas families are being squeezed from every
+            direction—housing, insurance, health care, groceries, child care,
+            transportation and utilities. After paying for the essentials, many
+            have little left to save. When an unavoidable expense occurs,
+            families need access to safe, transparent and regulated financial
+            options that can help them manage the emergency on their own terms.
           </p>
 
-          <div className="mt-10 text-center">
-            <Button
-              render={<Link href="/action" />}
-              nativeButton={false}
-              size="lg"
-              className="tracking-wide"
-            >
-              TAKE ACTION NOW
-            </Button>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <Figure
+              stat="4 in 10"
+              body="Texas households struggle to cover basic expenses"
+              footnote={1}
+            />
+            <Figure
+              stat="1 in 3"
+              body="American workers say they are living paycheck to paycheck"
+              footnote={2}
+            />
+          </div>
+
+          {/* A text link, not a Button: buttonVariants sets `whitespace-nowrap`
+              and `shrink-0`, so a label this long overflows narrow viewports. */}
+          <Link
+            href="/economic-reality"
+            className="mt-8 inline-flex items-baseline gap-2 rounded-sm font-semibold text-sky-700 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
+            Learn more about the economic reality for many Texans
+            <ArrowRight
+              className="size-4 shrink-0 self-center"
+              aria-hidden="true"
+            />
+          </Link>
+
+          <div className="mt-16 border-t border-border pt-12">
+            <h3 className="max-w-[30ch] font-heading text-2xl leading-tight font-bold text-primary">
+              Traditional credit is unavailable or insufficient for many
+              families
+            </h3>
+            <p className="mt-5 max-w-[65ch] text-lg leading-relaxed text-foreground">
+              An emergency does not wait for a family&apos;s credit score to
+              improve—and a low score does not eliminate the family&apos;s need
+              to repair a car, pay a utility bill or obtain medical care. Nearly
+              2.1 million Texas households don&apos;t have access to traditional
+              credit products.
+            </p>
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              <Figure
+                stat="1 in 3"
+                body="Americans who applied for traditional credit in 2025 were either denied or approved for less than they requested"
+                footnote={3}
+              />
+              <Figure
+                stat="18.5%"
+                body="of Texas households are underbanked, meaning they don’t have access to traditional credit products"
+                footnote={4}
+              />
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* ---------------------------------------------------------------
-          Fact Sheets
-          --------------------------------------------------------------- */}
-      <Section id="factsheets" aria-labelledby="factsheets-heading">
+      {/* Section 2 — Regulated options */}
+      <Section aria-labelledby="protect-heading">
         <Container>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <Eyebrow>The Evidence</Eyebrow>
-              <h2
-                id="factsheets-heading"
-                className="mt-4 font-heading text-3xl leading-tight font-semibold text-primary lg:text-4xl"
-              >
-                Fact Sheets
-              </h2>
-              <p className="mt-4 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
-                Download and share the research behind our position on
-                short-term borrowing in Texas.
-              </p>
-            </div>
-            <Button
-              render={<Link href="/resources" />}
-              nativeButton={false}
-              variant="outline"
-              size="lg"
-            >
-              View all resources
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Button>
-          </div>
+          <Eyebrow>Section Two</Eyebrow>
+          <h2
+            id="protect-heading"
+            className="mt-4 max-w-[26ch] font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
+          >
+            Protecting Texans Means Preserving Safe, Regulated Credit Options
+          </h2>
+          <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-foreground">
+            Texas short-term lending is not an unregulated marketplace. Licensed
+            Credit Access Businesses (CABS) answer to the Texas Office of
+            Consumer Credit Commissioner, while the Consumer Financial
+            Protection Bureau provides an additional federal layer of
+            supervision. State and federal laws govern disclosures, electronic
+            payments, fair lending, reporting, examinations and prohibited
+            business practices. Consumers have access to both state and federal
+            regulators when they have a question or complaint.
+          </p>
 
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {factSheets.slice(0, 8).map((sheet) => (
-              <li key={sheet.file} className="h-full">
-                <FactSheetCard sheet={sheet} />
+          <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {protections.map((item) => (
+              <li
+                key={item.title}
+                className="flex flex-col rounded-lg border border-border bg-card p-6"
+              >
+                <CheckCircle2
+                  className="size-6 text-navy-600"
+                  aria-hidden="true"
+                  strokeWidth={1.5}
+                />
+                <h3 className="mt-4 font-heading text-lg leading-snug font-semibold text-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {item.body}
+                </p>
+                {item.source ? (
+                  <p className="mt-4">
+                    <Cite source={item.source} />
+                  </p>
+                ) : null}
               </li>
             ))}
           </ul>
+
+          <Link
+            href="/preserve-financial-choice"
+            className="mt-8 inline-flex items-baseline gap-2 rounded-sm font-semibold text-sky-700 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
+            Learn more about regulatory oversight
+            <ArrowRight
+              className="size-4 shrink-0 self-center"
+              aria-hidden="true"
+            />
+          </Link>
         </Container>
       </Section>
 
-      {/* ---------------------------------------------------------------
-          Subscribe
-          --------------------------------------------------------------- */}
-      <Section tone="sunken" id="subscribe" aria-labelledby="subscribe-heading">
+      {/* Section 3 — Consequences */}
+      <Section tone="sunken" aria-labelledby="consequences-heading">
+        <Container>
+          <Eyebrow>Section Three</Eyebrow>
+          <h2
+            id="consequences-heading"
+            className="mt-4 max-w-[26ch] font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
+          >
+            Financial Emergencies Do Not Disappear: The Consequences of
+            Restricting Access
+          </h2>
+          <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-foreground">
+            When a car breaks down, a utility bill is due or rent is late,
+            families need workable options. Eliminating regulated short-term
+            credit does not eliminate that need. It can leave hardworking Texans
+            facing costly fees, delayed bills, unlicensed lenders—or no
+            available option at all.
+          </p>
+
+          <ol className="mt-12 grid gap-8 lg:grid-cols-3">
+            {consequences.map((item, i) => (
+              <li
+                key={item.title}
+                className="flex flex-col border-t-2 border-navy-700 pt-6"
+              >
+                <span
+                  aria-hidden="true"
+                  className="tabular font-heading text-sm font-bold text-sky-600"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-2 font-heading text-xl leading-snug font-bold text-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-4 flex-1 leading-relaxed text-foreground">
+                  {item.body}
+                </p>
+                <Link
+                  href={item.href}
+                  className="mt-6 inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-sky-700 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                >
+                  {item.cta}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </Section>
+
+      {/* Subscribe */}
+      <Section aria-labelledby="subscribe-heading">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <Eyebrow>Stay Informed &amp; In-The-Know</Eyebrow>
               <h2
                 id="subscribe-heading"
-                className="mt-4 font-heading text-3xl leading-tight font-semibold text-primary lg:text-4xl"
+                className="mt-4 font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
               >
                 Subscribe Now
               </h2>
@@ -320,6 +357,37 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* Footnotes */}
+      <section
+        aria-labelledby="footnotes-heading"
+        className="border-t border-border bg-surface-sunken py-14"
+      >
+        <Container>
+          <h2
+            id="footnotes-heading"
+            className="text-eyebrow text-sky-700 uppercase"
+          >
+            Sources
+          </h2>
+          <ol className="mt-5 space-y-4">
+            {homeFootnotes.map((fn) => (
+              <li
+                key={fn.n}
+                id={`fn-${fn.n}`}
+                className="flex max-w-[85ch] gap-3 text-sm leading-relaxed text-muted-foreground"
+              >
+                <span className="tabular shrink-0 font-semibold text-sky-700">
+                  {fn.n}.
+                </span>
+                <span>
+                  {fn.text} <Cite source={fn.source} />
+                </span>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
     </>
   );
 }

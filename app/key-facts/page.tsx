@@ -3,10 +3,19 @@ import { Container, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
 import { CtaBand } from '@/components/cta-band';
 
+/**
+ * HIDDEN PAGE — superseded by the 2026-08-11 content document.
+ *
+ * Kept reachable for anyone holding a direct link, but removed from the
+ * navigation and the sitemap, and marked noindex so its older framing does not
+ * compete in search with the current pages. To restore it, delete this
+ * `robots` export and add the route back to `navLinks` in lib/site.ts.
+ */
 export const metadata: Metadata = {
   title: 'Key Facts',
   description:
     'Customer satisfaction, extensive regulation, state oversight, the consumer complaint process, disclosures, and economic competitiveness in Texas short-term lending.',
+  robots: { index: false, follow: false },
 };
 
 const toc = [

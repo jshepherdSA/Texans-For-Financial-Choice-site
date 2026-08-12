@@ -1,13 +1,18 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
 
+/**
+ * Only the live pages. /about, /key-facts and /real-vs-fake-news are
+ * deliberately absent — they remain reachable by direct link but are hidden
+ * from navigation and search (see `hiddenRoutes` in lib/site.ts).
+ */
 const routes = [
   { path: '', priority: 1 },
-  { path: '/about', priority: 0.8 },
-  { path: '/key-facts', priority: 0.8 },
-  { path: '/resources', priority: 0.8 },
+  { path: '/economic-reality', priority: 0.8 },
+  { path: '/preserve-financial-choice', priority: 0.8 },
+  { path: '/consequences', priority: 0.8 },
+  { path: '/resources', priority: 0.7 },
   { path: '/press', priority: 0.6 },
-  { path: '/real-vs-fake-news', priority: 0.8 },
   { path: '/action', priority: 0.9 },
 ];
 

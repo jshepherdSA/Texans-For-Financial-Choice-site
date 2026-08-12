@@ -12,12 +12,30 @@ export const site = {
     'We are neighbors, friends, and hard-working Texans from all walks of life who are dedicated to sharing information about making smart, reasonable choices when faced with a financial emergency.',
 } as const;
 
+/**
+ * Primary navigation. Page list is derived from the 2026-08-11 content
+ * document, which defines the site.
+ *
+ * Three pages from the previous build — /about, /key-facts, and
+ * /real-vs-fake-news — are intentionally absent. They are hidden, not deleted:
+ * the routes still resolve for anyone holding a direct link, but they are out
+ * of the nav, out of the sitemap, and set to noindex, because their framing
+ * predates the new document's more measured, heavily-sourced tone. Restore one
+ * by adding it back here and dropping its `robots` export.
+ */
 export const navLinks = [
-  { label: 'About The Issue', href: '/about' },
-  { label: 'Key Facts', href: '/key-facts' },
+  { label: 'Economic Reality', href: '/economic-reality' },
+  { label: 'Preserve Financial Choice', href: '/preserve-financial-choice' },
+  { label: 'Consequences', href: '/consequences' },
   { label: 'Resources', href: '/resources' },
   { label: 'Press', href: '/press' },
-  { label: 'Real vs Fake News', href: '/real-vs-fake-news' },
+] as const;
+
+/** Routes kept reachable but deliberately unlinked and unindexed. */
+export const hiddenRoutes = [
+  '/about',
+  '/key-facts',
+  '/real-vs-fake-news',
 ] as const;
 
 export const socialLinks = [
@@ -38,7 +56,8 @@ const PDF_BASE =
 export type FactSheet = {
   title: string;
   file: string;
-  cover: string;
+  /** Absent when the document is hosted off-site and has no cover render. */
+  cover?: string;
 };
 
 /** The 13 fact sheets. Titles verbatim from the Resources page. */
@@ -112,6 +131,12 @@ export const factSheets: FactSheet[] = [
     title: 'Fact Sheet',
     file: `${PDF_BASE}/TFC-Fact-Sheet.pdf`,
     cover: '/factsheets/TFC-Fact-Sheet.jpg',
+  },
+  // Named in the 2026-08-11 content document. Hosted on Canva rather than the
+  // WordPress uploads directory, so there is no cover render for it.
+  {
+    title: 'Illinois Case Study',
+    file: 'https://canva.link/wsww1wai29mn9sr',
   },
 ];
 
