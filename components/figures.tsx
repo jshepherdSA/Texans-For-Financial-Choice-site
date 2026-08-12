@@ -19,15 +19,18 @@ const SOLID = 'var(--color-navy-700)';
 const OUTLINE = 'var(--color-sky-600)';
 
 /**
- * Glyphs render at a fixed pixel size rather than scaling to their container,
- * so a house is the same size as a person across every figure. Combined with
- * the fixed-height slot in `FigureSlot`, that keeps the stat numbers on a
- * common baseline no matter how tall each graphic is.
+ * Every figure occupies the same height, so the three carry equal visual
+ * weight in a row and the stat numbers below share a baseline.
+ *
+ * Glyph size is therefore derived from the row count rather than fixed: a
+ * two-row array of ten houses draws each house at half the height, while a
+ * single row of three people draws each person at full height. The alternative
+ * — one glyph size everywhere — is what made the "1 in 3" figure look stunted
+ * beside the house grid and the pie.
  */
-const CELL = 26;
-const GAP = 6;
-/** Height of the tallest graphic — a two-row icon array. */
-export const FIGURE_HEIGHT = CELL * 2 + GAP;
+export const FIGURE_HEIGHT = 64;
+/** Gap as a share of glyph size, so spacing stays proportional at any scale. */
+const GAP_RATIO = 0.23;
 
 /** Filled house silhouette, 24×24. */
 const HOUSE = 'M12 2.5 L22.5 11 V21.5 H1.5 V11 Z';
@@ -49,10 +52,17 @@ export function IconArray({
   glyph: 'house' | 'person';
 }) {
   const rows = Math.ceil(total / perRow);
-  const cell = CELL;
-  const gap = GAP;
-  const w = perRow * cell + (perRow - 1) * gap;
-  const h = rows * cell + (rows - 1) * gap;
+  // Solve for the glyph size that makes `rows` of them fill FIGURE_HEIGHT,
+  // then let the row gap absorb the rounding remainder so the drawn height is
+  // exactly FIGURE_HEIGHT rather than a pixel over it.
+  const cell = Math.round(FIGURE_HEIGHT / (rows + GAP_RATIO * (rows - 1)));
+  const rowGap =
+    rows > 1
+      ? (FIGURE_HEIGHT - rows * cell) / (rows - 1)
+      : Math.round(cell * GAP_RATIO);
+  const colGap = Math.round(cell * GAP_RATIO);
+  const w = perRow * cell + (perRow - 1) * colGap;
+  const h = rows * cell + (rows - 1) * rowGap;
 
   return (
     <svg
@@ -66,8 +76,8 @@ export function IconArray({
     >
       {Array.from({ length: total }).map((_, i) => {
         const on = i < filled;
-        const x = (i % perRow) * (cell + gap);
-        const y = Math.floor(i / perRow) * (cell + gap);
+        const x = (i % perRow) * (cell + colGap);
+        const y = Math.floor(i / perRow) * (cell + rowGap);
         return (
           <g key={i} transform={`translate(${x} ${y}) scale(${cell / 24})`}>
             {glyph === 'house' ? (
@@ -151,11 +161,9 @@ export function SharePie({ percent }: { percent: number }) {
 /**
  * Fixed-height container for a figure.
  *
- * Graphics differ in height — a two-row icon array is 58px, a single row is
- * 26px — which would otherwise push each stat number to a different vertical
- * position and leave the row looking ragged. Reserving the tallest height and
- * bottom-aligning inside it keeps every number on one line while each graphic
- * still sits directly above its own.
+ * Every graphic already draws to exactly FIGURE_HEIGHT, so this mostly serves
+ * as a guarantee: it pins the height regardless of what a future figure draws,
+ * keeping the stat numbers below on a shared baseline.
  */
 export function FigureSlot({ children }: { children: React.ReactNode }) {
   return (
