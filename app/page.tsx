@@ -19,7 +19,7 @@ import { homeFootnotes, sources } from '@/lib/sources';
  *
  * The document's Sections 2 and 3 restate the opening of the Preserve
  * Financial Choice and Consequences pages. That repetition is intentional in
- * the source: the homepage summarises and hands off via its "Learn more" lines.
+ * the source: the homepage summarises and hands off to the detail pages.
  * Here the summaries are collapsed into dropdowns so the page stays short and
  * the detail pages carry the full argument.
  */
@@ -220,7 +220,7 @@ export default function HomePage() {
             href="/economic-reality"
             className="mt-10 inline-flex items-baseline gap-2 rounded-sm font-semibold text-sky-700 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           >
-            Learn more about the economic reality for many Texans
+            See the evidence on household finances
             <ArrowRight
               className="size-4 shrink-0 self-center"
               aria-hidden="true"
@@ -282,7 +282,7 @@ export default function HomePage() {
                 href="/preserve-financial-choice"
                 className="mt-7 inline-flex items-baseline gap-2 rounded-sm font-semibold text-sky-700 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               >
-                Learn more about regulatory oversight
+                See how Texas regulates credit access
                 <ArrowRight
                   className="size-4 shrink-0 self-center"
                   aria-hidden="true"
@@ -290,7 +290,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <Accordion className="space-y-2.5">
+            <Accordion multiple className="space-y-2.5">
               {protections.map((item) => (
                 <AccordionItem
                   key={item.id}
@@ -304,7 +304,10 @@ export default function HomePage() {
                     <div className="max-w-[65ch] space-y-3 pb-5 leading-relaxed text-foreground">
                       <p>{item.body}</p>
                       {item.source ? (
-                        <p>
+                        <p className="text-sm">
+                          <span className="text-muted-foreground">
+                            Source:{' '}
+                          </span>
                           <Cite source={item.source} />
                         </p>
                       ) : null}
@@ -408,7 +411,7 @@ export default function HomePage() {
             id="footnotes-heading"
             className="text-eyebrow text-sky-700 uppercase"
           >
-            Sources
+            View Sources
           </h2>
           <ol className="mt-5 space-y-4">
             {homeFootnotes.map((fn) => (

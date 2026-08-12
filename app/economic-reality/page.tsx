@@ -37,39 +37,46 @@ const pressures = [
   {
     id: 'housing',
     title: 'Housing has become less affordable',
+    figure: 'Home prices up ~40% between 2019 and 2023',
     body: 'Texas home prices rose approximately 40% between 2019 and 2023. In some smaller metropolitan areas, increases were substantially higher. Higher prices, mortgage rates, property taxes and maintenance costs all make it harder for families to purchase—and remain in—a home.',
     source: sources.comptrollerHousing,
   },
   {
     id: 'insurance',
     title: 'Homeowners insurance is consuming more of the family budget',
+    figure: 'Average premium up 33% between 2015 and 2022',
     body: 'For homeowners, the financial emergency is not always the storm—it may be the deductible and repair bills that come afterward. The average Texas homeowners insurance premium increased 33% between 2015 and 2022, including increases of 6.9% in 2021 and 11.8% in 2022. Rising deductibles also mean that families may need thousands of dollars immediately after a storm or household loss.',
     source: sources.comptrollerHousingReport,
   },
   {
     id: 'uninsured',
     title: 'Texas families face unusually high health-care exposure',
+    figure: 'Texas had the highest uninsured rate in the country in 2024',
     body: 'A medical emergency should not become a financial emergency, but in Texas it does. According to the US Census Bureau, Texas had the highest uninsured rate in 2024.',
   },
   {
     id: 'medical-costs',
     title: 'Even insured families are struggling with medical costs',
+    figure: '63% of Texans delayed or skipped care because of cost',
     body: 'Having insurance does not necessarily mean a family can afford to use it. A 2026 Texas survey found that 63% of Texans had delayed or skipped care because of cost.',
     source: sources.texas2036,
   },
   {
     id: 'transport',
     title: 'Transportation is an unavoidable expense',
+    figure: 'A broken car can mean a lost paycheck, or a lost job',
     body: 'In much of Texas, a broken car is not an inconvenience—it can mean a lost paycheck, lost job, missed medical appointment, or missed school. Texas’s size and development patterns make a dependable vehicle essential for many households.',
   },
   {
     id: 'food',
     title: 'Food insecurity remains elevated',
+    figure: 'Groceries take more of every paycheck, leaving less to save',
     body: 'When groceries consume more of every paycheck, families have less money to save—and less protection when something goes wrong.',
   },
   {
     id: 'childcare',
     title: 'Child care can rival housing costs',
+    figure: 'Infant, after-school and summer care can rival a housing payment',
     body: 'For working parents, child care is not discretionary; it is what allows them to remain employed. Infant care, after-school care and summer care can consume a large portion of take-home pay, while many Texas communities also lack enough affordable child-care capacity.',
   },
 ];
@@ -171,8 +178,8 @@ export default function EconomicRealityPage() {
                 Texas Families Face Growing Financial Pressure
               </h2>
               <p className="mt-5 leading-relaxed text-foreground">
-                Seven pressures squeezing household budgets. Expand any one for
-                the detail and its source.
+                Seven pressures squeezing household budgets. Each opens onto the
+                detail and its source.
               </p>
               <PlaceholderImage
                 seed="family-budget-pressure"
@@ -185,7 +192,7 @@ export default function EconomicRealityPage() {
             {/* Collapsed rather than laid out as the document's table: seven
                 blocks of long prose in a two-column table is unreadable on a
                 phone, and most visitors want one or two of these, not all. */}
-            <Accordion className="space-y-2.5">
+            <Accordion multiple className="space-y-2.5">
               {pressures.map((item) => (
                 <AccordionItem
                   key={item.id}
@@ -194,7 +201,12 @@ export default function EconomicRealityPage() {
                   className="rounded-lg border border-sky-200 bg-card px-5"
                 >
                   <AccordionTrigger className="text-left font-heading text-base font-semibold text-primary lg:text-lg">
-                    {item.title}
+                    <span className="flex flex-col gap-1 pr-3">
+                      {item.title}
+                      <span className="text-sm font-normal text-muted-foreground">
+                        {item.figure}
+                      </span>
+                    </span>
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="max-w-[68ch] space-y-3 pb-5 leading-relaxed text-foreground">

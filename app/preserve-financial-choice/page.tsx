@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 type Protection = {
   id: string;
   title: string;
+  /** Short explanation, always visible — the reader who won't expand still
+      gets the substance, not just a heading. */
+  summary: string;
   body: ReactNode;
 };
 
@@ -38,6 +41,8 @@ const protections: Protection[] = [
   {
     id: 'licensed',
     title: 'Every CAB must be licensed',
+    summary:
+      'A state licence is required before any CAB activity, and it can be revoked.',
     body: (
       <>
         <p>
@@ -57,6 +62,8 @@ const protections: Protection[] = [
   {
     id: 'disclosure',
     title: 'Consumers receive a standardized cost disclosure',
+    summary:
+      'Nine specific items must be shown before you agree, including the APR and total amount due.',
     body: (
       <>
         <p>
@@ -99,6 +106,7 @@ const protections: Protection[] = [
   {
     id: 'fees',
     title: 'Fees must be disclosed before they are charged',
+    summary: 'A fee that was not disclosed cannot be charged.',
     body: (
       <>
         <p>
@@ -117,6 +125,8 @@ const protections: Protection[] = [
   {
     id: 'cancellation',
     title: 'Consumers have a cancellation right',
+    summary:
+      'Three days to cancel the credit-services contract, without penalty.',
     body: (
       <>
         <p>
@@ -133,6 +143,8 @@ const protections: Protection[] = [
   {
     id: 'examinations',
     title: 'Providers are subject to regulatory examinations',
+    summary:
+      'The OCCC can pull the actual transaction files, not just the paperwork.',
     body: (
       <>
         <p>
@@ -150,6 +162,8 @@ const protections: Protection[] = [
   {
     id: 'reporting',
     title: 'Market activity is reported and published',
+    summary:
+      'Four quarterly reports and an annual report, published as public data.',
     body: (
       <>
         <p>
@@ -168,6 +182,8 @@ const protections: Protection[] = [
   {
     id: 'enforcement',
     title: 'The OCCC has real enforcement authority',
+    summary:
+      'Penalties, restitution, suspension and revocation — all publicly reported.',
     body: (
       <>
         <p>
@@ -213,11 +229,11 @@ export default function PreserveFinancialChoicePage() {
             State Oversight In Texas
           </h2>
           <p className="mt-4 max-w-[62ch] leading-relaxed text-muted-foreground">
-            Seven requirements that licensed providers operate under. Expand any
-            one for the underlying statute or rule.
+            Seven requirements that licensed providers operate under. Each opens
+            onto the underlying statute or rule.
           </p>
 
-          <Accordion className="mt-10 max-w-4xl space-y-3">
+          <Accordion multiple className="mt-10 max-w-4xl space-y-3">
             {protections.map((item) => (
               <AccordionItem
                 key={item.id}
@@ -226,7 +242,12 @@ export default function PreserveFinancialChoicePage() {
                 className="rounded-lg border border-border bg-card px-5"
               >
                 <AccordionTrigger className="text-left font-heading text-base font-semibold text-primary lg:text-lg">
-                  {item.title}
+                  <span className="flex flex-col gap-1 pr-3">
+                    {item.title}
+                    <span className="text-sm font-normal text-muted-foreground">
+                      {item.summary}
+                    </span>
+                  </span>
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="max-w-[70ch] space-y-4 pb-5 leading-relaxed text-foreground">

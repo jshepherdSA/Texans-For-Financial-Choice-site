@@ -25,6 +25,14 @@ type Alternative = {
   id: string;
   title: string;
   rate: string;
+  /**
+   * The qualification a reader needs to understand the headline number
+   * correctly. Rendered ALWAYS VISIBLE, never inside the dropdown: a figure
+   * like 17,236% is misleading without the basis it was computed from, and
+   * burying that a click away is the failure mode progressive disclosure is
+   * most often criticised for.
+   */
+  note: string;
   body: ReactNode;
 };
 
@@ -33,6 +41,7 @@ const alternatives: Alternative[] = [
     id: 'overdrafts',
     title: 'Bank Overdrafts',
     rate: '17,236%',
+    note: 'Annualized from one CFPB example — a $34 fee on a $24 overdraft repaid in three days. Not a rate every account is charged; some banks have reduced or removed overdraft fees.',
     body: (
       <>
         <p>
@@ -59,6 +68,7 @@ const alternatives: Alternative[] = [
     id: 'utilities',
     title: 'Utility Late And Shutoff Costs',
     rate: 'Up to 913%',
+    note: 'Annualized equivalent of a $50 reconnection charge on a $200 bill resolved over 10 days. Charges vary by provider and approved tariff.',
     body: (
       <>
         <p>
@@ -100,6 +110,7 @@ const alternatives: Alternative[] = [
     id: 'rent',
     title: 'Texas Rent Late Fees',
     rate: 'Up to 626%',
+    note: 'An annualized cost comparison on $1,500 rent paid 7 days late — not a legally defined APR.',
     body: (
       <>
         <p>
@@ -188,6 +199,7 @@ const alternatives: Alternative[] = [
     id: 'credit-cards',
     title: 'Credit Cards With Late Payment Fees',
     rate: 'Up to 4,171%',
+    note: "Annualized equivalent of a $32 late fee on a missed $40 minimum payment resolved after seven days — not the card's ongoing interest rate, which averages about 22%.",
     body: (
       <>
         <p>
@@ -221,6 +233,7 @@ const alternatives: Alternative[] = [
     id: 'unlicensed',
     title: 'Unlicensed, Illegal And Overseas Lenders',
     rate: 'Over 1,000%',
+    note: 'Documented in federal enforcement cases against illegal internet lending operations.',
     body: (
       <>
         <p>
@@ -240,6 +253,7 @@ const alternatives: Alternative[] = [
     id: 'criminal',
     title: 'Cartel And Criminal Lending Activity',
     rate: 'Unregulated',
+    note: 'Not a rate but an absence of one: no disclosures, no consumer protections, and in some documented cases extortion and violence.',
     body: (
       <>
         <p>
@@ -305,32 +319,44 @@ export default function ConsequencesPage() {
             Expand any option for the calculation and its source.
           </p>
 
-          <Accordion className="mt-10 space-y-3">
+          {/* Three layers, in order of how much a reader wants:
+              1. the claim  — cost and headline rate, always visible
+              2. the basis  — what the number was computed from, always visible
+              3. the evidence — full calculation and source, one click away
+              Layer 2 is deliberately outside the dropdown. */}
+          <ul className="mt-10 space-y-4">
             {alternatives.map((item) => (
-              <AccordionItem
+              <li
                 key={item.id}
-                value={item.id}
                 id={item.id}
-                className="rounded-lg border border-border bg-card px-5"
+                className="rounded-lg border border-border bg-card px-5 py-5"
               >
-                <AccordionTrigger className="text-left">
-                  <span className="flex flex-1 flex-wrap items-baseline justify-between gap-x-6 gap-y-1 pr-4">
-                    <span className="font-heading text-base font-semibold text-primary lg:text-lg">
-                      {item.title}
-                    </span>
-                    <span className="tabular font-heading text-lg font-bold text-destructive lg:text-xl">
-                      {item.rate}
-                    </span>
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="max-w-[72ch] space-y-4 pb-5 leading-relaxed text-foreground">
-                    {item.body}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                  <h3 className="font-heading text-base font-semibold text-primary lg:text-lg">
+                    {item.title}
+                  </h3>
+                  <p className="tabular font-heading text-lg font-bold text-destructive lg:text-xl">
+                    {item.rate}
+                  </p>
+                </div>
+                <p className="mt-2 max-w-[72ch] text-sm leading-relaxed text-muted-foreground">
+                  {item.note}
+                </p>
+                <Accordion className="mt-3">
+                  <AccordionItem value={item.id} className="border-0">
+                    <AccordionTrigger className="py-2 text-left text-sm font-semibold text-sky-700 hover:text-primary">
+                      See the evidence
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="max-w-[72ch] space-y-4 border-t border-border pt-4 pb-2 leading-relaxed text-foreground">
+                        {item.body}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </li>
             ))}
-          </Accordion>
+          </ul>
         </Container>
       </Section>
 
