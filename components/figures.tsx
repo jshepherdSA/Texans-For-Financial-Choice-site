@@ -18,6 +18,17 @@
 const SOLID = 'var(--color-navy-700)';
 const OUTLINE = 'var(--color-sky-600)';
 
+/**
+ * Glyphs render at a fixed pixel size rather than scaling to their container,
+ * so a house is the same size as a person across every figure. Combined with
+ * the fixed-height slot in `FigureSlot`, that keeps the stat numbers on a
+ * common baseline no matter how tall each graphic is.
+ */
+const CELL = 26;
+const GAP = 6;
+/** Height of the tallest graphic — a two-row icon array. */
+export const FIGURE_HEIGHT = CELL * 2 + GAP;
+
 /** Filled house silhouette, 24×24. */
 const HOUSE = 'M12 2.5 L22.5 11 V21.5 H1.5 V11 Z';
 
@@ -38,8 +49,8 @@ export function IconArray({
   glyph: 'house' | 'person';
 }) {
   const rows = Math.ceil(total / perRow);
-  const cell = 26;
-  const gap = 6;
+  const cell = CELL;
+  const gap = GAP;
   const w = perRow * cell + (perRow - 1) * gap;
   const h = rows * cell + (rows - 1) * gap;
 
@@ -49,7 +60,9 @@ export function IconArray({
       focusable="false"
       role="presentation"
       viewBox={`0 0 ${w} ${h}`}
-      className="h-auto w-full max-w-[13rem]"
+      width={w}
+      height={h}
+      className="block"
     >
       {Array.from({ length: total }).map((_, i) => {
         const on = i < filled;
@@ -115,7 +128,9 @@ export function SharePie({ percent }: { percent: number }) {
       focusable="false"
       role="presentation"
       viewBox="0 0 100 100"
-      className="h-auto w-full max-w-[6.5rem]"
+      width={FIGURE_HEIGHT}
+      height={FIGURE_HEIGHT}
+      className="block"
     >
       <circle
         cx={c}
@@ -130,5 +145,22 @@ export function SharePie({ percent }: { percent: number }) {
         fill={SOLID}
       />
     </svg>
+  );
+}
+
+/**
+ * Fixed-height container for a figure.
+ *
+ * Graphics differ in height — a two-row icon array is 58px, a single row is
+ * 26px — which would otherwise push each stat number to a different vertical
+ * position and leave the row looking ragged. Reserving the tallest height and
+ * bottom-aligning inside it keeps every number on one line while each graphic
+ * still sits directly above its own.
+ */
+export function FigureSlot({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-end" style={{ height: FIGURE_HEIGHT }}>
+      {children}
+    </div>
   );
 }

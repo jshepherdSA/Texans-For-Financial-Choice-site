@@ -9,7 +9,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Container, Eyebrow, Section } from '@/components/layout-primitives';
 import { Cite } from '@/components/cite';
-import { IconArray, SharePie } from '@/components/figures';
+import { FigureSlot, IconArray, SharePie } from '@/components/figures';
 import { PlaceholderImage } from '@/components/placeholder-image';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { homeFootnotes, sources } from '@/lib/sources';
@@ -101,7 +101,11 @@ function Figure({
 }) {
   return (
     <div className="border-t-2 border-navy-700 pt-5">
-      {children ? <div className="mb-5">{children}</div> : null}
+      {children ? (
+        <div className="mb-5">
+          <FigureSlot>{children}</FigureSlot>
+        </div>
+      ) : null}
       <p className="tabular font-heading text-4xl leading-none font-bold text-primary lg:text-5xl">
         {stat}
       </p>
