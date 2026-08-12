@@ -9,6 +9,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Container, Eyebrow, Section } from '@/components/layout-primitives';
 import { Cite } from '@/components/cite';
+import { IconArray, SharePie } from '@/components/figures';
 import { PlaceholderImage } from '@/components/placeholder-image';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { homeFootnotes, sources } from '@/lib/sources';
@@ -85,19 +86,22 @@ const consequences = [
 ];
 
 /** The document marks these "Graphic 1 / Graphic 2" without supplying artwork.
-    Set as live type they stay legible at any width and remain selectable and
-    machine-readable. */
+    The number and label are live type — legible at any width, selectable, and
+    machine-readable — with a figure above restating the ratio visually. */
 function Figure({
   stat,
   body,
   footnote,
+  children,
 }: {
   stat: string;
   body: string;
   footnote: number;
+  children?: React.ReactNode;
 }) {
   return (
     <div className="border-t-2 border-navy-700 pt-5">
+      {children ? <div className="mb-5">{children}</div> : null}
       <p className="tabular font-heading text-4xl leading-none font-bold text-primary lg:text-5xl">
         {stat}
       </p>
@@ -189,12 +193,16 @@ export default function HomePage() {
                 stat="4 in 10"
                 body="Texas households struggle to cover basic expenses"
                 footnote={1}
-              />
+              >
+                <IconArray total={10} filled={4} perRow={5} glyph="house" />
+              </Figure>
               <Figure
                 stat="1 in 3"
                 body="American workers say they are living paycheck to paycheck"
                 footnote={2}
-              />
+              >
+                <IconArray total={3} filled={1} perRow={3} glyph="person" />
+              </Figure>
             </div>
             <PlaceholderImage
               seed="texas-reality-working-family"
@@ -232,12 +240,16 @@ export default function HomePage() {
                 stat="1 in 3"
                 body="Americans who applied for traditional credit in 2025 were either denied or approved for less than they requested"
                 footnote={3}
-              />
+              >
+                <IconArray total={3} filled={1} perRow={3} glyph="person" />
+              </Figure>
               <Figure
                 stat="18.5%"
                 body="of Texas households are underbanked, meaning they don’t have access to traditional credit products"
                 footnote={4}
-              />
+              >
+                <SharePie percent={18.5} />
+              </Figure>
             </div>
           </div>
         </Container>
