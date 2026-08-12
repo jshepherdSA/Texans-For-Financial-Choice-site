@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Container, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
@@ -69,17 +70,29 @@ export default function PressPage() {
                         rel="noopener noreferrer"
                         className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-navy-300 hover:bg-sky-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                       >
-                        {/* Palette by position rather than by seed: across a
-                            3-column grid, 4 palettes on a rotating index
-                            spread evenly instead of clustering two dark
-                            tiles side by side. The seed still varies the
-                            pattern within each palette. */}
-                        <PlaceholderImage
-                          seed={item.title}
-                          tone={(i % 4) as 0 | 1 | 2 | 3}
-                          ratio="16/9"
-                          className="border-b border-border"
-                        />
+                        {/* The article's own featured image, carried over from
+                            the legacy Press page. Decorative — the headline
+                            beneath already names the article — so alt="".
+                            Falls back to brand artwork if an image is ever
+                            missing rather than leaving a broken tile. */}
+                        {item.image ? (
+                          <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-muted">
+                            <Image
+                              src={item.image}
+                              alt=""
+                              fill
+                              sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw"
+                              className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                            />
+                          </div>
+                        ) : (
+                          <PlaceholderImage
+                            seed={item.title}
+                            tone={(i % 4) as 0 | 1 | 2 | 3}
+                            ratio="16/9"
+                            className="border-b border-border"
+                          />
+                        )}
                         <div className="flex flex-1 flex-col p-5">
                           <span className="tabular text-xs font-semibold tracking-wide text-sky-700 uppercase">
                             {formatPressDate(item)}
