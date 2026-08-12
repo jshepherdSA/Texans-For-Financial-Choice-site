@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Container, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
 import { CtaBand } from '@/components/cta-band';
+import { PlaceholderImage } from '@/components/placeholder-image';
 import { formatPressDate, pressByYear, pressItems } from '@/lib/press';
 
 export const metadata: Metadata = {
@@ -17,8 +18,10 @@ export default function PressPage() {
   return (
     <>
       <PageHero
+        tone="sky"
         eyebrow="Press"
         title="Keep Up To Date On The Latest News Affecting Financial Choice"
+        image="press-hero-financial-choice"
       />
 
       <Section>
@@ -32,47 +35,67 @@ export default function PressPage() {
             </p>
           </div>
 
-          {/* Grouped by year with a sticky year marker. A flat list of 50
-              undated-looking links gives you nothing to navigate by; the year
-              rail turns it into an archive you can scan.
-              `content-visibility` lets the browser skip offscreen years
-              instead of pulling in a virtualization dependency, which would
+          {/* Tiles rather than list rows so each item carries artwork. Grouped
+              by year with a sticky marker — 50 undifferentiated cards give you
+              nothing to navigate by. `content-visibility` lets the browser skip
+              offscreen years without a virtualization dependency, which would
               cost middle-click, in-page find, and crawlability. */}
           <div className="mt-12 space-y-16">
             {grouped.map((group) => (
               <section
                 key={group.year}
                 aria-labelledby={`year-${group.year}`}
-                className="grid gap-6 lg:grid-cols-[8rem_1fr] lg:gap-10 [content-visibility:auto] [contain-intrinsic-size:auto_600px]"
+                className="[content-visibility:auto] [contain-intrinsic-size:auto_900px]"
               >
-                <h3
-                  id={`year-${group.year}`}
-                  className="tabular font-heading text-3xl leading-none font-bold text-sky-300 lg:sticky lg:top-32 lg:self-start lg:text-4xl"
-                >
-                  {group.year}
-                </h3>
-                <ul className="border-t border-border">
-                  {group.items.map((item) => (
-                    <li key={item.href}>
+                <div className="flex items-center gap-5">
+                  <h3
+                    id={`year-${group.year}`}
+                    className="tabular font-heading text-2xl leading-none font-bold text-primary lg:text-3xl"
+                  >
+                    {group.year}
+                  </h3>
+                  <span aria-hidden="true" className="h-px flex-1 bg-border" />
+                  <span className="tabular text-sm text-muted-foreground">
+                    {group.items.length}
+                  </span>
+                </div>
+
+                <ul className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.items.map((item, i) => (
+                    <li key={item.href} className="h-full">
                       <a
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-start justify-between gap-6 border-b border-border py-5 transition-colors hover:bg-sky-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                        className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-navy-300 hover:bg-sky-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                       >
-                        <span className="min-w-0">
-                          <span className="tabular block text-xs font-semibold tracking-wide text-sky-700 uppercase">
+                        {/* Palette by position rather than by seed: across a
+                            3-column grid, 4 palettes on a rotating index
+                            spread evenly instead of clustering two dark
+                            tiles side by side. The seed still varies the
+                            pattern within each palette. */}
+                        <PlaceholderImage
+                          seed={item.title}
+                          tone={(i % 4) as 0 | 1 | 2 | 3}
+                          ratio="16/9"
+                          className="border-b border-border"
+                        />
+                        <div className="flex flex-1 flex-col p-5">
+                          <span className="tabular text-xs font-semibold tracking-wide text-sky-700 uppercase">
                             {formatPressDate(item)}
                           </span>
-                          <span className="mt-1.5 block text-lg leading-snug font-medium text-pretty text-foreground group-hover:text-primary">
+                          <span className="mt-2 block text-base leading-snug font-medium text-pretty text-foreground group-hover:text-primary">
                             {item.title}
                           </span>
-                        </span>
-                        <ArrowUpRight
-                          className="mt-6 size-5 shrink-0 text-ink-400 transition-colors group-hover:text-primary"
-                          aria-hidden="true"
-                        />
-                        <span className="sr-only">(opens in a new tab)</span>
+                          <span className="mt-auto flex items-center gap-1.5 pt-4 text-sm font-medium text-sky-700 group-hover:text-primary">
+                            Read article
+                            <ArrowUpRight
+                              className="size-4 shrink-0"
+                              aria-hidden="true"
+                            />
+                          </span>
+                          <span className="sr-only">(opens in a new tab)</span>
+                        </div>
                       </a>
                     </li>
                   ))}

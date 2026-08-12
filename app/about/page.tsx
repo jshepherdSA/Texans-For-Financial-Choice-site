@@ -76,7 +76,7 @@ export default function AboutPage() {
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <div>
-                  <h2 className="max-w-[24ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl">
+                  <h2 className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl">
                     {section.title}
                   </h2>
                   <p className="mt-5 max-w-[65ch] text-lg leading-relaxed text-foreground">

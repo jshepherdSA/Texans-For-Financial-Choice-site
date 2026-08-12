@@ -14,6 +14,7 @@ export default function ActionPage() {
   return (
     <>
       <PageHero
+        image="take-action-austin"
         eyebrow="Make Sure Your Voice Is Heard In Austin"
         title="Take Action Now"
         lede="Don't let out of touch Austin politicians and activists - who have never been through a financial emergency - mandate what credit services hard-working Texans can choose. Texans are smart enough to make their own financial decisions without government intervention."

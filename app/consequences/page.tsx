@@ -284,6 +284,8 @@ export default function ConsequencesPage() {
   return (
     <>
       <PageHero
+        tone="sky"
+        image="consequences-hero"
         eyebrow="The Consequences"
         title="Restricting Credit Access and Imposing Interest Rate Caps Hurts Hard Working Texans"
         lede="Eliminating access to short-term credit does not eliminate the financial emergency. It simply changes how—and whether—a family can respond. Some may find another source of money, but others may face overdraft fees, delayed bills, utility shutoffs, unregulated online lenders or no workable option at all."
@@ -295,7 +297,7 @@ export default function ConsequencesPage() {
           <Eyebrow>The Alternatives Can Cost More</Eyebrow>
           <h2
             id="alternatives-heading"
-            className="mt-4 max-w-[26ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
+            className="mt-4 max-w-[44ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
           >
             Annual Percentage Rate of Short-Term Lending Alternatives
           </h2>
@@ -337,7 +339,7 @@ export default function ConsequencesPage() {
         <Container>
           <h2
             id="caps-heading"
-            className="max-w-[30ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
+            className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
           >
             Government Mandated Interest Rate Caps Put Credit Out of Reach for
             Millions of Households
@@ -423,7 +425,7 @@ export default function ConsequencesPage() {
             <div>
               <h2
                 id="turn-heading"
-                className="max-w-[24ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
+                className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
               >
                 If Short-Term Credit Is Restricted or Eliminated, Where Will
                 Texans Turn?
@@ -487,7 +489,7 @@ export default function ConsequencesPage() {
         <Container>
           <h2
             id="compete-heading"
-            className="max-w-[24ch] font-heading text-2xl leading-tight font-bold text-white lg:text-3xl"
+            className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-white lg:text-3xl"
           >
             Alternatives Should Compete With Credit, Not Eliminate It
           </h2>

@@ -197,16 +197,18 @@ export default function PreserveFinancialChoicePage() {
   return (
     <>
       <PageHero
+        tone="light"
         eyebrow="Preserve Financial Choice"
         title="Protecting Texans Means Preserving Safe, Regulated Credit Options"
-        lede="Texas short-term lending is not an unregulated marketplace. Licensed Credit Access Businesses (CABS) answer to the Texas Office of Consumer Credit Commissioner, while the Consumer Financial Protection Bureau provides an additional federal layer of supervision. State and federal laws govern disclosures, electronic payments, fair lending, reporting, examinations and prohibited business practices. Consumers have access to both state and federal regulators when they have a question or complaint."
+        lede="Texas short-term lending is not an unregulated marketplace. Licensed Credit Access Businesses (CABS) answer to the Texas Office of Consumer Credit Commissioner, while the Consumer Financial Protection Bureau provides an additional federal layer of supervision. Consumers have access to both state and federal regulators when they have a question or complaint."
+        image="preserve-financial-choice-hero"
       />
 
       <Section aria-labelledby="state-heading">
         <Container>
           <h2
             id="state-heading"
-            className="max-w-[26ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
+            className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
           >
             State Oversight In Texas
           </h2>
@@ -237,18 +239,23 @@ export default function PreserveFinancialChoicePage() {
         </Container>
       </Section>
 
-      <Section tone="sunken" aria-labelledby="federal-heading">
+      {/* Dark band so the federal layer reads as a distinct tier of oversight
+          rather than more of the same page. */}
+      <section
+        aria-labelledby="federal-heading"
+        className="bg-surface-inverse py-20 lg:py-24"
+      >
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
             <div>
               <h2
                 id="federal-heading"
-                className="max-w-[22ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
+                className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-white lg:text-3xl"
               >
                 Federal Oversight Through The Consumer Financial Protection
                 Bureau
               </h2>
-              <p className="mt-5 leading-relaxed text-foreground">
+              <p className="mt-5 leading-relaxed text-sky-100">
                 At the federal level, the Consumer Financial Protection Bureau
                 (CFPB) has authority to supervise payday lenders of all sizes
                 for compliance with federal consumer-financial laws. The
@@ -259,12 +266,12 @@ export default function PreserveFinancialChoicePage() {
               </p>
             </div>
             <div>
-              <h3 className="text-eyebrow text-sky-700 uppercase">
+              <h3 className="text-eyebrow text-sky-300 uppercase">
                 This Includes
               </h3>
-              <ul className="mt-5 space-y-4 border-l-2 border-sky-200 pl-6">
+              <ul className="mt-5 space-y-4 border-l-2 border-sky-200/40 pl-6">
                 {cfpbPowers.map((power) => (
-                  <li key={power} className="leading-relaxed text-foreground">
+                  <li key={power} className="leading-relaxed text-sky-100">
                     {power}
                   </li>
                 ))}
@@ -272,7 +279,7 @@ export default function PreserveFinancialChoicePage() {
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       <CtaBand />
     </>
