@@ -22,6 +22,7 @@ export function SectionBackground({
   overlay = 75,
   priority = false,
   className,
+  imageClassName,
   children,
 }: {
   src: string;
@@ -30,6 +31,13 @@ export function SectionBackground({
   overlay?: number;
   priority?: boolean;
   className?: string;
+  /**
+   * Framing overrides for the photo itself — `object-*` positioning, a scale,
+   * or a horizontal flip. Bands are usually far wider than the source photo's
+   * aspect, so the full width is already visible and `object-position` alone
+   * shifts nothing horizontally; moving a subject sideways needs a transform.
+   */
+  imageClassName?: string;
   children: ReactNode;
 }) {
   return (
@@ -40,7 +48,7 @@ export function SectionBackground({
         fill
         sizes="100vw"
         priority={priority}
-        className="-z-20 object-cover"
+        className={cn('-z-20 object-cover', imageClassName)}
       />
       <div
         aria-hidden="true"

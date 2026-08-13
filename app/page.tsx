@@ -134,6 +134,7 @@ export default function HomePage() {
         overlay={76}
         priority
         className="border-b border-navy-800"
+        imageClassName="-scale-x-100 object-[50%_0%]"
       >
         <Container>
           <div className="flex min-h-[32rem] flex-col justify-center py-20 lg:min-h-[38rem] lg:py-24">
