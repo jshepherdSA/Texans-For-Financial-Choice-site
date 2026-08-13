@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
+import { pressItems } from '@/lib/press';
 
 /**
  * Only the live pages. /about, /key-facts and /real-vs-fake-news are
@@ -17,9 +18,17 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map(({ path, priority }) => ({
-    url: `${site.url}${path}`,
-    changeFrequency: 'monthly' as const,
-    priority,
-  }));
+  return [
+    ...routes.map(({ path, priority }) => ({
+      url: `${site.url}${path}`,
+      changeFrequency: 'monthly' as const,
+      priority,
+    })),
+    // The 50 republished articles are real pages now, not outbound links.
+    ...pressItems.map((item) => ({
+      url: `${site.url}/press/${item.slug}`,
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    })),
+  ];
 }

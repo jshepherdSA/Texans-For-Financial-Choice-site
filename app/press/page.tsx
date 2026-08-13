@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { Container, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
 import { CtaBand } from '@/components/cta-band';
@@ -63,10 +64,11 @@ export default function PressPage() {
                 <ul className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {group.items.map((item, i) => (
                     <li key={item.href} className="h-full">
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      {/* Internal now: each article is republished at
+                          /press/<slug> instead of bouncing to the legacy
+                          WordPress site. */}
+                      <Link
+                        href={`/press/${item.slug}`}
                         className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-navy-300 hover:bg-sky-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                       >
                         {/* The article's own featured image, carried over from
@@ -101,14 +103,13 @@ export default function PressPage() {
                           </span>
                           <span className="mt-auto flex items-center gap-1.5 pt-4 text-sm font-medium text-sky-700 group-hover:text-primary">
                             Read article
-                            <ArrowUpRight
+                            <ArrowRight
                               className="size-4 shrink-0"
                               aria-hidden="true"
                             />
                           </span>
-                          <span className="sr-only">(opens in a new tab)</span>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
