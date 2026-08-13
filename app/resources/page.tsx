@@ -15,8 +15,7 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHero
-        tone="light"
-        photo={{
+        splitPhoto={{
           src: '/images/reviewing-documents-at-desk.jpg',
           alt: 'A woman at a desk reading through printed documents beside an open laptop.',
         }}

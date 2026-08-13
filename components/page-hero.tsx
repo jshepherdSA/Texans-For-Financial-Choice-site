@@ -99,7 +99,11 @@ export function PageHero({
             band under the copy on small screens, and from lg an absolutely
             positioned right half bleeding past the container to the viewport
             edge. Rendering both variants would download the file twice and
-            leave the visible copy without `priority`. */}
+            leave the visible copy without `priority`.
+
+            The panel meets the photo on a hard edge — no gradient. The split
+            is meant to read as a deliberate division of the band, and a fade
+            makes it look like the image is failing to load. */}
         <div className="relative h-60 w-full sm:h-72 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-1/2">
           <Image
             src={splitPhoto.src}
@@ -108,10 +112,6 @@ export function PageHero({
             sizes="(min-width: 1024px) 50vw, 100vw"
             priority
             className="object-cover"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-surface-inverse to-transparent lg:block"
           />
         </div>
       </section>
