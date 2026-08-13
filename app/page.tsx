@@ -133,8 +133,16 @@ export default function HomePage() {
         alt=""
         overlay={76}
         priority
+        edgeFade="left"
         className="border-b border-navy-800"
-        imageClassName="-scale-x-100 object-[50%_0%]"
+        /* Flipped, then pushed a little down and — from lg up, where the copy
+           claims the left half — well to the right, so the family clears the
+           text. The 122% scale is what pays for those shifts: it gives 11% of
+           bleed on every edge for the translate to draw from, leaving ~5% bare
+           on the left, which the navy edge fade covers. Below lg the copy is
+           full-width and there is no left half to clear, so the sideways push
+           is dropped rather than burying the photo off-canvas. */
+        imageClassName="-scale-x-122 scale-y-122 translate-y-[4%] object-[50%_0%] lg:translate-x-[16%]"
       >
         <Container>
           <div className="flex min-h-[32rem] flex-col justify-center py-20 lg:min-h-[38rem] lg:py-24">

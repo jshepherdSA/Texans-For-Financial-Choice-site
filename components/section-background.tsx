@@ -21,6 +21,7 @@ export function SectionBackground({
   alt = '',
   overlay = 75,
   priority = false,
+  edgeFade,
   className,
   imageClassName,
   children,
@@ -30,6 +31,12 @@ export function SectionBackground({
   /** Navy-900 wash opacity as a percentage. Do not go below 70. */
   overlay?: number;
   priority?: boolean;
+  /**
+   * Deepens one edge to solid navy-900, fading to nothing by mid-band. Use it
+   * when the photo has been pushed sideways far enough to leave bare canvas,
+   * or when the copy column needs a flat field to sit on.
+   */
+  edgeFade?: 'left' | 'right';
   className?: string;
   /**
    * Framing overrides for the photo itself — `object-*` positioning, a scale,
@@ -41,7 +48,15 @@ export function SectionBackground({
   children: ReactNode;
 }) {
   return (
-    <div className={cn('relative isolate overflow-hidden', className)}>
+    <div
+      className={cn(
+        'relative isolate overflow-hidden',
+        // The base colour only shows where a shifted photo no longer reaches;
+        // without it that strip would fall through to the page background.
+        edgeFade && 'bg-navy-900',
+        className
+      )}
+    >
       <Image
         src={src}
         alt={alt}
@@ -59,6 +74,15 @@ export function SectionBackground({
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent"
       />
+      {edgeFade ? (
+        <div
+          aria-hidden="true"
+          className={cn(
+            'absolute inset-0 -z-10 from-navy-900 from-6% via-navy-900/55 via-38% to-transparent to-66%',
+            edgeFade === 'left' ? 'bg-gradient-to-r' : 'bg-gradient-to-l'
+          )}
+        />
+      ) : null}
       {children}
     </div>
   );
