@@ -46,6 +46,7 @@ export function PageHero({
   image,
   photo,
   backgroundPhoto,
+  splitPhoto,
   children,
 }: {
   eyebrow: string;
@@ -62,10 +63,60 @@ export function PageHero({
    * sits on the overlay rather than on a surface colour.
    */
   backgroundPhoto?: { src: string; alt?: string };
+  /**
+   * A photograph filling the full height of the band's right half, bleeding to
+   * the viewport edge. The copy keeps the left half on a solid surface, so
+   * unlike `backgroundPhoto` no overlay is needed — text never sits on the
+   * image.
+   */
+  splitPhoto?: { src: string; alt: string };
   children?: ReactNode;
 }) {
   const t = toneStyles[tone];
   const hasMedia = Boolean(photo ?? image);
+
+  if (splitPhoto) {
+    return (
+      <section className="relative bg-surface-inverse">
+        <Container>
+          <div className="relative grid lg:grid-cols-2">
+            <div className="flex min-h-[22rem] flex-col justify-center py-16 lg:min-h-[32rem] lg:py-20 lg:pr-14">
+              <p className="text-eyebrow text-sky-300 uppercase">{eyebrow}</p>
+              <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
+                {title}
+              </h1>
+              {lede ? (
+                <div className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
+                  {lede}
+                </div>
+              ) : null}
+              {children}
+            </div>
+          </div>
+        </Container>
+
+        {/* One image, repositioned rather than rendered twice: a full-width
+            band under the copy on small screens, and from lg an absolutely
+            positioned right half bleeding past the container to the viewport
+            edge. Rendering both variants would download the file twice and
+            leave the visible copy without `priority`. */}
+        <div className="relative h-60 w-full sm:h-72 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-1/2">
+          <Image
+            src={splitPhoto.src}
+            alt={splitPhoto.alt}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority
+            className="object-cover"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-y-0 left-0 hidden w-24 bg-gradient-to-r from-surface-inverse to-transparent lg:block"
+          />
+        </div>
+      </section>
+    );
+  }
 
   if (backgroundPhoto) {
     return (

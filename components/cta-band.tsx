@@ -15,14 +15,17 @@ export function CtaBand({
   label = 'TAKE ACTION NOW',
   heading = 'Make Sure Your Voice Is Heard In Austin',
   body,
+  image = '/images/texas-state-capitol.jpg',
 }: {
   label?: string;
   heading?: string;
   body?: string;
+  /** Override where the Capitol already appears elsewhere on the same page. */
+  image?: string;
 }) {
   return (
     <SectionBackground
-      src="/images/texas-state-capitol.jpg"
+      src={image}
       alt=""
       overlay={78}
       className="border-t border-border"

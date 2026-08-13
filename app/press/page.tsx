@@ -19,10 +19,9 @@ export default function PressPage() {
   return (
     <>
       <PageHero
-        tone="sky"
         eyebrow="Press"
         title="Keep Up To Date On The Latest News Affecting Financial Choice"
-        image="press-hero-financial-choice"
+        backgroundPhoto={{ src: '/images/texas-state-capitol.jpg', alt: '' }}
       />
 
       <Section>
@@ -119,7 +118,7 @@ export default function PressPage() {
         </Container>
       </Section>
 
-      <CtaBand />
+      <CtaBand image="/images/texas-rural-barn-flag.jpg" />
     </>
   );
 }

@@ -85,11 +85,10 @@ export default function EconomicRealityPage() {
   return (
     <>
       <PageHero
-        tone="navy"
         eyebrow="The Economic Reality"
         title="The Economic Reality For Working Texans"
         lede="Texas is economically strong, but too many working families remain financially fragile. Rising costs leave little room to save, and many lack access to traditional credit when emergencies strike."
-        photo={{
+        splitPhoto={{
           src: '/images/blue-collar-workers-machine-shop.jpg',
           alt: 'Two workers in hard hats and safety glasses operating machinery on a shop floor.',
         }}
