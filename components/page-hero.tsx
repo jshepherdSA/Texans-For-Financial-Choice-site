@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 import { Container } from '@/components/layout-primitives';
 import { PlaceholderImage } from '@/components/placeholder-image';
+import { SectionBackground } from '@/components/section-background';
 import { cn } from '@/lib/utils';
 
 type HeroTone = 'navy' | 'light' | 'sky';
@@ -44,6 +45,7 @@ export function PageHero({
   tone = 'navy',
   image,
   photo,
+  backgroundPhoto,
   children,
 }: {
   eyebrow: string;
@@ -52,12 +54,47 @@ export function PageHero({
   tone?: HeroTone;
   /** Seed for the placeholder artwork; omit for a text-only hero. */
   image?: string;
-  /** A real photograph. Takes precedence over `image`. */
+  /** A real photograph, set beside the text. */
   photo?: { src: string; alt: string };
+  /**
+   * A photograph filling the whole band behind the text. Takes precedence over
+   * everything else and forces the light-on-dark palette, since the copy then
+   * sits on the overlay rather than on a surface colour.
+   */
+  backgroundPhoto?: { src: string; alt?: string };
   children?: ReactNode;
 }) {
   const t = toneStyles[tone];
   const hasMedia = Boolean(photo ?? image);
+
+  if (backgroundPhoto) {
+    return (
+      <SectionBackground
+        src={backgroundPhoto.src}
+        alt={backgroundPhoto.alt ?? ''}
+        overlay={76}
+        priority
+        className="border-b border-navy-800"
+      >
+        <Container>
+          {/* Min-height rather than padding alone: the photo fills whatever
+              height the band has, so the band needs a height worth filling. */}
+          <div className="flex min-h-[30rem] flex-col justify-center py-20 lg:min-h-[34rem] lg:py-24">
+            <p className="text-eyebrow text-sky-300 uppercase">{eyebrow}</p>
+            <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
+              {title}
+            </h1>
+            {lede ? (
+              <div className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
+                {lede}
+              </div>
+            ) : null}
+            {children}
+          </div>
+        </Container>
+      </SectionBackground>
+    );
+  }
 
   return (
     <section className={t.section}>

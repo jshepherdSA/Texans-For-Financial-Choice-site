@@ -127,55 +127,55 @@ function Figure({
 export default function HomePage() {
   return (
     <>
-      {/* Hero — text beside artwork */}
-      <section className="border-b border-border bg-background">
+      {/* Hero — photo fills the band, copy sits on the overlay */}
+      <SectionBackground
+        src="/images/military-mother-children.jpg"
+        alt=""
+        overlay={76}
+        priority
+        className="border-b border-navy-800"
+      >
         <Container>
-          <div className="grid items-center gap-12 py-16 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:py-20">
-            <div>
-              <Eyebrow>Texans For Financial Choice</Eyebrow>
-              <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-primary sm:text-4xl lg:text-5xl">
-                Hard Working Texas Families Deserve Access to Safe, Transparent
-                and Regulated Financial Choices—Not Fewer Options.
-              </h1>
-              <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-foreground">
-                Texas families need responsible credit and transparent,
-                regulated choices. Smart policies should protect consumers from
-                harmful practices without eliminating lawful options or pushing
-                them toward riskier alternatives.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button
-                  render={<Link href="/action" />}
-                  nativeButton={false}
-                  size="lg"
-                  className="tracking-wide"
-                >
-                  TAKE ACTION
-                </Button>
-                <Button
-                  render={<Link href="/preserve-financial-choice" />}
-                  nativeButton={false}
-                  size="lg"
-                  variant="outline"
-                >
-                  How Texas regulates credit
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Button>
-              </div>
-            </div>
-            <div className="relative aspect-[5/4] overflow-hidden rounded-lg border border-border bg-muted">
-              <Image
-                src="/images/family-finances-kitchen.jpg"
-                alt="A family sitting together at their kitchen table, working through a stack of bills and a laptop."
-                fill
-                sizes="(min-width: 1024px) 46vw, 92vw"
-                priority
-                className="object-cover"
-              />
+          <div className="flex min-h-[32rem] flex-col justify-center py-20 lg:min-h-[38rem] lg:py-24">
+            <p className="text-eyebrow text-sky-300 uppercase">
+              Texans For Financial Choice
+            </p>
+            <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
+              Hard Working Texas Families Deserve Access to Safe, Transparent
+              and Regulated Financial Choices—Not Fewer Options.
+            </h1>
+            <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
+              Texas families need responsible credit and transparent, regulated
+              choices. Smart policies should protect consumers from harmful
+              practices without eliminating lawful options or pushing them
+              toward riskier alternatives.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              {/* On the overlay the navy primary button would sink into the
+                  background, so the light variant carries the main CTA. */}
+              <Button
+                render={<Link href="/action" />}
+                nativeButton={false}
+                size="lg"
+                variant="secondary"
+                className="tracking-wide"
+              >
+                TAKE ACTION
+              </Button>
+              <Button
+                render={<Link href="/preserve-financial-choice" />}
+                nativeButton={false}
+                size="lg"
+                variant="outline"
+                className="border-white/70 bg-transparent text-white hover:bg-white/10"
+              >
+                How Texas regulates credit
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Button>
             </div>
           </div>
         </Container>
-      </section>
+      </SectionBackground>
 
       {/* The Texas Reality */}
       <Section tone="sunken" aria-labelledby="reality-heading">
