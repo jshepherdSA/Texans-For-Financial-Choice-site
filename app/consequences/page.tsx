@@ -13,6 +13,7 @@ import { Container, Eyebrow, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
 import { CtaBand } from '@/components/cta-band';
 import { Cite } from '@/components/cite';
+import { SectionBackground } from '@/components/section-background';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
@@ -507,39 +508,45 @@ export default function ConsequencesPage() {
       </Section>
 
       {/* Closing argument */}
-      <section
-        id="alternatives-compete"
-        aria-labelledby="compete-heading"
-        className="bg-surface-inverse py-20 lg:py-24"
+      <SectionBackground
+        src="/images/military-family-together.jpg"
+        alt=""
+        overlay={80}
       >
-        <Container>
-          <h2
-            id="compete-heading"
-            className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-white lg:text-3xl"
-          >
-            Alternatives Should Compete With Credit, Not Eliminate It
-          </h2>
-          <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-sky-100">
-            The market should be encouraged to develop more affordable
-            choices—not prevented from serving consumers whose needs are
-            difficult or expensive to meet. Bank loans, fintech products,
-            employer advances and earned-wage access can provide valuable
-            alternatives, but none currently serves every consumer or every
-            emergency. Eliminating one form of regulated credit before viable
-            replacements exist does not create a better option; it can leave
-            families with no workable option at all.
-          </p>
-          <Button
-            render={<Link href="/action" />}
-            nativeButton={false}
-            size="lg"
-            variant="secondary"
-            className="mt-9 tracking-wide"
-          >
-            TAKE ACTION
-          </Button>
-        </Container>
-      </section>
+        <section
+          id="alternatives-compete"
+          aria-labelledby="compete-heading"
+          className="py-20 lg:py-24"
+        >
+          <Container>
+            <h2
+              id="compete-heading"
+              className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-white lg:text-3xl"
+            >
+              Alternatives Should Compete With Credit, Not Eliminate It
+            </h2>
+            <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-sky-100">
+              The market should be encouraged to develop more affordable
+              choices—not prevented from serving consumers whose needs are
+              difficult or expensive to meet. Bank loans, fintech products,
+              employer advances and earned-wage access can provide valuable
+              alternatives, but none currently serves every consumer or every
+              emergency. Eliminating one form of regulated credit before viable
+              replacements exist does not create a better option; it can leave
+              families with no workable option at all.
+            </p>
+            <Button
+              render={<Link href="/action" />}
+              nativeButton={false}
+              size="lg"
+              variant="secondary"
+              className="mt-9 tracking-wide"
+            >
+              TAKE ACTION
+            </Button>
+          </Container>
+        </section>
+      </SectionBackground>
 
       <CtaBand />
     </>

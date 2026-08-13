@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { SectionBackground } from '@/components/section-background';
 import { ArrowRight } from 'lucide-react';
 import {
   Accordion,
@@ -328,56 +329,62 @@ export default function HomePage() {
       </Section>
 
       {/* Consequences — dark band for contrast */}
-      <section
-        aria-labelledby="consequences-heading"
-        className="bg-surface-inverse py-20 lg:py-24"
+      <SectionBackground
+        src="/images/texas-rural-barn-flag.jpg"
+        alt=""
+        overlay={80}
       >
-        <Container>
-          <h2
-            id="consequences-heading"
-            className="max-w-[44ch] font-heading text-3xl leading-tight font-bold text-white lg:text-4xl"
-          >
-            Financial Emergencies Do Not Disappear: The Consequences of
-            Restricting Access
-          </h2>
-          <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-sky-100">
-            When a car breaks down, a utility bill is due or rent is late,
-            families need workable options. Eliminating regulated short-term
-            credit does not eliminate that need. It can leave hardworking Texans
-            facing costly fees, delayed bills, unlicensed lenders—or no
-            available option at all.
-          </p>
+        <section
+          aria-labelledby="consequences-heading"
+          className="py-20 lg:py-24"
+        >
+          <Container>
+            <h2
+              id="consequences-heading"
+              className="max-w-[44ch] font-heading text-3xl leading-tight font-bold text-white lg:text-4xl"
+            >
+              Financial Emergencies Do Not Disappear: The Consequences of
+              Restricting Access
+            </h2>
+            <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-sky-100">
+              When a car breaks down, a utility bill is due or rent is late,
+              families need workable options. Eliminating regulated short-term
+              credit does not eliminate that need. It can leave hardworking
+              Texans facing costly fees, delayed bills, unlicensed lenders—or no
+              available option at all.
+            </p>
 
-          <ol className="mt-12 grid gap-8 lg:grid-cols-3">
-            {consequences.map((item, i) => (
-              <li
-                key={item.title}
-                className="flex flex-col border-t-2 border-sky-300 pt-6"
-              >
-                <span
-                  aria-hidden="true"
-                  className="tabular font-heading text-sm font-bold text-sky-300"
+            <ol className="mt-12 grid gap-8 lg:grid-cols-3">
+              {consequences.map((item, i) => (
+                <li
+                  key={item.title}
+                  className="flex flex-col border-t-2 border-sky-300 pt-6"
                 >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-2 font-heading text-xl leading-snug font-bold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-4 flex-1 leading-relaxed text-sky-100">
-                  {item.body}
-                </p>
-                <Link
-                  href={item.href}
-                  className="mt-6 inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-sky-300 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:outline-none"
-                >
-                  {item.cta}
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </Container>
-      </section>
+                  <span
+                    aria-hidden="true"
+                    className="tabular font-heading text-sm font-bold text-sky-300"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="mt-2 font-heading text-xl leading-snug font-bold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 flex-1 leading-relaxed text-sky-100">
+                    {item.body}
+                  </p>
+                  <Link
+                    href={item.href}
+                    className="mt-6 inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-sky-300 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:outline-none"
+                  >
+                    {item.cta}
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </Container>
+        </section>
+      </SectionBackground>
 
       {/* Subscribe */}
       <section

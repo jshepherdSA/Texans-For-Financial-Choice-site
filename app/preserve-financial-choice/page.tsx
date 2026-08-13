@@ -217,7 +217,10 @@ export default function PreserveFinancialChoicePage() {
         eyebrow="Preserve Financial Choice"
         title="Protecting Texans Means Preserving Safe, Regulated Credit Options"
         lede="Texas short-term lending is not an unregulated marketplace. Licensed Credit Access Businesses (CABS) answer to the Texas Office of Consumer Credit Commissioner, while the Consumer Financial Protection Bureau provides an additional federal layer of supervision. Consumers have access to both state and federal regulators when they have a question or complaint."
-        image="preserve-financial-choice-hero"
+        photo={{
+          src: '/images/military-mother-children.jpg',
+          alt: 'A servicemember in uniform sitting with her two young children.',
+        }}
       />
 
       <Section aria-labelledby="state-heading">

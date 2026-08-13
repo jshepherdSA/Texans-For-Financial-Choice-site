@@ -16,7 +16,10 @@ export default function ResourcesPage() {
     <>
       <PageHero
         tone="light"
-        image="resources-hero-fact-sheets"
+        photo={{
+          src: '/images/reviewing-documents-at-desk.jpg',
+          alt: 'A woman at a desk reading through printed documents beside an open laptop.',
+        }}
         eyebrow="Resources"
         title="Legislator Resources"
         lede="As an elected official or a member of a legislative team, we understand how difficult it can be to get up to speed on multiple issues during a compact legislative session. Below is a library of resources that can be downloaded and shared to help you understand the facts about short-term borrowing in Texas."

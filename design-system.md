@@ -312,8 +312,17 @@ The signature component. Per pair:
 
 - **Photographic**, documentary register: real Texans, storefronts, the Capitol.
   No stock-y handshake/piggy-bank clichés — they undercut the credibility goal.
-- Treatment: full-bleed images get a navy-900 overlay at 55–70% opacity so white
-  text clears AA. Inline images get `--radius` and a `1px border` hairline.
+- Treatment: full-bleed images get a **navy-900 overlay at 75%** (the
+  `SectionBackground` component), plus a bottom-weighted gradient where text sits.
+  Inline images get `--radius` and a `1px border` hairline.
+
+  > Corrected: an earlier draft of this file said 55–70%. That was measured and
+  > found wrong. Against the worst case — the overlay sitting on a near-white
+  > region of the photo, which both the Capitol sky and the rural sky approach —
+  > white text gets only 3.44:1 at 55% and 3.97:1 at 60%, both failing AA. 70% is
+  > the floor (5.37:1 white, 4.61:1 sky-100); 75% is the default so the margin
+  > survives swapping in a brighter image. `SectionBackground` clamps to 70
+  > regardless of what is passed.
 - **Iconography:** lucide-react, 1.5px stroke, `navy-600` default, 20/24px.
 - No decorative gradients. No drop-shadowed "web 2.0" cards. The legacy site's
   visual noise is exactly what this system removes.
