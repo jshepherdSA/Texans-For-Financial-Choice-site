@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import {
   Accordion,
@@ -10,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Container, Eyebrow, Section } from '@/components/layout-primitives';
 import { Cite } from '@/components/cite';
 import { FigureSlot, IconArray, SharePie } from '@/components/figures';
-import { PlaceholderImage } from '@/components/placeholder-image';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { homeFootnotes, sources } from '@/lib/sources';
 
@@ -162,12 +162,16 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <PlaceholderImage
-              seed="home-hero-texas-families"
-              ratio="5/4"
-              label="Hero: Texas family at home"
-              className="rounded-lg border border-border"
-            />
+            <div className="relative aspect-[5/4] overflow-hidden rounded-lg border border-border bg-muted">
+              <Image
+                src="/images/family-finances-kitchen.jpg"
+                alt="A family sitting together at their kitchen table, working through a stack of bills and a laptop."
+                fill
+                sizes="(min-width: 1024px) 46vw, 92vw"
+                priority
+                className="object-cover"
+              />
+            </div>
           </div>
         </Container>
       </section>
@@ -208,12 +212,15 @@ export default function HomePage() {
                 <IconArray total={3} filled={1} perRow={3} glyph="person" />
               </Figure>
             </div>
-            <PlaceholderImage
-              seed="texas-reality-working-family"
-              ratio="16/10"
-              label="Working family, everyday costs"
-              className="rounded-lg border border-border"
-            />
+            <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-border bg-muted">
+              <Image
+                src="/images/mother-toddler-bills-calculator.jpg"
+                alt="A mother works through household bills with a calculator while her toddler sits on her lap."
+                fill
+                sizes="(min-width: 1024px) 46vw, 92vw"
+                className="object-cover"
+              />
+            </div>
           </div>
 
           <Link

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Image from 'next/image';
 import { Container } from '@/components/layout-primitives';
 import { PlaceholderImage } from '@/components/placeholder-image';
 import { cn } from '@/lib/utils';
@@ -42,6 +43,7 @@ export function PageHero({
   lede,
   tone = 'navy',
   image,
+  photo,
   children,
 }: {
   eyebrow: string;
@@ -50,9 +52,12 @@ export function PageHero({
   tone?: HeroTone;
   /** Seed for the placeholder artwork; omit for a text-only hero. */
   image?: string;
+  /** A real photograph. Takes precedence over `image`. */
+  photo?: { src: string; alt: string };
   children?: ReactNode;
 }) {
   const t = toneStyles[tone];
+  const hasMedia = Boolean(photo ?? image);
 
   return (
     <section className={t.section}>
@@ -60,7 +65,7 @@ export function PageHero({
         <div
           className={cn(
             'py-16 lg:py-20',
-            image &&
+            hasMedia &&
               'grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16'
           )}
         >
@@ -86,7 +91,18 @@ export function PageHero({
             ) : null}
             {children}
           </div>
-          {image ? (
+          {photo ? (
+            <div className="relative aspect-[5/4] overflow-hidden rounded-lg border border-border bg-muted">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(min-width: 1024px) 46vw, 92vw"
+                priority
+                className="object-cover"
+              />
+            </div>
+          ) : image ? (
             <PlaceholderImage
               seed={image}
               ratio="5/4"

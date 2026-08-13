@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import {
   Accordion,
   AccordionContent,
@@ -9,7 +10,6 @@ import { Container, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
 import { CtaBand } from '@/components/cta-band';
 import { Cite, SourceNote } from '@/components/cite';
-import { PlaceholderImage } from '@/components/placeholder-image';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
@@ -89,7 +89,10 @@ export default function EconomicRealityPage() {
         eyebrow="The Economic Reality"
         title="The Economic Reality For Working Texans"
         lede="Texas is economically strong, but too many working families remain financially fragile. Rising costs leave little room to save, and many lack access to traditional credit when emergencies strike."
-        image="economic-reality-hero"
+        photo={{
+          src: '/images/blue-collar-workers-machine-shop.jpg',
+          alt: 'Two workers in hard hats and safety glasses operating machinery on a shop floor.',
+        }}
       />
 
       <Section>
@@ -103,12 +106,15 @@ export default function EconomicRealityPage() {
                 Millions of Texans are working, paying taxes and supporting
                 their families—but still living without a financial safety net.
               </p>
-              <PlaceholderImage
-                seed="working-texans-stability"
-                ratio="16/10"
-                label="Texans at work"
-                className="mt-8 rounded-lg border border-border"
-              />
+              <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-lg border border-border bg-muted">
+                <Image
+                  src="/images/texan-at-work-lumber.jpg"
+                  alt="A worker in a lumber yard steadying a long plank of cut timber."
+                  fill
+                  sizes="(min-width: 1024px) 42vw, 92vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
             {/* The document marks this "USE A GRAPHIC". Set as live type so the
                 figure stays legible at any width and is machine-readable. */}
@@ -181,12 +187,6 @@ export default function EconomicRealityPage() {
                 Seven pressures squeezing household budgets. Each opens onto the
                 detail and its source.
               </p>
-              <PlaceholderImage
-                seed="family-budget-pressure"
-                ratio="4/3"
-                label="Household budget pressure"
-                className="mt-8 rounded-lg border border-sky-200"
-              />
             </div>
 
             {/* Collapsed rather than laid out as the document's table: seven
