@@ -299,7 +299,11 @@ export default function ConsequencesPage() {
   return (
     <>
       <PageHero
-        backgroundPhoto={{ src: '/images/worried-woman-bills.jpg', alt: '' }}
+        splitPhoto={{
+          src: '/images/worried-woman-bills.jpg',
+          alt: 'A woman at a kitchen table resting her head on one hand, holding cash and looking at a laptop.',
+          side: 'left',
+        }}
         eyebrow="The Consequences"
         title="Restricting Credit Access and Imposing Interest Rate Caps Hurts Hard Working Texans"
         lede="Eliminating access to short-term credit does not eliminate the financial emergency. It simply changes how—and whether—a family can respond. Some may find another source of money, but others may face overdraft fees, delayed bills, utility shutoffs, unregulated online lenders or no workable option at all."

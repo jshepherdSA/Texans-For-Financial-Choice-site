@@ -64,23 +64,32 @@ export function PageHero({
    */
   backgroundPhoto?: { src: string; alt?: string };
   /**
-   * A photograph filling the full height of the band's right half, bleeding to
-   * the viewport edge. The copy keeps the left half on a solid surface, so
+   * A photograph filling the full height of one half of the band, bleeding to
+   * the viewport edge. The copy keeps the other half on a solid surface, so
    * unlike `backgroundPhoto` no overlay is needed — text never sits on the
-   * image.
+   * image. `side` says which half the photo takes; the copy takes the other.
    */
-  splitPhoto?: { src: string; alt: string };
+  splitPhoto?: { src: string; alt: string; side?: 'left' | 'right' };
   children?: ReactNode;
 }) {
   const t = toneStyles[tone];
   const hasMedia = Boolean(photo ?? image);
 
   if (splitPhoto) {
+    const photoLeft = splitPhoto.side === 'left';
     return (
       <section className="relative bg-surface-inverse">
         <Container>
           <div className="relative grid lg:grid-cols-2">
-            <div className="flex min-h-[22rem] flex-col justify-center py-16 lg:min-h-[32rem] lg:py-20 lg:pr-14">
+            {/* Copy stays first in the DOM either way — the h1 should lead the
+                page regardless of which half the photo ends up on. When the
+                photo takes the left, the copy is placed into column two. */}
+            <div
+              className={cn(
+                'flex min-h-[22rem] flex-col justify-center py-16 lg:min-h-[32rem] lg:py-20',
+                photoLeft ? 'lg:col-start-2 lg:pl-14' : 'lg:pr-14'
+              )}
+            >
               <p className="text-eyebrow text-sky-300 uppercase">{eyebrow}</p>
               <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
                 {title}
@@ -97,14 +106,19 @@ export function PageHero({
 
         {/* One image, repositioned rather than rendered twice: a full-width
             band under the copy on small screens, and from lg an absolutely
-            positioned right half bleeding past the container to the viewport
-            edge. Rendering both variants would download the file twice and
-            leave the visible copy without `priority`.
+            positioned half bleeding past the container to the viewport edge.
+            Rendering both variants would download the file twice and leave the
+            visible copy without `priority`.
 
             The panel meets the photo on a hard edge — no gradient. The split
             is meant to read as a deliberate division of the band, and a fade
             makes it look like the image is failing to load. */}
-        <div className="relative h-60 w-full sm:h-72 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-1/2">
+        <div
+          className={cn(
+            'relative h-60 w-full sm:h-72 lg:absolute lg:inset-y-0 lg:h-auto lg:w-1/2',
+            photoLeft ? 'lg:left-0' : 'lg:right-0'
+          )}
+        >
           <Image
             src={splitPhoto.src}
             alt={splitPhoto.alt}
