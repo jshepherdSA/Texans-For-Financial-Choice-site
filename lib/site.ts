@@ -24,9 +24,9 @@ export const site = {
  * by adding it back here and dropping its `robots` export.
  */
 export const navLinks = [
-  { label: 'Access Matters', href: '/economic-reality' },
-  { label: 'Consumer Protections', href: '/preserve-financial-choice' },
-  { label: 'Cost of Restriction', href: '/consequences' },
+  { label: 'Access Matters', href: '/access-matters' },
+  { label: 'Consumer Protections', href: '/consumer-protections' },
+  { label: 'Cost of Restriction', href: '/cost-of-restriction' },
   { label: 'Resources', href: '/resources' },
   { label: 'Press', href: '/press' },
 ] as const;

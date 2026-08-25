@@ -9,9 +9,9 @@ import { pressItems } from '@/lib/press';
  */
 const routes = [
   { path: '', priority: 1 },
-  { path: '/economic-reality', priority: 0.8 },
-  { path: '/preserve-financial-choice', priority: 0.8 },
-  { path: '/consequences', priority: 0.8 },
+  { path: '/access-matters', priority: 0.8 },
+  { path: '/consumer-protections', priority: 0.8 },
+  { path: '/cost-of-restriction', priority: 0.8 },
   { path: '/resources', priority: 0.7 },
   { path: '/press', priority: 0.6 },
   { path: '/action', priority: 0.9 },

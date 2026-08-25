@@ -13,8 +13,9 @@ invented**; sources the document named without linking render as plain text.
 **† Revised after the document.** Headings and page names marked with a dagger
 were rewritten by the client after the PDF was supplied. The dagger records that the site
 deliberately diverges from the source here — the wording below is what ships,
-not what page 1 of the PDF says. Routes are deliberately left on their
-original slugs: renaming a page is a label change, not a URL change.
+not what page 1 of the PDF says. Routes moved with the names; the old slugs
+(`/economic-reality`, `/preserve-financial-choice`, `/consequences`) are kept
+alive as permanent redirects in `next.config.ts`.
 
 ---
 
@@ -23,9 +24,9 @@ original slugs: renaming a page is a label change, not a URL change.
 | Page | Route | Notes |
 | ---- | ----- | ----- |
 | Home | `/` | Hero + 3 sections + footnotes |
-| Access Matters † | `/economic-reality` | Route unchanged |
-| Consumer Protections † | `/preserve-financial-choice` | 7 dropdowns + CFPB; route unchanged |
-| Cost of Restriction † | `/consequences` | 6 APR dropdowns; route unchanged |
+| Access Matters † | `/access-matters` † | |
+| Consumer Protections † | `/consumer-protections` † | 7 dropdowns + CFPB |
+| Cost of Restriction † | `/cost-of-restriction` † | 6 APR dropdowns |
 | Resources | `/resources` | Document says only "Downloadable One Pagers/Fact Sheets Page" |
 | Press | `/press` | Document says "Take all the press links from the website press page" |
 | Take Action | `/action` | Document says only "CTA" |
@@ -82,7 +83,7 @@ to `navLinks`.
 - **4 in 10** Texas households struggle to cover basic expenses ¹
 - **1 in 3** American workers say they are living paycheck to paycheck ²
 
-Link: *Learn more about the economic reality for many Texans* → `/economic-reality`
+Link: *Learn more about the economic reality for many Texans* → `/access-matters`
 
 **Traditional credit is unavailable or insufficient for many families**
 
@@ -100,11 +101,11 @@ Intro paragraph, then seven protections (licensing, standardized cost
 disclosure, fees disclosed before charged, cancellation right, regulatory
 examinations, reported market activity, OCCC enforcement).
 
-Link: *Learn more about regulatory oversight* → `/preserve-financial-choice`
+Link: *Learn more about regulatory oversight* → `/consumer-protections`
 
 ### Section 3 — Financial Emergencies Do Not Disappear: The Consequences of Restricting Access
 
-Three blocks, each linking into `/consequences`:
+Three blocks, each linking into `/cost-of-restriction`:
 
 1. The Alternatives Can Cost More → *Compare the Costs*
 2. Rate Caps Can Put Credit Out of Reach → *See What the Research Shows*
@@ -119,7 +120,7 @@ Three blocks, each linking into `/consequences`:
 
 ---
 
-## Page: The Economic Reality For Working Texans (`/economic-reality`)
+## Page: Access Matters † (`/access-matters`)
 
 **Hero:** The Economic Reality For Working Texans
 
@@ -135,7 +136,7 @@ Sections in order:
 
 ---
 
-## Page: Preserve Financial Choice (`/preserve-financial-choice`)
+## Page: Consumer Protections † (`/consumer-protections`)
 
 **Hero:** Protecting Texans Means Safe Access to Credit †
 
@@ -149,7 +150,7 @@ six supervision powers.
 
 ---
 
-## Page: The Consequences of Restricting Credit Access (`/consequences`)
+## Page: Cost of Restriction † (`/cost-of-restriction`)
 
 **Hero:** Restricting Credit Access Has Big Consequences †
 

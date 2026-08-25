@@ -75,19 +75,19 @@ const consequences = [
     title: 'The Alternatives Can Cost More',
     body: 'Overdraft charges, utility reconnection fees, rent penalties and credit-card late fees can carry annualized costs reaching hundreds or even thousands of percent—and impose new costs without providing the money needed to solve the original emergency.',
     cta: 'Compare the Costs',
-    href: '/consequences#alternatives',
+    href: '/cost-of-restriction#alternatives',
   },
   {
     title: 'Rate Caps Can Put Credit Out of Reach',
     body: 'Interest-rate caps may reduce costs for those who still qualify, but they can also make small-dollar loans economically unworkable. Research shows that restrictive caps can result in fewer loans, tighter approval standards and reduced access for consumers with imperfect credit.',
     cta: 'See What the Research Shows',
-    href: '/consequences#rate-caps',
+    href: '/cost-of-restriction#rate-caps',
   },
   {
     title: 'Where Will Texans Turn?',
     body: 'Bank loans, fintech products, employer advances and earned-wage access can provide valuable alternatives—but none serves every consumer or every emergency. Before eliminating a regulated option, policymakers must determine whether a viable replacement is available at the speed and scale Texans need.',
     cta: 'Read the Analysis',
-    href: '/consequences#alternatives-compete',
+    href: '/cost-of-restriction#alternatives-compete',
   },
 ];
 
@@ -176,7 +176,7 @@ export default function HomePage() {
                 TAKE ACTION
               </Button>
               <Button
-                render={<Link href="/preserve-financial-choice" />}
+                render={<Link href="/consumer-protections" />}
                 nativeButton={false}
                 size="lg"
                 variant="outline"
@@ -236,7 +236,7 @@ export default function HomePage() {
           </div>
 
           <Link
-            href="/economic-reality"
+            href="/access-matters"
             className="mt-10 inline-flex items-baseline gap-2 rounded-sm font-semibold text-sky-700 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
           >
             See the evidence on household finances
@@ -298,7 +298,7 @@ export default function HomePage() {
                 of supervision.
               </p>
               <Link
-                href="/preserve-financial-choice"
+                href="/consumer-protections"
                 className="mt-7 inline-flex items-baseline gap-2 rounded-sm font-semibold text-sky-700 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               >
                 See how Texas regulates credit access
