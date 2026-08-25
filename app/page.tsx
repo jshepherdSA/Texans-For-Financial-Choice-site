@@ -150,8 +150,7 @@ export default function HomePage() {
               Texans For Financial Choice
             </p>
             <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
-              Hard Working Texas Families Deserve Access to Safe, Transparent
-              and Regulated Financial Choices—Not Fewer Options.
+              Texas Families Deserve Options, Not Roadblocks
             </h1>
             <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
               Texas families need responsible credit and transparent, regulated
@@ -285,8 +284,7 @@ export default function HomePage() {
                 id="protect-heading"
                 className="max-w-[44ch] font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
               >
-                Protecting Texans Means Preserving Safe, Regulated Credit
-                Options
+                Protecting Texans Means Safe Access to Credit
               </h2>
               <p className="mt-6 max-w-[62ch] leading-relaxed text-foreground">
                 Texas short-term lending is not an unregulated marketplace.

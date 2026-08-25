@@ -10,6 +10,11 @@ arrived with a `?utm_source=chatgpt.com` parameter — an artifact of how the
 document was researched — which has been stripped. **No URL on this site is
 invented**; sources the document named without linking render as plain text.
 
+**† Revised after the document.** Headings marked with a dagger were rewritten
+by the client after the PDF was supplied. The dagger records that the site
+deliberately diverges from the source here — the wording below is what ships,
+not what page 1 of the PDF says.
+
 ---
 
 ## Page list
@@ -58,8 +63,7 @@ to `navLinks`.
 
 ## Page: Home (`/`)
 
-**Hero:** Hard Working Texas Families Deserve Access to Safe, Transparent and
-Regulated Financial Choices—Not Fewer Options.
+**Hero:** Texas Families Deserve Options, Not Roadblocks †
 
 > Texas families need responsible credit and transparent, regulated choices.
 > Smart policies should protect consumers from harmful practices without
@@ -89,7 +93,7 @@ Link: *Learn more about the economic reality for many Texans* → `/economic-rea
 - **1 in 3** Americans who applied for traditional credit in 2025 were either denied or approved for less than they requested ³
 - **18.5%** of Texas households are underbanked ⁴
 
-### Section 2 — Protecting Texans Means Preserving Safe, Regulated Credit Options
+### Section 2 — Protecting Texans Means Safe Access to Credit †
 
 Intro paragraph, then seven protections (licensing, standardized cost
 disclosure, fees disclosed before charged, cancellation right, regulatory
@@ -132,7 +136,7 @@ Sections in order:
 
 ## Page: Preserve Financial Choice (`/preserve-financial-choice`)
 
-**Hero:** Protecting Texans Means Preserving Safe, Regulated Credit Options
+**Hero:** Protecting Texans Means Safe Access to Credit †
 
 Seven dropdowns: Every CAB must be licensed · Standardized cost disclosure (9
 required elements) · Fees disclosed before charged · Cancellation right ·
@@ -146,8 +150,7 @@ six supervision powers.
 
 ## Page: The Consequences of Restricting Credit Access (`/consequences`)
 
-**Hero:** Restricting Credit Access and Imposing Interest Rate Caps Hurts Hard
-Working Texans
+**Hero:** Restricting Credit Access Has Big Consequences †
 
 1. **Annual Percentage Rate of Short-Term Lending Alternatives** — six
    dropdowns: Bank Overdrafts 17,236% · Utility late/shutoff up to 913% · Texas
