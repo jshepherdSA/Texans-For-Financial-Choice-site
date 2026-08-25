@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Assets from another project keep appearing under public/images (a Kentucky
+# districts map, 2026-2027 officers, a duplicate stock/ tree). They are not
+# part of this site and were committed once by an over-broad `git add -A`.
+# Ignored so that cannot happen again; the files are left on disk untouched.
+public/images/community/
+public/images/gallery/
+public/images/hero/
+public/images/stock/
+public/images/ky-map-districts.png
+public/images/newsletter-cover.jpg
+public/images/officers-*.jpg
