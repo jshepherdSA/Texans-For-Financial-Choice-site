@@ -13,7 +13,7 @@ import { Cite } from '@/components/cite';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
-  title: 'Preserve Financial Choice',
+  title: 'Consumer Protections',
   description:
     'Texas short-term lending is not an unregulated marketplace. Licensed Credit Access Businesses answer to the OCCC, with additional federal supervision from the CFPB.',
 };
@@ -213,7 +213,7 @@ export default function PreserveFinancialChoicePage() {
   return (
     <>
       <PageHero
-        eyebrow="Preserve Financial Choice"
+        eyebrow="Consumer Protections"
         title="Protecting Texans Means Safe Access to Credit"
         lede="Texas short-term lending is not an unregulated marketplace. Licensed Credit Access Businesses (CABS) answer to the Texas Office of Consumer Credit Commissioner, while the Consumer Financial Protection Bureau provides an additional federal layer of supervision. Consumers have access to both state and federal regulators when they have a question or complaint."
         splitPhoto={{

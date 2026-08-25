@@ -13,7 +13,7 @@ import { Cite, SourceNote } from '@/components/cite';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
-  title: 'The Economic Reality For Working Texans',
+  title: 'Access Matters',
   description:
     'Texas is economically strong, but too many working families remain financially fragile. Rising costs leave little room to save, and many lack access to traditional credit when emergencies strike.',
 };
@@ -85,7 +85,7 @@ export default function EconomicRealityPage() {
   return (
     <>
       <PageHero
-        eyebrow="The Economic Reality"
+        eyebrow="Access Matters"
         title="The Economic Reality For Working Texans"
         lede="Texas is economically strong, but too many working families remain financially fragile. Rising costs leave little room to save, and many lack access to traditional credit when emergencies strike."
         splitPhoto={{

@@ -10,10 +10,11 @@ arrived with a `?utm_source=chatgpt.com` parameter — an artifact of how the
 document was researched — which has been stripped. **No URL on this site is
 invented**; sources the document named without linking render as plain text.
 
-**† Revised after the document.** Headings marked with a dagger were rewritten
-by the client after the PDF was supplied. The dagger records that the site
+**† Revised after the document.** Headings and page names marked with a dagger
+were rewritten by the client after the PDF was supplied. The dagger records that the site
 deliberately diverges from the source here — the wording below is what ships,
-not what page 1 of the PDF says.
+not what page 1 of the PDF says. Routes are deliberately left on their
+original slugs: renaming a page is a label change, not a URL change.
 
 ---
 
@@ -22,9 +23,9 @@ not what page 1 of the PDF says.
 | Page | Route | Notes |
 | ---- | ----- | ----- |
 | Home | `/` | Hero + 3 sections + footnotes |
-| The Economic Reality For Working Texans | `/economic-reality` | |
-| Preserve Financial Choice | `/preserve-financial-choice` | 7 dropdowns + CFPB |
-| The Consequences of Restricting Credit Access | `/consequences` | 6 APR dropdowns |
+| Access Matters † | `/economic-reality` | Route unchanged |
+| Consumer Protections † | `/preserve-financial-choice` | 7 dropdowns + CFPB; route unchanged |
+| Cost of Restriction † | `/consequences` | 6 APR dropdowns; route unchanged |
 | Resources | `/resources` | Document says only "Downloadable One Pagers/Fact Sheets Page" |
 | Press | `/press` | Document says "Take all the press links from the website press page" |
 | Take Action | `/action` | Document says only "CTA" |

@@ -17,7 +17,7 @@ import { SectionBackground } from '@/components/section-background';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
-  title: 'The Consequences of Restricting Credit Access',
+  title: 'Cost of Restriction',
   description:
     'Eliminating access to short-term credit does not eliminate the financial emergency. What the alternatives cost, and what the research on rate caps shows.',
 };
@@ -304,7 +304,7 @@ export default function ConsequencesPage() {
           alt: 'A woman at a kitchen table resting her head on one hand, holding cash and looking at a laptop.',
           side: 'left',
         }}
-        eyebrow="The Consequences"
+        eyebrow="Cost of Restriction"
         title="Restricting Credit Access Has Big Consequences"
         lede="Eliminating access to short-term credit does not eliminate the financial emergency. It simply changes how—and whether—a family can respond. Some may find another source of money, but others may face overdraft fees, delayed bills, utility shutoffs, unregulated online lenders or no workable option at all."
       />

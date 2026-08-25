@@ -190,11 +190,19 @@ export default function HomePage() {
         <Container>
           <h2
             id="reality-heading"
-            className="max-w-[44ch] font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
+            className="font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
           >
-            The Texas Reality: Unexpected Expenses Can&apos;t Wait, and Not
-            Every Family Has the Same Financial Choices.
+            The Texas Reality
           </h2>
+          {/* Deck, not a heading: it is a subtitle of the h2 above, not a new
+              subsection, so making it an h3 would put a rung on the outline
+              that the content does not have. Sky-700 is the lightest blue in
+              the ramp that clears AA on this surface (5.72:1); sky-600 reads
+              lighter but only passes at large sizes. */}
+          <p className="mt-3 max-w-[54ch] font-heading text-2xl leading-snug font-bold text-sky-700 lg:text-[1.75rem]">
+            Unexpected Expenses Can&apos;t Wait, and Not Every Family Has the
+            Same Financial Choices.
+          </p>
           <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-foreground">
             Working Texas families are being squeezed from every
             direction—housing, insurance, health care, groceries, child care,
@@ -244,7 +252,8 @@ export default function HomePage() {
           </Link>
 
           <div className="mt-16 border-t border-border pt-12">
-            <h3 className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-primary">
+            {/* Unconstrained width so it holds a single line on desktop. */}
+            <h3 className="font-heading text-2xl leading-tight font-bold text-sky-700">
               Traditional credit is unavailable or insufficient for many
               families
             </h3>
