@@ -84,9 +84,14 @@ export function Eyebrow({
  *
  * Deck colour is the lightest blue that clears WCAG AA on each surface —
  * computed, not eyeballed. On light: sky-700, 5.72:1 on surface-sunken
- * (sky-600 is 4.00:1, large-text only). On dark: sky-300, 4.50:1 against the
- * worst case of an 80% navy-900 overlay sitting on a white region of the photo,
- * which clears the 3:1 this size requires with margin to spare.
+ * (sky-600 is 4.00:1, large-text only). On dark: sky-300, which at the 70%
+ * navy-900 overlay its one caller runs measures 4.03:1 against the real
+ * rendered background — over the 3:1 this size requires, but not by much.
+ *
+ * The dark tone therefore depends on the band beneath it. Drop an overlay
+ * below 70% and re-measure before assuming this still holds; the deck is large
+ * text, so it survives a thinner wash than 16px body copy does, but not an
+ * arbitrarily thin one.
  */
 export function SectionHeading({
   id,

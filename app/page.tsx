@@ -362,7 +362,16 @@ export default function HomePage() {
       <SectionBackground
         src="/images/texas-rural-barn-flag.jpg"
         alt=""
-        overlay={80}
+        /* 70 rather than the 80 this band used to run at, so the barn and the
+           flag read through the wash. 70 is the floor, not a preference.
+           Verified against the rendered page rather than a model: with the
+           glyphs hidden, the brightest 8px patch of real background behind
+           every run of text in this band clears AA — tightest are the lede at
+           4.72:1 (needs 4.5) and the deck at 4.03:1 (needs 3.0). Dropping to
+           68% takes the lede under. The two 14px sky-300 items below moved to
+           sky-100 to survive the change; sky-300 at that size needed the 80%
+           wash and has no margin left at 70%. */
+        overlay={70}
       >
         <section
           aria-labelledby="consequences-heading"
@@ -391,7 +400,7 @@ export default function HomePage() {
                 >
                   <span
                     aria-hidden="true"
-                    className="tabular font-heading text-sm font-bold text-sky-300"
+                    className="tabular font-heading text-sm font-bold text-sky-100"
                   >
                     {String(i + 1).padStart(2, '0')}
                   </span>
@@ -403,7 +412,7 @@ export default function HomePage() {
                   </p>
                   <Link
                     href={item.href}
-                    className="mt-6 inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-sky-300 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:outline-none"
+                    className="mt-6 inline-flex items-center gap-2 rounded-sm text-sm font-semibold text-sky-100 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:outline-none"
                   >
                     {item.cta}
                     <ArrowRight className="size-4" aria-hidden="true" />
