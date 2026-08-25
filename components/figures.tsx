@@ -114,56 +114,49 @@ export function IconArray({
   );
 }
 
-/**
- * Single-share pie.
- *
- * A two-slice pie is the weaker form for one ratio — a meter on the same ramp
- * reads more precisely — but it was specified, and at this size with the value
- * printed beside it the shape does its job. The remainder is a light fill with
- * a visible sky-600 ring so the whole circle's extent stays legible instead of
- * dissolving into the background.
- */
-export function SharePie({ percent }: { percent: number }) {
-  const r = 42;
-  const c = 50;
-  const angle = (percent / 100) * 360;
-  const rad = ((angle - 90) * Math.PI) / 180;
-  const x = c + r * Math.cos(rad);
-  const y = c + r * Math.sin(rad);
-  const largeArc = angle > 180 ? 1 : 0;
+/** Bar thickness. Well under FIGURE_HEIGHT — a bar is a thin mark, and
+    padding it out to the full slot would read as a block, not a measure. */
+const BAR_HEIGHT = 22;
 
+/**
+ * Single-share bar — `percent` of the track filled from the left.
+ *
+ * Replaces the two-slice pie this figure used to be, and is the better form
+ * for it: length along a common axis is the most precisely read encoding
+ * there is, where judging a small pie wedge is among the least. 18.5% is a
+ * thin slice and an obvious bar stub.
+ *
+ * Built from divs rather than SVG so it can be fluid. A percentage-width SVG
+ * would need `preserveAspectRatio="none"`, which stretches the stroke and the
+ * corner radii along with the geometry.
+ *
+ * The track keeps the pie's treatment — sky-100 fill inside a sky-600 ring —
+ * so the full extent stays visible and the figure still belongs to the set.
+ */
+export function ShareBar({ percent }: { percent: number }) {
   return (
-    <svg
+    <div
       aria-hidden="true"
-      focusable="false"
-      role="presentation"
-      viewBox="0 0 100 100"
-      width={FIGURE_HEIGHT}
-      height={FIGURE_HEIGHT}
-      className="block"
+      className="w-full overflow-hidden rounded-md border-2 bg-sky-100"
+      style={{ height: BAR_HEIGHT, borderColor: OUTLINE }}
     >
-      <circle
-        cx={c}
-        cy={c}
-        r={r}
-        fill="var(--color-sky-100)"
-        stroke={OUTLINE}
-        strokeWidth="2"
+      {/* Rounded data-end, square at the axis: the fill starts flush against
+          the track's left edge and terminates at the value. */}
+      <div
+        className="h-full rounded-r-[3px]"
+        style={{ width: `${percent}%`, background: SOLID }}
       />
-      <path
-        d={`M ${c} ${c} L ${c} ${c - r} A ${r} ${r} 0 ${largeArc} 1 ${x.toFixed(2)} ${y.toFixed(2)} Z`}
-        fill={SOLID}
-      />
-    </svg>
+    </div>
   );
 }
 
 /**
  * Fixed-height container for a figure.
  *
- * Every graphic already draws to exactly FIGURE_HEIGHT, so this mostly serves
- * as a guarantee: it pins the height regardless of what a future figure draws,
- * keeping the stat numbers below on a shared baseline.
+ * This is what keeps the stat numbers below on a shared baseline no matter
+ * what the figure above them is. The icon arrays draw to exactly
+ * FIGURE_HEIGHT; ShareBar is deliberately shorter, and `items-end` rests it on
+ * the same floor the person glyphs stand on rather than floating it.
  */
 export function FigureSlot({ children }: { children: React.ReactNode }) {
   return (

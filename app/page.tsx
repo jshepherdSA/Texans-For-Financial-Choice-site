@@ -16,7 +16,7 @@ import {
   SectionHeading,
 } from '@/components/layout-primitives';
 import { Cite } from '@/components/cite';
-import { FigureSlot, IconArray, SharePie } from '@/components/figures';
+import { FigureSlot, IconArray, ShareBar } from '@/components/figures';
 import { SubscribeForm } from '@/components/subscribe-form';
 import { homeFootnotes, sources } from '@/lib/sources';
 
@@ -247,33 +247,52 @@ export default function HomePage() {
           </Link>
 
           <div className="mt-16 border-t border-border pt-12">
-            {/* Unconstrained width so it holds a single line on desktop. */}
+            {/* The heading stays above the split rather than inside the copy
+                column: at half width it would wrap, and it is meant to hold a
+                single line. */}
             <h3 className="font-heading text-2xl leading-tight font-bold text-sky-700">
               Traditional credit is unavailable or insufficient for many
               families
             </h3>
-            <p className="mt-5 max-w-[68ch] text-lg leading-relaxed text-foreground">
-              An emergency does not wait for a family&apos;s credit score to
-              improve—and a low score does not eliminate the family&apos;s need
-              to repair a car, pay a utility bill or obtain medical care. Nearly
-              2.1 million Texas households don&apos;t have access to traditional
-              credit products.
-            </p>
-            <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:max-w-3xl">
-              <Figure
-                stat="1 in 3"
-                body="Americans who applied for traditional credit in 2025 were either denied or approved for less than they requested"
-                footnote={3}
-              >
-                <IconArray total={3} filled={1} perRow={3} glyph="person" />
-              </Figure>
-              <Figure
-                stat="18.5%"
-                body="of Texas households are underbanked, meaning they don’t have access to traditional credit products"
-                footnote={4}
-              >
-                <SharePie percent={18.5} />
-              </Figure>
+            {/* Photo left, copy right — the mirror of the block above, where
+                the figures lead and the photo closes. Alternating the sides
+                keeps two stacked stat sections from reading as one template
+                printed twice. */}
+            <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
+                <Image
+                  src="/images/woman-car-trouble-roadside.jpg"
+                  alt="A woman on her phone beside a car with its hood raised at the roadside."
+                  fill
+                  sizes="(min-width: 1024px) 46vw, 92vw"
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-lg leading-relaxed text-foreground">
+                  An emergency does not wait for a family&apos;s credit score to
+                  improve—and a low score does not eliminate the family&apos;s
+                  need to repair a car, pay a utility bill or obtain medical
+                  care. Nearly 2.1 million Texas households don&apos;t have
+                  access to traditional credit products.
+                </p>
+                <div className="mt-10 grid gap-8 sm:grid-cols-2">
+                  <Figure
+                    stat="1 in 3"
+                    body="Americans who applied for traditional credit in 2025 were either denied or approved for less than they requested"
+                    footnote={3}
+                  >
+                    <IconArray total={3} filled={1} perRow={3} glyph="person" />
+                  </Figure>
+                  <Figure
+                    stat="18.5%"
+                    body="of Texas households are underbanked, meaning they don’t have access to traditional credit products"
+                    footnote={4}
+                  >
+                    <ShareBar percent={18.5} />
+                  </Figure>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
