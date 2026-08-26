@@ -114,9 +114,9 @@ export function IconArray({
   );
 }
 
-/** Bar thickness. Well under FIGURE_HEIGHT — a bar is a thin mark, and
-    padding it out to the full slot would read as a block, not a measure. */
-const BAR_HEIGHT = 22;
+/** Bar thickness. Full FIGURE_HEIGHT, so it carries the same visual weight as
+    the icon array beside it rather than reading as a hairline next to it. */
+const BAR_HEIGHT = FIGURE_HEIGHT;
 
 /**
  * Single-share bar — `percent` of the track filled from the left.
@@ -137,13 +137,13 @@ export function ShareBar({ percent }: { percent: number }) {
   return (
     <div
       aria-hidden="true"
-      className="w-full overflow-hidden rounded-md border-2 bg-sky-100"
+      className="w-full overflow-hidden rounded-lg border-2 bg-sky-100"
       style={{ height: BAR_HEIGHT, borderColor: OUTLINE }}
     >
       {/* Rounded data-end, square at the axis: the fill starts flush against
           the track's left edge and terminates at the value. */}
       <div
-        className="h-full rounded-r-[3px]"
+        className="h-full rounded-r-[4px]"
         style={{ width: `${percent}%`, background: SOLID }}
       />
     </div>
