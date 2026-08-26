@@ -14,7 +14,7 @@ export default function ActionPage() {
   return (
     <>
       <PageHero
-        photo={{
+        splitPhoto={{
           src: '/images/parents-toddler-laptop.jpg',
           alt: 'Two parents at a dining table with a laptop and paperwork, one on the phone, their toddler beside them.',
         }}
