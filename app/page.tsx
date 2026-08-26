@@ -201,13 +201,14 @@ export default function HomePage() {
           preserveAspectRatio="none"
           className="pointer-events-none absolute inset-0 hidden h-full w-full lg:-z-10 lg:block"
         >
-          {/* Straight up the 46% line from the bottom, then a long sweep out
-              to 74% at the top edge. The second control point sits directly
-              above the join at (46,66), which is what lets the curve arrive at
-              the vertical run without a kink; the 36-unit gap between them is
-              what keeps the approach gradual instead of an elbow. */}
+          {/* Straight up the 46% line from the bottom to well past halfway,
+              then a sweep out to 76% at the top edge. The join sits at (46,44):
+              high enough that the vertical run clears the child's head before
+              the curve starts leaning right. The second control point is
+              directly above the join, which is what lets the curve arrive at
+              the vertical without a kink. */}
           <path
-            d="M0 0 H74 C64 18 46 30 46 66 V100 H0 Z"
+            d="M0 0 H76 C66 12 46 20 46 44 V100 H0 Z"
             fill="var(--color-navy-900)"
           />
         </svg>
