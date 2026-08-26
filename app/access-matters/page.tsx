@@ -130,8 +130,8 @@ export default function EconomicRealityPage() {
                 working but still cannot consistently afford housing, food,
                 transportation, child care, health care, technology and taxes.
               </p>
-              <p className="mt-5 text-sm text-sky-200/80">
-                Source: <Cite source={sources.aliceIntro} />
+              <p className="mt-5 text-xs text-sky-200">
+                Source: <Cite source={sources.aliceIntro} tone="dark" />
               </p>
             </div>
           </div>

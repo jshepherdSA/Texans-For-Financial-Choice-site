@@ -127,7 +127,7 @@ const pairs: Pair[] = [
           ordinances did nothing to reduce the demand or costs of credit
           throughout Texas.
         </p>
-        <ol className="mt-4 space-y-1 border-t border-border pt-4 text-sm text-muted-foreground">
+        <ol className="mt-4 space-y-1 border-t border-border pt-4 text-xs text-ink-600">
           <li>
             <sup>1</sup> &ldquo;Payday Holiday: How Households Fare after Payday
             Credit Bans&rdquo; – February 2008

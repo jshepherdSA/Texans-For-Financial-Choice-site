@@ -470,7 +470,7 @@ export default function HomePage() {
               <li
                 key={fn.n}
                 id={`fn-${fn.n}`}
-                className="flex max-w-[85ch] gap-3 text-sm leading-relaxed text-muted-foreground"
+                className="flex max-w-[85ch] gap-3 text-xs leading-relaxed text-ink-600"
               >
                 <span className="tabular shrink-0 font-semibold text-sky-700">
                   {fn.n}.

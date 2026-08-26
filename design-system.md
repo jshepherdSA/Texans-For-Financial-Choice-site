@@ -200,12 +200,20 @@ are too tight; Asap is too rounded.
 | `h4`       | 1.375rem / 22px    | 1.35        | 600    | Inter   | Small headings, list titles    |
 | `body-lg`  | 1.125rem / 18px    | 1.70        | 400    | Inter   | Intros, lede paragraphs        |
 | `body`     | 1rem / 16px        | 1.70        | 400    | Inter   | Default                        |
-| `small`    | 0.875rem / 14px    | 1.60        | 400    | Inter   | Captions, footnotes, meta      |
+| `small`    | 0.875rem / 14px    | 1.60        | 400    | Inter   | Captions, meta, dates          |
+| `cite`     | 0.75rem / 12px     | 1.60        | 400    | Inter   | Citations, footnotes, sources  |
 | `eyebrow`  | 0.8125rem / 13px   | 1.40        | 600    | Inter   | Uppercase, `letter-spacing: .08em` |
 | `stat`     | 3.5rem / 56px      | 1.00        | 700    | Archivo | Big numbers, tabular-nums      |
 
 **Mobile:** `display` → 2.5rem, `h1` → 2.25rem, `h2` → 1.75rem, `h3` → 1.375rem.
 Everything else holds.
+
+**Citations** are set in `cite` (12px), a step under `small`. They are
+supporting apparatus — on every claim, never competing with it. At that size
+`muted-foreground` (ink-500) is too thin: it measures 4.55:1 on the sunken
+surface, over the 4.5 line by nothing at all. Citations use `ink-600` (7.24:1)
+on light surfaces and `sky-200` on inverse ones, where the light link colour
+`sky-700` would be 2.32:1 and unreadable.
 
 **Measure:** body copy caps at `65ch`; lede at `60ch`. Never full-bleed text.
 
@@ -298,7 +306,7 @@ The signature component. Per pair:
   `destructive` `eyebrow` label with lucide `X` icon. **Real News** — `green-50`
   bg, `green-200` border, `positive` `eyebrow` label with lucide `Check` icon.
 - `Get The Facts` is a shadcn `Accordion` beneath the pair — collapsed by
-  default, `neutral-50` surface, footnotes in `small` `muted-foreground`.
+  default, `neutral-50` surface, footnotes in `cite` `ink-600`.
 
 ### Stat / data display
 
