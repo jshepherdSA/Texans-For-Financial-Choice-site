@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils';
+
 /**
  * Small data figures for the homepage statistics.
  *
@@ -34,6 +36,27 @@ const GAP_RATIO = 0.23;
 
 /** Filled house silhouette, 24×24. */
 const HOUSE = 'M12 2.5 L22.5 11 V21.5 H1.5 V11 Z';
+
+/**
+ * Standalone house mark.
+ *
+ * Draws the same silhouette IconArray uses, so a lone house and a house in a
+ * grid are the same shape. Takes its colour from `currentColor` and its size
+ * from a class, so it can be sized responsively at the call site.
+ */
+export function HouseGlyph({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+      viewBox="0 0 24 24"
+      className={cn('size-6', className)}
+    >
+      <path d={HOUSE} fill="currentColor" />
+    </svg>
+  );
+}
 
 /**
  * Icon array — `filled` of `total` glyphs highlighted.
@@ -137,13 +160,13 @@ export function ShareBar({ percent }: { percent: number }) {
   return (
     <div
       aria-hidden="true"
-      className="w-full overflow-hidden rounded-lg border-2 bg-sky-100"
+      className="w-full overflow-hidden border-2 bg-sky-100"
       style={{ height: BAR_HEIGHT, borderColor: OUTLINE }}
     >
-      {/* Rounded data-end, square at the axis: the fill starts flush against
-          the track's left edge and terminates at the value. */}
+      {/* Square throughout: the fill runs flush from the track's left edge and
+          stops dead at the value. */}
       <div
-        className="h-full rounded-r-[4px]"
+        className="h-full"
         style={{ width: `${percent}%`, background: SOLID }}
       />
     </div>
@@ -154,9 +177,9 @@ export function ShareBar({ percent }: { percent: number }) {
  * Fixed-height container for a figure.
  *
  * This is what keeps the stat numbers below on a shared baseline no matter
- * what the figure above them is. The icon arrays draw to exactly
- * FIGURE_HEIGHT; ShareBar is deliberately shorter, and `items-end` rests it on
- * the same floor the person glyphs stand on rather than floating it.
+ * what the figure above them is. Every figure currently draws to exactly
+ * FIGURE_HEIGHT, so `items-end` is a guarantee rather than a correction: a
+ * shorter figure added later would rest on the same floor instead of floating.
  */
 export function FigureSlot({ children }: { children: React.ReactNode }) {
   return (

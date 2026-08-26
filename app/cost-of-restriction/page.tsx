@@ -11,7 +11,6 @@ import {
 import { Button } from '@/components/ui/button';
 import { Container, Eyebrow, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
-import { CtaBand } from '@/components/cta-band';
 import { Cite } from '@/components/cite';
 import { SectionBackground } from '@/components/section-background';
 import { sources } from '@/lib/sources';
@@ -550,8 +549,6 @@ export default function ConsequencesPage() {
           </Container>
         </section>
       </SectionBackground>
-
-      <CtaBand />
     </>
   );
 }

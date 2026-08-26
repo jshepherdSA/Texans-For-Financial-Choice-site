@@ -10,6 +10,7 @@ import { Container, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
 import { CtaBand } from '@/components/cta-band';
 import { Cite, SourceNote } from '@/components/cite';
+import { HouseGlyph } from '@/components/figures';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
@@ -118,9 +119,15 @@ export default function EconomicRealityPage() {
             {/* The document marks this "USE A GRAPHIC". Set as live type so the
                 figure stays legible at any width and is machine-readable. */}
             <div className="rounded-lg bg-surface-inverse p-8 lg:p-10">
-              <p className="tabular font-heading text-5xl leading-none font-bold text-sky-300 lg:text-6xl">
-                4.5 million
-              </p>
+              {/* The figure counts households, so the mark is a house — the
+                  same silhouette the homepage icon arrays draw. sky-300 to
+                  match the number it sits beside. */}
+              <div className="flex items-center gap-4 lg:gap-5">
+                <HouseGlyph className="size-11 shrink-0 text-sky-300 lg:size-14" />
+                <p className="tabular font-heading text-5xl leading-none font-bold text-sky-300 lg:text-6xl">
+                  4.5 million
+                </p>
+              </div>
               <p className="mt-5 text-lg leading-relaxed text-white">
                 Texas households — 40% of all households in the state — earned
                 less than what was needed to cover basic expenses in 2024.
