@@ -132,30 +132,35 @@ function Figure({
 export default function HomePage() {
   return (
     <>
-      {/* Hero — photo fills the band, copy sits on the overlay */}
-      <SectionBackground
-        src="/images/military-mother-children.jpg"
-        alt=""
-        overlay={76}
-        priority
-        edgeFade="left"
-        className="border-b border-navy-800"
-        /* Flipped, then pushed a little down and — from lg up, where the copy
-           claims the left half — well to the right, so the family clears the
-           text. The 122% scale is what pays for those shifts: it gives 11% of
-           bleed on every edge for the translate to draw from, leaving ~5% bare
-           on the left, which the navy edge fade covers. Below lg the copy is
-           full-width and there is no left half to clear, so the sideways push
-           is dropped rather than burying the photo off-canvas. */
-        imageClassName="-scale-x-122 scale-y-122 translate-y-[4%] object-[50%_0%] lg:translate-x-[16%]"
-      >
+      {/* Hero — navy copy panel on the left, photograph on the right, the two
+          separated by a curve that runs vertically up the lower half and then
+          sweeps right toward the top edge.
+
+          The curve is one <path> in an SVG stretched over the band with
+          preserveAspectRatio="none". A CSS clip-path would need pixel
+          coordinates and so would not survive a resize; a border-radius cannot
+          make a shape that is straight for half its length and curved for the
+          rest. Because the shape is a solid fill with no stroke, stretching
+          costs nothing in quality — it only reshapes the sweep, which is what
+          the different aspect ratios want anyway.
+
+          Layering is by z-index, not DOM order, so the copy can come first in
+          the source: photo -z-20, curve -z-10, copy on top. Below lg there is
+          no side-by-side split, so the curve is not drawn and the photo
+          returns to the flow as a band beneath the copy — the same stacking
+          every other split hero on the site uses. */}
+      <section className="relative isolate overflow-hidden border-b border-navy-800 bg-surface-inverse">
         <Container>
-          <div className="flex min-h-[32rem] flex-col justify-center py-20 lg:min-h-[38rem] lg:py-24">
+          <div className="relative flex flex-col justify-center py-16 sm:py-20 lg:min-h-[36rem] lg:max-w-[26rem] lg:py-24 xl:max-w-[30rem]">
             <p className="text-eyebrow text-sky-300 uppercase">
               Texans For Financial Choice
             </p>
-            <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
-              Texas Families Deserve Options, Not Roadblocks
+            {/* Three deliberate lines, the turn marked by colour rather than by
+                the comma the sentence carries in prose. */}
+            <h1 className="mt-4 font-heading text-4xl leading-[1.08] font-bold text-white sm:text-5xl">
+              <span className="block">Texas Families</span>
+              <span className="block">Deserve Options</span>
+              <span className="block text-sky-300">Not Roadblocks</span>
             </h1>
             <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
               Texas families need responsible credit and transparent, regulated
@@ -164,8 +169,8 @@ export default function HomePage() {
               toward riskier alternatives.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              {/* On the overlay the navy primary button would sink into the
-                  background, so the light variant carries the main CTA. */}
+              {/* Against the navy panel the navy primary button would sink into
+                  the background, so the light variant carries the main CTA. */}
               <Button
                 render={<Link href="/action" />}
                 nativeButton={false}
@@ -188,7 +193,36 @@ export default function HomePage() {
             </div>
           </div>
         </Container>
-      </SectionBackground>
+
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          className="pointer-events-none absolute inset-0 hidden h-full w-full lg:-z-10 lg:block"
+        >
+          {/* Straight up the 46% line from the bottom, then a long sweep out
+              to 74% at the top edge. The second control point sits directly
+              above the join at (46,66), which is what lets the curve arrive at
+              the vertical run without a kink; the 36-unit gap between them is
+              what keeps the approach gradual instead of an elbow. */}
+          <path
+            d="M0 0 H74 C64 18 46 30 46 66 V100 H0 Z"
+            fill="var(--color-navy-900)"
+          />
+        </svg>
+
+        <div className="relative mt-2 h-72 w-full sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[38%] lg:-z-20 lg:mt-0 lg:h-auto lg:w-auto">
+          <Image
+            src="/images/military-mother-children.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 62vw, 100vw"
+            priority
+            className="object-cover object-[50%_20%]"
+          />
+        </div>
+      </section>
 
       {/* The Texas Reality */}
       <Section tone="sunken" aria-labelledby="reality-heading">
