@@ -133,20 +133,18 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — navy copy panel on the left, photograph on the right, the two
-          separated by a curve that runs vertically up the lower half and then
-          sweeps right toward the top edge.
+          separated by a line that runs vertically up the lower band and then
+          angles right to the top edge.
 
-          The curve is one <path> in an SVG stretched over the band with
-          preserveAspectRatio="none". A CSS clip-path would need pixel
-          coordinates and so would not survive a resize; a border-radius cannot
-          make a shape that is straight for half its length and curved for the
-          rest. Because the shape is a solid fill with no stroke, stretching
-          costs nothing in quality — it only reshapes the sweep, which is what
-          the different aspect ratios want anyway.
+          The divider is one <path> in an SVG stretched over the band with
+          preserveAspectRatio="none", so its vertices stay proportional at any
+          size. The shape is a solid fill with no stroke, so the stretch costs
+          nothing in quality — it only changes how steep the angled run reads,
+          which is what the different aspect ratios want anyway.
 
           Layering is by z-index, not DOM order, so the copy can come first in
-          the source: photo -z-20, curve -z-10, copy on top. Below lg there is
-          no side-by-side split, so the curve is not drawn and the photo
+          the source: photo -z-20, divider -z-10, copy on top. Below lg there is
+          no side-by-side split, so the divider is not drawn and the photo
           returns to the flow as a band beneath the copy — the same stacking
           every other split hero on the site uses. */}
       <section className="relative isolate overflow-hidden border-b border-navy-800 bg-surface-inverse">
@@ -201,16 +199,11 @@ export default function HomePage() {
           preserveAspectRatio="none"
           className="pointer-events-none absolute inset-0 hidden h-full w-full lg:-z-10 lg:block"
         >
-          {/* Straight up the 46% line from the bottom to well past halfway,
-              then a sweep out to 76% at the top edge. The join sits at (46,30):
-              high enough that the vertical run clears the child's head before
-              the curve starts leaning right. The second control point is
-              directly above the join, which is what lets the curve arrive at
-              the vertical without a kink. */}
-          <path
-            d="M0 0 H76 C64 9 46 14 46 30 V100 H0 Z"
-            fill="var(--color-navy-900)"
-          />
+          {/* Straight up the 46% line from the bottom, then a straight run out
+              to 76% at the top edge. The corner sits at (46,30), high enough
+              that the vertical clears the child's head before the line starts
+              leaning right. */}
+          <path d="M0 0 H76 L46 30 V100 H0 Z" fill="var(--color-navy-900)" />
         </svg>
 
         <div className="relative mt-2 h-72 w-full sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[38%] lg:-z-20 lg:mt-0 lg:h-auto lg:w-auto">
