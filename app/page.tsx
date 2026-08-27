@@ -152,13 +152,14 @@ export default function HomePage() {
             </p>
             {/* Three deliberate lines, the turn marked by colour rather than by
                 the comma the sentence carries in prose. The rule under
-                "Options" is thick and dropped clear of the baseline so it reads
-                as emphasis on a display word, not as a link. */}
+                "Options" is white to match the word it sits under, thick and
+                dropped clear of the baseline so it reads as emphasis on a
+                display word rather than as a link. */}
             <h1 className="mt-4 font-heading text-4xl leading-[1.08] font-bold text-white sm:text-5xl">
               <span className="block">Texas Families</span>
               <span className="block">
                 Deserve{' '}
-                <span className="underline decoration-sky-300 decoration-4 underline-offset-[0.18em]">
+                <span className="underline decoration-white decoration-4 underline-offset-[0.18em]">
                   Options
                 </span>
               </span>
