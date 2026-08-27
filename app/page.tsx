@@ -132,21 +132,18 @@ function Figure({
 export default function HomePage() {
   return (
     <>
-      {/* Hero — navy copy panel on the left, photograph on the right, the two
-          separated by a line that runs vertically up the lower band and then
-          angles right to the top edge.
+      {/* Hero — navy copy panel on the left, photograph on the right, divided
+          by a straight vertical edge at 46%.
 
-          The divider is one <path> in an SVG stretched over the band with
-          preserveAspectRatio="none", so its vertices stay proportional at any
-          size. The shape is a solid fill with no stroke, so the stretch costs
-          nothing in quality — it only changes how steep the angled run reads,
-          which is what the different aspect ratios want anyway.
+          With the divider vertical there is no shape to draw: the section's own
+          navy background is the left panel, and the photograph simply starts at
+          46%. That is why the SVG this hero used to carry is gone rather than
+          reduced to a rectangle — a rectangle of navy over a navy background
+          paints nothing.
 
-          Layering is by z-index, not DOM order, so the copy can come first in
-          the source: photo -z-20, divider -z-10, copy on top. Below lg there is
-          no side-by-side split, so the divider is not drawn and the photo
-          returns to the flow as a band beneath the copy — the same stacking
-          every other split hero on the site uses. */}
+          The photo still sits at -z-20 so the copy renders over it, and below
+          lg it returns to the flow as a band beneath the copy — the same
+          stacking every other split hero on the site uses. */}
       <section className="relative isolate overflow-hidden border-b border-navy-800 bg-surface-inverse">
         <Container>
           <div className="relative flex flex-col justify-center py-16 sm:py-20 lg:min-h-[36rem] lg:max-w-[26rem] lg:py-24 xl:max-w-[30rem]">
@@ -154,10 +151,17 @@ export default function HomePage() {
               Texans For Financial Choice
             </p>
             {/* Three deliberate lines, the turn marked by colour rather than by
-                the comma the sentence carries in prose. */}
+                the comma the sentence carries in prose. The rule under
+                "Options" is thick and dropped clear of the baseline so it reads
+                as emphasis on a display word, not as a link. */}
             <h1 className="mt-4 font-heading text-4xl leading-[1.08] font-bold text-white sm:text-5xl">
               <span className="block">Texas Families</span>
-              <span className="block">Deserve Options</span>
+              <span className="block">
+                Deserve{' '}
+                <span className="underline decoration-sky-300 decoration-4 underline-offset-[0.18em]">
+                  Options
+                </span>
+              </span>
               <span className="block text-sky-300">Not Roadblocks</span>
             </h1>
             <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
@@ -192,21 +196,7 @@ export default function HomePage() {
           </div>
         </Container>
 
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          className="pointer-events-none absolute inset-0 hidden h-full w-full lg:-z-10 lg:block"
-        >
-          {/* Straight up the 46% line from the bottom, then a straight run out
-              to 76% at the top edge. The corner sits at (46,30), high enough
-              that the vertical clears the child's head before the line starts
-              leaning right. */}
-          <path d="M0 0 H76 L46 30 V100 H0 Z" fill="var(--color-navy-900)" />
-        </svg>
-
-        <div className="relative mt-2 h-72 w-full sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[38%] lg:-z-20 lg:mt-0 lg:h-auto lg:w-auto">
+        <div className="relative mt-2 h-72 w-full sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[46%] lg:-z-20 lg:mt-0 lg:h-auto lg:w-auto">
           <Image
             src="/images/military-mother-children.jpg"
             alt=""
