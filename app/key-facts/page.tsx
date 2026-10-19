@@ -79,7 +79,7 @@ const enforcementPowers = [
 
 const complaintSteps = [
   'The agency must investigate by contacting the consumer and the Credit Access Business (CAB).',
-  'The agency must then decide how to resolve the complaint — which could include an enforcement action against the CAB and restitution to the consumer.',
+  'The agency must then decide how to resolve the complaint, which could include an enforcement action against the CAB and restitution to the consumer.',
   'By law, written correspondence must be sent to both the consumer and the CAB to close a complaint file.',
 ];
 
@@ -288,8 +288,8 @@ export default function KeyFactsPage() {
                 <p className="mt-6 rounded-lg border border-border bg-surface-sunken p-5 leading-relaxed text-foreground">
                   Over the last seven years, the OCCC has tracked, investigated
                   and resolved CAB consumer complaints. Complaints against CABs
-                  are the lowest among all businesses regulated by the OCCC —
-                  one per every 21,000 transactions.
+                  are the lowest among all businesses regulated by the OCCC: one
+                  per every 21,000 transactions.
                 </p>
               </section>
 
@@ -308,9 +308,9 @@ export default function KeyFactsPage() {
                     post a menu board in each office clearly showing the fees
                     and costs for every type of loan. The menu board must also
                     include instructions about how to file complaints with the
-                    OCCC — the consumer complaint helpline and the OCCC
-                    complaint website. Before performing services for a
-                    customer, a CAB must provide a written disclosure:
+                    OCCC: the consumer complaint helpline and the OCCC complaint
+                    website. Before performing services for a customer, a CAB
+                    must provide a written disclosure:
                   </p>
                 </div>
                 <ul className="mt-6 space-y-3 border-l-2 border-sky-200 pl-6">

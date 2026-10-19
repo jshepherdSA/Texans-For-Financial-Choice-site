@@ -73,7 +73,7 @@ const protections = [
 const consequences = [
   {
     title: 'The Alternatives Can Cost More',
-    body: 'Overdraft charges, utility reconnection fees, rent penalties and credit-card late fees can carry annualized costs reaching hundreds or even thousands of percent—and impose new costs without providing the money needed to solve the original emergency.',
+    body: 'Overdraft charges, utility reconnection fees, rent penalties and credit-card late fees can carry annualized costs reaching hundreds or even thousands of percent, and impose new costs without providing the money needed to solve the original emergency.',
     cta: 'Compare the Costs',
     href: '/cost-of-restriction#alternatives',
   },
@@ -85,7 +85,7 @@ const consequences = [
   },
   {
     title: 'Where Will Texans Turn?',
-    body: 'Bank loans, fintech products, employer advances and earned-wage access can provide valuable alternatives—but none serves every consumer or every emergency. Before eliminating a regulated option, policymakers must determine whether a viable replacement is available at the speed and scale Texans need.',
+    body: 'Bank loans, fintech products, employer advances and earned-wage access can provide valuable alternatives, but none serves every consumer or every emergency. Before eliminating a regulated option, policymakers must determine whether a viable replacement is available at the speed and scale Texans need.',
     cta: 'Read the Analysis',
     href: '/cost-of-restriction#alternatives-compete',
   },
@@ -122,7 +122,7 @@ function Figure({
           className="ml-0.5 rounded-sm align-super text-xs text-sky-700 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
           {footnote}
-          <span className="sr-only"> — see footnote {footnote}</span>
+          <span className="sr-only">, see footnote {footnote}</span>
         </a>
       </p>
     </div>
@@ -166,10 +166,10 @@ export default function HomePage() {
               <span className="block text-sky-300">Not Roadblocks</span>
             </h1>
             <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
-              Texas families need responsible credit and transparent, regulated
-              choices. Smart policies should protect consumers from harmful
-              practices without eliminating lawful options or pushing them
-              toward riskier alternatives.
+              Texas families need responsible, transparent and regulated
+              borrowing choices. Smart policies should protect consumers from
+              harmful practices without eliminating lawful options or pushing
+              them toward riskier alternatives.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               {/* Against the navy panel the navy primary button would sink into
@@ -209,17 +209,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* The Texas Reality */}
-      <Section tone="sunken" aria-labelledby="reality-heading">
-        <Container>
+      {/* The Texas Reality — one section in the outline, three bands on the
+          page: the household figures, the traditional-credit banner, and the
+          photo block the banner heads. The banner has to run edge to edge, so
+          the section's padding moves onto the two containers either side of
+          it rather than sitting on the section itself. */}
+      <Section
+        tone="sunken"
+        aria-labelledby="reality-heading"
+        className="py-0 lg:py-0"
+      >
+        <Container className="pt-20 pb-16 lg:pt-28 lg:pb-20">
           <SectionHeading
             id="reality-heading"
             title="The Texas Reality"
             deck="Unexpected Expenses Can't Wait, and Not Every Family Has the Same Financial Choices."
           />
           <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-foreground">
-            Working Texas families are being squeezed from every
-            direction—housing, insurance, health care, groceries, child care,
+            Working Texas families are being squeezed from every direction:
+            housing, insurance, health care, groceries, child care,
             transportation and utilities. After paying for the essentials, many
             have little left to save. When an unavoidable expense occurs,
             families need access to safe, transparent and regulated financial
@@ -264,53 +272,61 @@ export default function HomePage() {
               aria-hidden="true"
             />
           </Link>
+        </Container>
 
-          <div className="mt-16 border-t border-border pt-12">
-            {/* The heading stays above the split rather than inside the copy
-                column: at half width it would wrap, and it is meant to hold a
-                single line. */}
-            <h3 className="font-heading text-2xl leading-tight font-bold text-sky-700">
+        {/* Banner: the subhead set large in white across a full-width blue
+            band, so the turn from household budgets to credit access reads as
+            a statement rather than a subhead. sky-700 rather than navy — the
+            hero and the consequences band are already navy — and white on
+            sky-700 is 5.98:1. Still an h3: it heads the block below it, inside
+            The Texas Reality, not a new section. */}
+        <div className="bg-sky-700 py-10 lg:py-14">
+          <Container>
+            <h3 className="font-heading text-3xl leading-tight font-bold text-white lg:text-4xl">
               Traditional credit is unavailable or insufficient for many
               families
             </h3>
-            {/* Photo left, copy right — the mirror of the block above, where
+          </Container>
+        </div>
+
+        <Container className="pt-14 pb-20 lg:pt-20 lg:pb-28">
+          {/* Photo left, copy right — the mirror of the block above, where
                 the figures lead and the photo closes. Alternating the sides
                 keeps two stacked stat sections from reading as one template
                 printed twice. */}
-            <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
-                <Image
-                  src="/images/woman-car-trouble-roadside.jpg"
-                  alt="A woman on her phone beside a car with its hood raised at the roadside."
-                  fill
-                  sizes="(min-width: 1024px) 46vw, 92vw"
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-lg leading-relaxed text-foreground">
-                  An emergency does not wait for a family&apos;s credit score to
-                  improve—and a low score does not eliminate the family&apos;s
-                  need to repair a car, pay a utility bill or obtain medical
-                  care. Nearly 2.1 million Texas households don&apos;t have
-                  access to traditional credit products.
-                </p>
-                <div className="mt-10 grid gap-8 sm:grid-cols-2">
-                  <Figure
-                    stat="1 in 3"
-                    body="Americans who applied for traditional credit in 2025 were either denied or approved for less than they requested"
-                    footnote={3}
-                  >
-                    <IconArray total={3} filled={1} perRow={3} glyph="person" />
-                  </Figure>
-                  <Figure
-                    stat="18.5%"
-                    body="of Texas households are underbanked, meaning they don’t have access to traditional credit products"
-                    footnote={4}
-                  >
-                    <ShareBar percent={18.5} />
-                  </Figure>
-                </div>
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
+              <Image
+                src="/images/woman-car-trouble-roadside.jpg"
+                alt="A woman on her phone beside a car with its hood raised at the roadside."
+                fill
+                sizes="(min-width: 1024px) 46vw, 92vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-lg leading-relaxed text-foreground">
+                An emergency does not wait for a family&apos;s credit score to
+                improve, and a low score does not eliminate the family&apos;s
+                need to repair a car, pay a utility bill or obtain medical care.
+                Nearly 2.1 million Texas households don&apos;t have access to
+                traditional credit products.
+              </p>
+              <div className="mt-10 grid gap-8 sm:grid-cols-2">
+                <Figure
+                  stat="1 in 3"
+                  body="Americans who applied for traditional credit in 2025 were either denied or approved for less than they requested"
+                  footnote={3}
+                >
+                  <IconArray total={3} filled={1} perRow={3} glyph="person" />
+                </Figure>
+                <Figure
+                  stat="18.5%"
+                  body="of Texas households are underbanked, meaning they don’t have access to traditional credit products"
+                  footnote={4}
+                >
+                  <ShareBar percent={18.5} />
+                </Figure>
               </div>
             </div>
           </div>
@@ -326,10 +342,17 @@ export default function HomePage() {
                 id="protect-heading"
                 className="max-w-[44ch] font-heading text-3xl leading-tight font-bold text-primary lg:text-4xl"
               >
-                Protecting Texans Means Safe Access to Credit
+                {/* The same sky-700 as the traditional-credit banner above, so
+                    the page has one emphasis blue. box-decoration-clone keeps
+                    the side padding on both halves if the phrase wraps on a
+                    narrow screen. */}
+                <span className="box-decoration-clone bg-sky-700 px-2 text-white">
+                  Protecting Texans
+                </span>{' '}
+                Means Safe Access to Credit
               </h2>
               <p className="mt-6 max-w-[62ch] leading-relaxed text-foreground">
-                Texas short-term lending is not an unregulated marketplace.
+                Texas short-term borrowing is not an unregulated marketplace.
                 Licensed Credit Access Businesses (CABS) answer to the Texas
                 Office of Consumer Credit Commissioner, while the Consumer
                 Financial Protection Bureau provides an additional federal layer
@@ -407,8 +430,8 @@ export default function HomePage() {
               When a car breaks down, a utility bill is due or rent is late,
               families need workable options. Eliminating regulated short-term
               credit does not eliminate that need. It can leave hardworking
-              Texans facing costly fees, delayed bills, unlicensed lenders—or no
-              available option at all.
+              Texans facing costly fees, delayed bills, unlicensed lenders, or
+              no available option at all.
             </p>
 
             <ol className="mt-12 grid gap-8 lg:grid-cols-3">
@@ -475,7 +498,7 @@ export default function HomePage() {
       {/* Footnotes */}
       <section
         aria-labelledby="footnotes-heading"
-        className="bg-surface-sunken py-14"
+        className="bg-surface-sunken py-10"
       >
         <Container>
           <h2
@@ -484,12 +507,12 @@ export default function HomePage() {
           >
             View Sources
           </h2>
-          <ol className="mt-5 space-y-4">
+          <ol className="mt-3 space-y-1">
             {homeFootnotes.map((fn) => (
               <li
                 key={fn.n}
                 id={`fn-${fn.n}`}
-                className="flex max-w-[85ch] gap-3 text-xs leading-relaxed text-ink-600"
+                className="flex max-w-[85ch] gap-2 text-xs leading-tight text-ink-600"
               >
                 <span className="tabular shrink-0 font-semibold text-sky-700">
                   {fn.n}.

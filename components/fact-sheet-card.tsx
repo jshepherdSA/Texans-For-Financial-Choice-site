@@ -46,10 +46,15 @@ export function FactSheetCard({
         <h3 className="font-heading text-base leading-snug font-semibold text-primary">
           {sheet.title}
         </h3>
+        {sheet.summary ? (
+          <p className="text-sm leading-relaxed text-foreground">
+            {sheet.summary}
+          </p>
+        ) : null}
         <p className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-sky-700 group-hover:text-primary">
           <Download className="size-4" aria-hidden="true" />
           Download PDF Version
-          <span className="sr-only"> — {sheet.title} (opens in a new tab)</span>
+          <span className="sr-only">: {sheet.title} (opens in a new tab)</span>
         </p>
       </div>
     </a>

@@ -24,12 +24,12 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Protecting Access To Credit In Texas`,
+    default: `${site.name} | Protecting Access To Credit In Texas`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   openGraph: {
-    title: `${site.name} — Protecting Access To Credit In Texas`,
+    title: `${site.name} | Protecting Access To Credit In Texas`,
     description: site.description,
     url: site.url,
     siteName: site.name,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — Protecting Access To Credit In Texas`,
+    title: `${site.name} | Protecting Access To Credit In Texas`,
     description: site.description,
   },
   robots: { index: true, follow: true },

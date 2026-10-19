@@ -55,7 +55,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About The Issue"
         title="The Case For Financial Choice"
-        lede="Four things the debate over short-term credit in Texas consistently gets wrong — and the research behind each."
+        lede="Four things the debate over short-term credit in Texas consistently gets wrong, and the research behind each."
       />
 
       <Section>
@@ -98,7 +98,7 @@ export default function AboutPage() {
                     LEARN MORE
                     <span className="sr-only">
                       {' '}
-                      — {section.title} (PDF, opens in a new tab)
+                      : {section.title} (PDF, opens in a new tab)
                     </span>
                   </Button>
                 </div>

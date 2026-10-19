@@ -13,12 +13,13 @@ import { Container, Eyebrow, Section } from '@/components/layout-primitives';
 import { PageHero } from '@/components/page-hero';
 import { Cite } from '@/components/cite';
 import { SectionBackground } from '@/components/section-background';
+import { illinoisCaseStudySummary } from '@/lib/site';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
   title: 'Cost of Restriction',
   description:
-    'Eliminating access to short-term credit does not eliminate the financial emergency. What the alternatives cost, and what the research on rate caps shows.',
+    'Eliminating access to short-term borrowing does not eliminate the financial emergency. What the alternatives cost, and what the research on rate caps shows.',
 };
 
 type Alternative = {
@@ -41,7 +42,7 @@ const alternatives: Alternative[] = [
     id: 'overdrafts',
     title: 'Bank Overdrafts',
     rate: '17,236%',
-    note: 'Annualized from one CFPB example — a $34 fee on a $24 overdraft repaid in three days. Not a rate every account is charged; some banks have reduced or removed overdraft fees.',
+    note: 'Annualized from one CFPB example: a $34 fee on a $24 overdraft repaid in three days. Not a rate every account is charged; some banks have reduced or removed overdraft fees.',
     body: (
       <>
         <p>
@@ -110,7 +111,7 @@ const alternatives: Alternative[] = [
     id: 'rent',
     title: 'Texas Rent Late Fees',
     rate: 'Up to 626%',
-    note: 'An annualized cost comparison on $1,500 rent paid 7 days late — not a legally defined APR.',
+    note: 'An annualized cost comparison on $1,500 rent paid 7 days late, not a legally defined APR.',
     body: (
       <>
         <p>
@@ -185,7 +186,7 @@ const alternatives: Alternative[] = [
           </table>
         </div>
         <p>
-          Again, these are annualized cost comparisons—not legally defined
+          Again, these are annualized cost comparisons, not legally defined
           rent-loan APRs. They also exclude eviction filing costs, legal
           expenses, moving costs, or damage to the tenant&apos;s rental history.
         </p>
@@ -199,7 +200,7 @@ const alternatives: Alternative[] = [
     id: 'credit-cards',
     title: 'Credit Cards With Late Payment Fees',
     rate: 'Up to 4,171%',
-    note: "Annualized equivalent of a $32 late fee on a missed $40 minimum payment resolved after seven days — not the card's ongoing interest rate, which averages about 22%.",
+    note: "Annualized equivalent of a $32 late fee on a missed $40 minimum payment resolved after seven days, not the card's ongoing interest rate, which averages about 22%.",
     body: (
       <>
         <p>
@@ -215,8 +216,8 @@ const alternatives: Alternative[] = [
         </p>
         <p>
           But a late payment can also produce a penalty fee, continued interest,
-          loss of a grace period, and—in circumstances permitted by the
-          agreement and federal rules—a higher penalty APR.
+          loss of a grace period, and (in circumstances permitted by the
+          agreement and federal rules) a higher penalty APR.
         </p>
         <p>
           A $32 fee resulting from a missed $40 minimum payment, resolved seven
@@ -238,7 +239,7 @@ const alternatives: Alternative[] = [
       <>
         <p>
           Federal enforcement cases involving illegal internet lending
-          operations have documented interest rates exceeding 700%—and, in one
+          operations have documented interest rates exceeding 700% and, in one
           major case, reaching more than 1,000%.
         </p>
         <p>
@@ -305,7 +306,7 @@ export default function ConsequencesPage() {
         }}
         eyebrow="Cost of Restriction"
         title="Restricting Credit Access Has Big Consequences"
-        lede="Eliminating access to short-term credit does not eliminate the financial emergency. It simply changes how—and whether—a family can respond. Some may find another source of money, but others may face overdraft fees, delayed bills, utility shutoffs, unregulated online lenders or no workable option at all."
+        lede="Eliminating access to short-term borrowing does not eliminate the financial emergency. It simply changes how, and whether, a family can respond. Some may find another source of money, but others may face overdraft fees, delayed bills, utility shutoffs, unregulated online lenders or no workable option at all."
       />
 
       {/* Alternatives */}
@@ -424,6 +425,9 @@ export default function ConsequencesPage() {
               <p className="mt-1 text-sm text-muted-foreground">
                 Downloadable one-pager
               </p>
+              <p className="mt-3 max-w-[65ch] leading-relaxed text-foreground">
+                {illinoisCaseStudySummary}
+              </p>
             </div>
             <Button
               render={
@@ -456,7 +460,7 @@ export default function ConsequencesPage() {
                 id="turn-heading"
                 className="max-w-[44ch] font-heading text-2xl leading-tight font-bold text-primary lg:text-3xl"
               >
-                If Short-Term Credit Is Restricted or Eliminated, Where Will
+                If Short-Term Borrowing Is Restricted or Eliminated, Where Will
                 Texans Turn?
               </h2>
               <div className="mt-6 max-w-[65ch] space-y-5 leading-relaxed text-foreground">
@@ -529,7 +533,7 @@ export default function ConsequencesPage() {
             </h2>
             <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-sky-100">
               The market should be encouraged to develop more affordable
-              choices—not prevented from serving consumers whose needs are
+              choices, not prevented from serving consumers whose needs are
               difficult or expensive to meet. Bank loans, fintech products,
               employer advances and earned-wage access can provide valuable
               alternatives, but none currently serves every consumer or every

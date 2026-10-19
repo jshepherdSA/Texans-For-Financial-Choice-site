@@ -83,7 +83,7 @@ export default async function ArticlePage({
                   {article.source.name ? ` by ${article.source.name}` : ''}
                   {article.source.href ? (
                     <>
-                      {' — '}
+                      {': '}
                       <a
                         href={article.source.href}
                         target="_blank"

@@ -131,7 +131,7 @@ export const sources = {
 export const homeFootnotes = [
   {
     n: 1,
-    text: 'United For ALICE, The State of ALICE in Texas: 2026 Report, based on 2024 data. Of Texas’s 11,388,247 households, 40% — approximately 4.6 million — lived below the ALICE Threshold and lacked sufficient income to afford basic household expenses.',
+    text: 'United For ALICE, The State of ALICE in Texas: 2026 Report, based on 2024 data. Of Texas’s 11,388,247 households, 40% (approximately 4.6 million) lived below the ALICE Threshold and lacked sufficient income to afford basic household expenses.',
     source: sources.aliceTexas,
   },
   {

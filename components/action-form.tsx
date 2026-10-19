@@ -113,7 +113,7 @@ export function ActionForm() {
         className="rounded-lg border border-verify-200 bg-verify-50 p-8"
       >
         <p className="font-heading text-xl font-bold text-positive">
-          Thank you — your voice has been counted.
+          Thank you, your voice has been counted.
         </p>
         <p className="mt-3 leading-relaxed text-foreground">
           We&apos;ll keep you posted on what happens next in Austin.

@@ -25,7 +25,7 @@ export const site = {
  */
 export const navLinks = [
   { label: 'Access Matters', href: '/access-matters' },
-  { label: 'Consumer Protections', href: '/consumer-protections' },
+  { label: 'Credit Access', href: '/consumer-protections' },
   { label: 'Cost of Restriction', href: '/cost-of-restriction' },
   { label: 'Resources', href: '/resources' },
   { label: 'Press', href: '/press' },
@@ -58,7 +58,14 @@ export type FactSheet = {
   file: string;
   /** Absent when the document is hosted off-site and has no cover render. */
   cover?: string;
+  /** One-sentence summary, shown on the tile under the title. */
+  summary?: string;
 };
+
+/** Drawn from the one-pager itself (Canva design "26-08-11_TFC_Illinois Rate
+    Cap Study"). Shared by the Resources tile and the Cost of Restriction card. */
+export const illinoisCaseStudySummary =
+  'After Illinois imposed a 36% rate cap, loans to higher-risk borrowers fell by about 45% and 56% of former borrowers surveyed could no longer borrow, leaving many to pay bills late or turn to costlier options.';
 
 /** The 13 fact sheets. Titles verbatim from the Resources page. */
 export const factSheets: FactSheet[] = [
@@ -137,6 +144,7 @@ export const factSheets: FactSheet[] = [
   {
     title: 'Illinois Case Study',
     file: 'https://canva.link/wsww1wai29mn9sr',
+    summary: illinoisCaseStudySummary,
   },
 ];
 
@@ -153,7 +161,7 @@ export const headlineStats = [
   },
   {
     value: '1 in 21,000',
-    label: 'transactions draw a complaint — lowest in financial services',
+    label: 'transactions draw a complaint, the lowest in financial services',
     source: 'Texas Office of Consumer Credit Commissioner',
   },
   {

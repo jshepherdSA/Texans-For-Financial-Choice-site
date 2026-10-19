@@ -51,7 +51,7 @@ export function SiteHeader() {
               For Financial Choice
             </span>
           </span>
-          <span className="sr-only">{site.name} — home</span>
+          <span className="sr-only">{site.name}, home</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">

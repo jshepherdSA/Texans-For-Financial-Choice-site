@@ -30,7 +30,7 @@ const fedFindings = [
   },
   {
     stat: '55%',
-    text: 'of parents living with children under 18 could cover a $400 emergency with cash or its equivalent in 2025 — parents were particularly vulnerable.',
+    text: 'of parents living with children under 18 could cover a $400 emergency with cash or its equivalent in 2025. Parents were particularly vulnerable.',
   },
 ];
 
@@ -39,14 +39,14 @@ const pressures = [
     id: 'housing',
     title: 'Housing has become less affordable',
     figure: 'Home prices up ~40% between 2019 and 2023',
-    body: 'Texas home prices rose approximately 40% between 2019 and 2023. In some smaller metropolitan areas, increases were substantially higher. Higher prices, mortgage rates, property taxes and maintenance costs all make it harder for families to purchase—and remain in—a home.',
+    body: 'Texas home prices rose approximately 40% between 2019 and 2023. In some smaller metropolitan areas, increases were substantially higher. Higher prices, mortgage rates, property taxes and maintenance costs all make it harder for families to purchase and remain in a home.',
     source: sources.comptrollerHousing,
   },
   {
     id: 'insurance',
     title: 'Homeowners insurance is consuming more of the family budget',
     figure: 'Average premium up 33% between 2015 and 2022',
-    body: 'For homeowners, the financial emergency is not always the storm—it may be the deductible and repair bills that come afterward. The average Texas homeowners insurance premium increased 33% between 2015 and 2022, including increases of 6.9% in 2021 and 11.8% in 2022. Rising deductibles also mean that families may need thousands of dollars immediately after a storm or household loss.',
+    body: 'For homeowners, the financial emergency is not always the storm; it may be the deductible and repair bills that come afterward. The average Texas homeowners insurance premium increased 33% between 2015 and 2022, including increases of 6.9% in 2021 and 11.8% in 2022. Rising deductibles also mean that families may need thousands of dollars immediately after a storm or household loss.',
     source: sources.comptrollerHousingReport,
   },
   {
@@ -66,13 +66,13 @@ const pressures = [
     id: 'transport',
     title: 'Transportation is an unavoidable expense',
     figure: 'A broken car can mean a lost paycheck, or a lost job',
-    body: 'In much of Texas, a broken car is not an inconvenience—it can mean a lost paycheck, lost job, missed medical appointment, or missed school. Texas’s size and development patterns make a dependable vehicle essential for many households.',
+    body: 'In much of Texas, a broken car is not an inconvenience. It can mean a lost paycheck, lost job, missed medical appointment, or missed school. Texas’s size and development patterns make a dependable vehicle essential for many households.',
   },
   {
     id: 'food',
     title: 'Food insecurity remains elevated',
     figure: 'Groceries take more of every paycheck, leaving less to save',
-    body: 'When groceries consume more of every paycheck, families have less money to save—and less protection when something goes wrong.',
+    body: 'When groceries consume more of every paycheck, families have less money to save and less protection when something goes wrong.',
   },
   {
     id: 'childcare',
@@ -104,7 +104,7 @@ export default function EconomicRealityPage() {
               </h2>
               <p className="mt-5 leading-relaxed text-foreground">
                 Millions of Texans are working, paying taxes and supporting
-                their families—but still living without a financial safety net.
+                their families, but still living without a financial safety net.
               </p>
               <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-lg border border-border bg-muted">
                 <Image
@@ -129,7 +129,7 @@ export default function EconomicRealityPage() {
                 </p>
               </div>
               <p className="mt-5 text-lg leading-relaxed text-white">
-                Texas households — 40% of all households in the state — earned
+                Texas households (40% of all households in the state) earned
                 less than what was needed to cover basic expenses in 2024.
               </p>
               <p className="mt-4 leading-relaxed text-sky-100">

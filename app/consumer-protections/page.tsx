@@ -13,9 +13,9 @@ import { Cite } from '@/components/cite';
 import { sources } from '@/lib/sources';
 
 export const metadata: Metadata = {
-  title: 'Consumer Protections',
+  title: 'Credit Access',
   description:
-    'Texas short-term lending is not an unregulated marketplace. Licensed Credit Access Businesses answer to the OCCC, with additional federal supervision from the CFPB.',
+    'Texas short-term borrowing is not an unregulated marketplace. Licensed Credit Access Businesses answer to the OCCC, with additional federal supervision from the CFPB.',
 };
 
 type Protection = {
@@ -46,7 +46,7 @@ const protections: Protection[] = [
     body: (
       <>
         <p>
-          Credit access businesses are classified as a licensed industry—not
+          Credit access businesses are classified as a licensed industry, not
           merely a registered one. The OCCC explains that licensed industries
           are subject to &ldquo;routine and periodic examination of records,
           processes, and compliance with statute and regulatory controls.&rdquo;
@@ -183,7 +183,7 @@ const protections: Protection[] = [
     id: 'enforcement',
     title: 'The OCCC has real enforcement authority',
     summary:
-      'Penalties, restitution, suspension and revocation — all publicly reported.',
+      'Penalties, restitution, suspension and revocation, all publicly reported.',
     body: (
       <>
         <p>
@@ -213,9 +213,9 @@ export default function PreserveFinancialChoicePage() {
   return (
     <>
       <PageHero
-        eyebrow="Consumer Protections"
+        eyebrow="Credit Access"
         title="Protecting Texans Means Safe Access to Credit"
-        lede="Texas short-term lending is not an unregulated marketplace. Licensed Credit Access Businesses (CABS) answer to the Texas Office of Consumer Credit Commissioner, while the Consumer Financial Protection Bureau provides an additional federal layer of supervision. Consumers have access to both state and federal regulators when they have a question or complaint."
+        lede="Texas short-term borrowing is not an unregulated marketplace. Licensed Credit Access Businesses (CABS) answer to the Texas Office of Consumer Credit Commissioner, while the Consumer Financial Protection Bureau provides an additional federal layer of supervision. Consumers have access to both state and federal regulators when they have a question or complaint."
         splitPhoto={{
           src: '/images/family-finances-kitchen.jpg',
           alt: 'Two parents and their son at a kitchen counter working through bills with a calculator and a laptop.',

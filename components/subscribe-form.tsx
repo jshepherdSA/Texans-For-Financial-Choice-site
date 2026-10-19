@@ -78,7 +78,7 @@ export function SubscribeForm() {
         className="rounded-lg border border-verify-200 bg-verify-50 p-6"
       >
         <p className="font-heading text-lg font-semibold text-positive">
-          Thanks — you&apos;re on the list.
+          Thanks, you&apos;re on the list.
         </p>
         <p className="mt-2 text-sm text-foreground">
           We&apos;ll send the latest news and updates straight to your inbox.

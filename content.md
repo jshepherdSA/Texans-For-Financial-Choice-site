@@ -25,7 +25,7 @@ alive as permanent redirects in `next.config.ts`.
 | ---- | ----- | ----- |
 | Home | `/` | Hero + 3 sections + footnotes |
 | Access Matters † | `/access-matters` † | |
-| Consumer Protections † | `/consumer-protections` † | 7 dropdowns + CFPB |
+| Credit Access † | `/consumer-protections` † | 7 dropdowns + CFPB. Renamed from Consumer Protections; route unchanged |
 | Cost of Restriction † | `/cost-of-restriction` † | 6 APR dropdowns |
 | Resources | `/resources` | Document says only "Downloadable One Pagers/Fact Sheets Page" |
 | Press | `/press` | Document says "Take all the press links from the website press page" |
@@ -60,6 +60,13 @@ to `navLinks`.
 4. **Homepage Sections 2 and 3 intentionally restate** the openings of Preserve
    Financial Choice and Consequences. That repetition is in the source: the
    homepage summarises and hands off via its "Learn more" lines.
+5. **"Borrowing" replaces "lending" and "credit" in four places**, at the
+   client's direction after the PDF was supplied: their research shows
+   "borrowing" engages more readers. The changes are the home hero paragraph,
+   the "Texas short-term borrowing is not an unregulated marketplace" intro
+   (home and Credit Access), the Cost of Restriction lede, and that
+   page's "Where Will Texans Turn?" heading. "Credit" stays wherever the client
+   did not ask for a change.
 
 ---
 
@@ -67,7 +74,7 @@ to `navLinks`.
 
 **Hero:** Texas Families Deserve Options, Not Roadblocks †
 
-> Texas families need responsible credit and transparent, regulated choices.
+> Texas families need responsible, transparent and regulated borrowing choices.
 > Smart policies should protect consumers from harmful practices without
 > eliminating lawful options or pushing them toward riskier alternatives.
 
@@ -136,7 +143,7 @@ Sections in order:
 
 ---
 
-## Page: Consumer Protections † (`/consumer-protections`)
+## Page: Credit Access † (`/consumer-protections`)
 
 **Hero:** Protecting Texans Means Safe Access to Credit †
 
@@ -163,8 +170,8 @@ six supervision powers.
    Fed research; Fed Board on loan pricing and risk.
 3. **Interest Rate Caps Cases** — Oregon, Georgia, plus the Illinois Case Study
    downloadable one-pager.
-4. **If Short-Term Credit Is Restricted or Eliminated, Where Will Texans Turn?**
-   — six conditions a workable substitute must meet.
+4. **If Short-Term Borrowing Is Restricted or Eliminated, Where Will Texans
+   Turn?** † — six conditions a workable substitute must meet.
 5. **Alternatives Should Compete With Credit, Not Eliminate It**
 
 ---
