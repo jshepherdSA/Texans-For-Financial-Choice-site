@@ -1,14 +1,27 @@
 import type { Metadata } from 'next';
+import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { Container, Section } from '@/components/layout-primitives';
 import { CtaBand } from '@/components/cta-band';
-import { articles } from '@/lib/articles';
+import { articles, type Segment } from '@/lib/articles';
 import { formatPressDate, pressItems } from '@/lib/press';
 
 type Params = { slug: string };
+
+/**
+ * The scraped segments were trimmed, so the space that sat either side of
+ * every link was lost and adjacent segments ran together ("In amemo"). Put it
+ * back, except where punctuation or an opening quote/bracket should touch.
+ */
+function needsSpace(prev: Segment | undefined, next: Segment): boolean {
+  if (!prev) return false;
+  return (
+    !/[\s(“‘"'[/-]$/.test(prev.text) && !/^[\s.,;:!?)”’"'\]/-]/.test(next.text)
+  );
+}
 
 /** Every article is known at build time, so every one prerenders as a static page. */
 export function generateStaticParams(): Params[] {
@@ -30,10 +43,14 @@ export async function generateMetadata({
   const found = lookup(slug);
   if (!found) return {};
   const { item, article } = found;
-  const excerpt = article.paragraphs[0]
-    ?.map((s) => s.text)
-    .join(' ')
-    .slice(0, 155);
+  // First paragraph long enough to be prose, so a credit line ("Original
+  // Article by …") or a subhead ("Highlights") is not the description.
+  const excerpt = article.paragraphs
+    .map((p) =>
+      p.map((s, i) => (needsSpace(p[i - 1], s) ? ' ' : '') + s.text).join('')
+    )
+    .find((text) => text.length >= 80)
+    ?.slice(0, 155);
   return {
     title: item.title,
     description: excerpt,
@@ -126,21 +143,23 @@ export default async function ArticlePage({
             <div className="max-w-[70ch] space-y-6 text-lg leading-relaxed text-foreground">
               {article.paragraphs.map((para, i) => (
                 <p key={i}>
-                  {para.map((seg, j) =>
-                    seg.href ? (
-                      <a
-                        key={j}
-                        href={seg.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-sm text-sky-700 underline decoration-sky-300 underline-offset-2 transition-colors hover:text-primary hover:decoration-navy-400 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-                      >
-                        {seg.text}
-                      </a>
-                    ) : (
-                      <span key={j}>{seg.text}</span>
-                    )
-                  )}
+                  {para.map((seg, j) => (
+                    <Fragment key={j}>
+                      {needsSpace(para[j - 1], seg) ? ' ' : null}
+                      {seg.href ? (
+                        <a
+                          href={seg.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-sm text-sky-700 underline decoration-sky-300 underline-offset-2 transition-colors hover:text-primary hover:decoration-navy-400 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                        >
+                          {seg.text}
+                        </a>
+                      ) : (
+                        <span>{seg.text}</span>
+                      )}
+                    </Fragment>
+                  ))}
                 </p>
               ))}
             </div>

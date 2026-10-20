@@ -4877,7 +4877,6 @@ export const articles: Record<string, Article> = {
   'most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap':
     {
       slug: 'most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap',
-      summary: true,
       source: {
         name: 'PR Newswire',
         href: 'https://www.prnewswire.com/news-releases/most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap-new-survey-finds-302908652.html',
@@ -4885,32 +4884,155 @@ export const articles: Record<string, Article> = {
       paragraphs: [
         [
           {
-            text: 'A survey released by Advance America found that most people who use short-term borrowing are working adults covering the gap between paychecks. Of the 541 U.S. adults surveyed in January 2026, 87% had used a short-term borrowing method in the previous six months, and 76.2% of those borrowers had steady full-time or part-time income.',
+            text: 'Survey finds 76% of short-term borrowers receive a steady paycheck, yet still face a gap between a bill due date and their next payday',
           },
         ],
         [
           {
-            text: 'About 44% reported paying late fees, interest or overdraft charges while waiting for their next paycheck. Payday or small-dollar loans were the most common way to get cash before payday (64.5%), followed by cash advance apps (29.6%) and borrowing from friends or family (21.6%). Advance America notes that respondents were drawn from its own marketing channels and may not represent the wider U.S. population.',
+            text: 'GREENVILLE, S.C., Oct. 14, 2026 /PRNewswire/ -- Advance America, a leading provider of short-term financial solutions, released findings from a January 2026 survey of 541 U.S. adults that reveal a clear picture of who is borrowing before payday: working Americans managing the gap between when bills come due and when their paycheck arrives.',
           },
+        ],
+        [
+          {
+            text: 'The survey found that 87% of respondents had used at least one short-term borrowing method in the past six months. Of those, 76.2% reported receiving a steady paycheck from full-time or part-time employment, and 78.6% said they are primarily responsible for managing their household finances.',
+          },
+        ],
+        [
+          {
+            text: '"This research confirms what our team hears from customers every day," said Jessica Rustin, Chief Executive Officer of Advance America. "Our customers are working adults who manage their finances thoughtfully. They choose short-term borrowing because it\'s a practical, predictable solution \u2014 and that\'s exactly what Advance America is built to provide."',
+          },
+        ],
+        [{ text: 'The paycheck gap is real' }],
+        [
+          {
+            text: "The survey results align with broader economic trends. By August 2026, U.S. inflation had risen to 3.4% year-over-year while average hourly earnings decreased 0.3%, according to the Bureau of Labor Statistics. A separate CNBC Affordability Survey from July 2026 found that 63% of Americans are living paycheck to paycheck, and 61% say their pay schedule doesn't align with the timing of their expenses.",
+          },
+        ],
+        [
+          {
+            text: "Roughly 80% of Advance America's survey respondents fell between the ages of 35 and 54 \u2014 employed adults with mortgages, families, and bills that don't wait. And the cost of waiting is high: 44% of respondents said they have incurred late fees, interest, or bank overdraft charges in the past six months while waiting on their next paycheck to arrive.",
+          },
+        ],
+        [{ text: 'How Americans are bridging the gap' }],
+        [
+          {
+            text: 'When asked how they accessed cash before payday, respondents reported a range of approaches:',
+          },
+        ],
+        [{ text: '64.5% used a payday loan or small-dollar loan' }],
+        [{ text: '29.6% used a cash advance app' }],
+        [{ text: '21.6% borrowed from friends or family' }],
+        [{ text: '17.6% took a cash advance from a debit or credit card' }],
+        [{ text: '16.8% paid a bank overdraft fee' }],
+        [
+          {
+            text: "Advance America's research shows that customers who choose a payday loan or installment loan value the transparency and predictability of knowing exactly when and what they'll pay.",
+          },
+        ],
+        [{ text: 'About the survey' }],
+        [
+          {
+            text: "Advance America conducted an online survey in January 2026 among 541 U.S. adults recruited through the company's digital marketing channels. Respondents were asked about their short-term borrowing behaviors in the prior six months, income sources, household financial management responsibilities, and demographic characteristics. Participants were located across multiple states, with concentrations in Florida, Texas, and other markets where Advance America operates. Results reflect the experiences of adults familiar with Advance America and may not be representative of the broader U.S. population.",
+          },
+        ],
+        [{ text: 'About Advance America' }],
+        [
+          {
+            text: 'Advance America is a licensed and regulated lender providing convenient loan options online and in store at 700+ locations across 23 states.',
+          },
+        ],
+        [
+          {
+            text: "Since 1997, Advance America has helped millions of families navigate life's financial moments \u2014 with clear terms, real human support, and a commitment to making borrowing simple, fast, and free from judgment.",
+          },
+        ],
+        [
+          { text: 'Learn more at' },
+          {
+            text: 'AdvanceAmerica.net',
+            href: 'https://www.advanceamerica.net/',
+          },
+          { text: '.' },
         ],
       ],
     },
   'banks-widen-credit-access-to-low-score-borrowers': {
     slug: 'banks-widen-credit-access-to-low-score-borrowers',
-    summary: true,
     source: {
       name: 'PYMNTS',
       href: 'https://www.pymnts.com/credit-cards/2026/banks-widen-credit-access-low-score-borrowers/',
     },
     paragraphs: [
+      [{ text: 'Highlights' }],
       [
         {
-          text: 'Large banks are opening more credit card accounts for borrowers with credit scores below 660, according to a Federal Reserve Bank of Philadelphia report cited by PYMNTS. Those borrowers made up 18.5% of new accounts in the second quarter of 2026, up from 16.1% a year earlier.',
+          text: 'Low-score borrowers accounted for 18.5% of card originations at large banks in the second quarter, up from 16.1% a year earlier.',
         },
       ],
       [
         {
-          text: 'Banks are still limiting their exposure: the median starting credit line for these borrowers rose to $600, compared with $7,000 for borrowers scoring 720 or higher. PYMNTS Intelligence found that 35% of subprime consumers hold neither a credit card nor a store card, and card delinquency and charge-off rates have been falling for more than a year.',
+          text: 'Median new lines for borrowers with credit scores below 660 rose to $600 but remained below the $7,000 median for borrowers at 720 or higher.',
+        },
+      ],
+      [
+        {
+          text: 'PYMNTS Intelligence found that 35% of subprime consumers hold neither a credit nor store card.',
+        },
+      ],
+      [
+        {
+          text: 'Large banks are putting more credit cards into the hands of consumers with low credit scores, but they are not pairing that expansion with large amounts of new borrowing capacity.',
+        },
+      ],
+      [
+        {
+          text: 'The combination indicates how card issuers are pursuing growth after several years of tight underwriting. Rather than making a broad shift toward looser credit standards, banks can approve more consumers while controlling their exposure through the size of each credit line.',
+        },
+      ],
+      [
+        {
+          text: 'The Federal Reserve Bank of Philadelphia’s “Q2 2026 Insights Report,” published Wednesday (Oct. 7), found that consumers with credit scores below 660 accounted for 18.5% of new credit card accounts at large banks in the second quarter, up from 16.1% a year earlier. The number of new card accounts across the banks rose nearly 4%, while total dollar originations increased 1.5%. As account growth outpaced commitments, the average new credit line declined from $6,216 to $6,066.',
+        },
+      ],
+      [
+        {
+          text: 'The read-across is that banks are reaching further down the credit spectrum without committing the same amount of money to each newly opened account.',
+        },
+      ],
+      [
+        {
+          text: 'The Philadelphia Fed’s data showed that median credit lines did not decline within the individual credit score groups. The median line for borrowers below 660 increased from $500 to $600, while the median for consumers between 660 and 720 rose from $2,600 to $2,700. The median for borrowers at 720 or higher remained at $7,000. The decline in the overall average partly reflects the larger share of new accounts going to lower-score borrowers, whose lines tend to be smaller.',
+        },
+      ],
+      [{ text: 'Credit Access Meets Credit-Line Control' }],
+      [
+        {
+          text: 'At the same time, PYMNTS Intelligence found that many consumers remain outside the card market.',
+        },
+      ],
+      [
+        {
+          text: '“Who Is the Subprime Consumer? A Behavioral Profile,” a May PYMNTS Intelligence report, revealed that 17% of consumers in the United States, or roughly 44 million adults, fell into the subprime category. Of those subprime consumers, 35% held neither a credit nor store card, compared with 12% of prime consumers and 4% of super-prime consumers.',
+        },
+      ],
+      [
+        {
+          text: 'A small initial credit line may serve a duality of purpose here. For the bank, the line caps the amount immediately exposed to a newly approved borrower. For the consumer, an approval creates access to revolving credit and a payment history that can lead to a thicker credit profile.',
+        },
+      ],
+      [
+        {
+          text: 'Underwriting developments, marked by new technologies, add another element to the equation. Personify Financial said verified bank transaction data increased approvals by as much as 8% among underserved consumer segments while maintaining credit costs, PYMNTS reported Oct. 6. Affirm’s latest underwriting model produced 3.4% more completed purchases at comparable risk, while Plaid said its LendScore model delivered 25% better predictive performance than traditional credit data alone. These are different products and underwriting methods, but each illustrates how lenders are seeking finer measures of risk rather than relying solely on broad borrower categories.',
+        },
+      ],
+      [
+        {
+          text: 'Underwriting determines who receives an account. The initial line determines how much exposure the issuer accepts, and subsequent line management gives the lender another opportunity to respond as repayment and spending behavior develop.',
+        },
+      ],
+      [
+        {
+          text: 'The credit environment gives banks room to test that approach. The Philadelphia Fed reported that card delinquency and net charge-off rates at large banks have declined for more than a year. At the same time, the share of accounts paying balances in full reached 37% in the second quarter, matching the pandemic-era peak recorded in 2021. Banks can widen the pool of consumers receiving cards, observe how these accounts perform and adjust exposure over time.',
         },
       ],
     ],
@@ -4918,7 +5040,6 @@ export const articles: Record<string, Article> = {
   'price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them':
     {
       slug: 'price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them',
-      summary: true,
       source: {
         name: 'Reason',
         href: 'https://reason.com/2026/10/08/price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them/',
@@ -4926,32 +5047,195 @@ export const articles: Record<string, Article> = {
       paragraphs: [
         [
           {
-            text: 'Veronique de Rugy looks at the bipartisan appeal of price controls, citing a Wall Street Journal poll in which nearly four in five voters supported a 10% cap on credit card interest rates.',
+            text: 'Price controls are seductive because any benefits are highly and immediately visible, while their grave costs are often harder to spot.',
+          },
+        ],
+        [{ text: 'By Veronique de Rugy' }],
+        [
+          {
+            text: "Most Americans apparently agree on at least one thing. Unfortunately, it's something dangerous: price controls.",
           },
         ],
         [
           {
-            text: 'She argues that such caps backfire: when lenders cannot price for risk, they turn away riskier borrowers, who are then pushed toward other, often costlier, options. She makes similar arguments about caps on child care and prescription drug prices, and concludes that price controls stay popular because their benefits are immediate and visible while their costs are hidden.',
+            text: 'A new Wall Street Journal poll finds remarkable bipartisan support for government limits on prices, with 93 percent of Democrats and 83 percent of Republicans supporting capping prescription drug prices. Nearly four in five voters support capping credit card interest rates at 10 percent. And large majorities favor capping child care charges for working families.',
           },
         ],
+        [
+          {
+            text: "The Journal describes these policies as \"populist.\" That's fair, although populism means something more specific than just being supported by the people (or the consumer). Political scientists generally define populism as a political approach that pits ordinary people against an elite group that's seen as serving its own interests. Populism can therefore come from the left or the right, which helps explain today's strange alliances.",
+          },
+        ],
+        [
+          {
+            text: 'Democratic socialist Sen. Bernie Sanders (I–Vt.) and GOP Sen. Josh Hawley (R–Miss.) agree on a 10 percent credit card interest rate cap. Sen. Elizabeth Warren (D–Mass.) can champion limits on child care costs while President Donald Trump creates a government website directing consumers toward discounted prescription drugs. Different political tribes are embracing the idea that if something costs more than most people think it should cost, the government should make it less expensive.',
+          },
+        ],
+        [
+          {
+            text: 'But if the idea is to advocate for ordinary people against powerful interests, an irony lurks.',
+          },
+        ],
+        [
+          {
+            text: "First, few people are as powerful or more self-interested than those in government. As Ronald Reagan famously observed, \"The nine most terrifying words in the English language are: I'm from the government, and I'm here to help.\" It's not just because the government has the power to coerce—to take resources as glibly as it hands them out. It's that government officials have an incentive to promise voters things for free, and those promises are impossible to fulfill. Reagan knew how easily government intervention and bureaucracy can complicate economic issues and hurt those it set out to help.",
+          },
+        ],
+        [
+          {
+            text: 'The price controls that so many Americans now clamor for are perhaps the best example. Behind their support is an assumption that prices are just the product of the desires of powerful and heartless sellers. The reality is quite different.',
+          },
+        ],
+        [
+          {
+            text: "Prices are the manifestations of countless decisions by buyers and sellers, each acting on individual knowledge no one else has. No buyer's budget and needs, and no seller's costs and offerings, are identical. Only a free market can account for this and decide whether a price sticks. Creating laws to cap prices doesn't make scarcity go away. It just shows up as empty shelves instead of a market-determined price.",
+          },
+        ],
+        [
+          {
+            text: "Consider credit cards. A 10 percent interest rate cap sounds lovely. Many Americans pay twice that. Why not simply tell banks that's the limit? Because an interest rate isn't an arbitrary number. It is the price of credit that reflects funding costs, administrative expenses, and, not least, expected default risks.",
+          },
+        ],
+        [
+          {
+            text: "Congress can cap the rate, but it can't cap the risk. When the price a lender can charge falls below what the risk costs, lending stops. Lenders turn down applicants, cut credit limits, and close accounts. The borrowers the cap was supposed to protect still need the money. They end up at the payday lender or the pawn shop instead. In other words, interest rate caps hurt the economically vulnerable people they are supposed to help.",
+          },
+        ],
+        [
+          {
+            text: 'The same problem is even more stark with child care. The service is expensive because caring for small children requires a lot of labor and demand is high, especially when governments subsidize it through vouchers and tax credits. Meanwhile, state and local authorities restrict child care supply through staff-to-child ratios, credential mandates, zoning bans on home-based providers, costly building codes, and more. No wonder prices are so high.',
+          },
+        ],
+        [
+          {
+            text: "Capping those prices won't help. If providers cannot cover their expenses at the mandated price, some will reduce capacity. Others will close. The parents lucky enough to secure a remaining slot might pay less. Others will find no available care. The government cannot decree the additional workers and facilities necessary to fill the gap it created.",
+          },
+        ],
+        [
+          {
+            text: 'Prescription drugs are more complicated, but the basic tradeoff remains. Reducing drug prices can benefit patients today, at least on the surface. However, developing new drugs is extraordinarily expensive and risky. Expected future revenues help determine how much companies invest in research. Thus, capping prices eventually reduces the number of new drugs that reach the market. Over time, fewer lives are saved.',
+          },
+        ],
+        [
+          {
+            text: 'That example also illustrates why price controls are such seductive politics. Their benefits are highly and immediately visible, while their costs are often harder to spot.',
+          },
+        ],
+        [
+          {
+            text: 'Politicians can legislate lower prices; they cannot legislate away scarcity, other costs, or risks. If populism really means standing up for ordinary people, then its policies should be judged not by popularity but by how they affect ordinary people. And for the average American, price controls hurt.',
+          },
+        ],
+        [{ text: '2026 CREATORS.COM' }],
       ],
     },
   'capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help': {
     slug: 'capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help',
-    summary: true,
     source: {
       name: 'Texas Insider',
       href: 'https://texasinsider.org/articles/capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help',
     },
     paragraphs: [
+      [{ text: 'By Gavin Nicholson' }],
       [
         {
-          text: 'Gavin Nicholson, founder and CEO of the TexCap Policy Institute, argues that a federal cap on credit card interest rates, such as the 10% limit proposed by Senators Bernie Sanders and Josh Hawley, would reduce access to credit for the people it is meant to help.',
+          text: 'WASHINGTON, D.C. (Texas Insider Report) — At first glance, capping credit card interest rates sounds like a simple solution to a real concern as households face rising costs and mounting consumer debt. Families are feeling stretched and policymakers are right to look for ways to provide relief, but good intentions do not always lead to good outcomes. And, over the past several decades the U.S. financial system has made meaningful progress in expanding access to credit across income levels and communities.',
         },
       ],
       [
         {
-          text: 'Citing American Bankers Association estimates, he writes that 74% to 85% of open card accounts could be closed or have their credit lines cut, affecting more than 11 million Texans. He argues that risk-based pricing is what allows lenders to serve people with limited credit histories, and that transparency and competition are better tools than price caps.',
+          text: 'Policies that overlook that progress risk doing more harm than good.',
+        },
+      ],
+      [
+        {
+          text: 'Effective policy should be grounded in evidence – informed by stakeholders across the private and public sectors, and evaluated by its real-world impacts. From that perspective, credit card interest rate caps raise serious concerns.',
+        },
+      ],
+      [
+        {
+          text: 'For example, Senator Bernie Sanders and Senator Josh Hawley have introduced legislation for a federal 10% interest rate cap, a proposal that could restrict access to credit for most consumers and produce unintended economic consequences.',
+        },
+      ],
+      [
+        {
+          text: 'None of this denies the reality that many families feel gouged. When rates sit in the double-digits and penalties pile up, even a small emergency can turn into a long-term debt spiral. Texans deserve relief but the tool we choose matters because “cheaper credit on paper” can quickly become “no credit in practice.”',
+        },
+      ],
+      [
+        {
+          text: 'Credit card interest rates serve an important purpose – they reflect a combination of borrower risk, operating costs, fraud losses, and broader economic conditions. Unlike mortgages or auto loans, credit cards are typically unsecured, meaning there is no collateral if a borrower defaults.',
+        },
+      ],
+      [
+        {
+          text: 'Risk-based pricing allows lenders to extend credit to a wide range of consumers, including those with limited or imperfect credit histories.',
+        },
+      ],
+      [
+        {
+          text: 'This approach has helped bring tens of millions of households into the regulated financial system, replacing less transparent, dangerous or informal alternatives such as payday lenders.',
+        },
+      ],
+      [
+        {
+          text: 'When policymakers impose a hard cap on interest rates, lenders lose the ability to price for higher risk. The result is not cheaper credit for everyone, but less credit for many.',
+        },
+      ],
+      [
+        {
+          text: 'New research published by the American Bankers Association (based on a survey of issuers covering roughly three-fourths of the market) estimates that 74%–85% of open credit-card accounts would be closed or have credit lines sharply reduced under a 10% effective APR cap.',
+        },
+      ],
+      [
+        {
+          text: 'In Texas, more than 11 million Texans could be affected, including people with credit scores over 600. These are industry estimates, but they illustrate the basic economics of a strict price ceiling on unsecured credit.',
+        },
+      ],
+      [
+        {
+          text: 'Credit cards play a role beyond everyday convenience. For many households, they function as a short-term liquidity tool to manage cash-flow gaps or unexpected expenses, such as medical bills or car repairs. Broad access to credit cards today represents a significant improvement from earlier decades, when families had fewer safe options during financial emergencies.',
+        },
+      ],
+      [
+        {
+          text: 'In fact, the average American now has instant access to nearly $30,000 in credit to finance their needs.',
+        },
+      ],
+      [
+        {
+          text: 'Restricting access can force households to delay essential purchases or turn to less regulated alternatives with fewer consumer protections. Small businesses also feel the squeeze: research summarized by the National Bureau of Economic Research found 55% of surveyed small businesses used a corporate credit card in the past 12 months.',
+        },
+      ],
+      [
+        {
+          text: 'And evidence from markets with strict lending caps shows a consistent pattern: fewer approvals, lower credit limits, and more closed accounts. These outcomes risk reversing progress in financial inclusion and can reduce local economic activity.',
+        },
+      ],
+      [
+        {
+          text: 'Well-designed consumer protection should promote transparency, responsible borrowing, and access to fair credit. Policies that encourage competition and clear disclosure have historically done more to expand opportunity than blunt price controls.',
+        },
+      ],
+      [{ text: 'Similarly, interest rate caps can undermine those goals.' }],
+      [
+        {
+          text: 'There is also a broader economic impact to consider. Credit availability supports consumer spending, which in turn affects local businesses, employment, and tax revenues. During periods of economic uncertainty, access to flexible credit becomes even more important.',
+        },
+      ],
+      [
+        {
+          text: 'Credit card interest rate caps may be well-intentioned, but evidence suggests they will limit access to credit and harm the consumers they aim to help.',
+        },
+      ],
+      [
+        {
+          text: 'Policymakers should carefully weigh these unintended consequences and focus on solutions that protect consumers while preserving the progress made in expanding access to safe, regulated credit.',
+        },
+      ],
+      [
+        {
+          text: 'Gavin Nicholson is the Founder and CEO of the TexCap Policy Institute, a nonpartisan think tank dedicated to shaping a smarter, more resilient Texas.',
         },
       ],
     ],
@@ -4973,22 +5257,103 @@ export const articles: Record<string, Article> = {
   },
   'a-10-credit-card-cap-would-make-the-affordability-crisis-worse': {
     slug: 'a-10-credit-card-cap-would-make-the-affordability-crisis-worse',
-    summary: true,
     source: {
       name: 'Tampa Bay Times',
       href: 'https://www.tampabay.com/viewpoints/2026/01/22/10-credit-card-cap-would-make-affordability-crisis-worse-column/',
     },
     paragraphs: [
+      [{ text: 'Two economists explain why.' }],
+      [{ text: 'By Michael A. Coon and Abigail R. Hall' }],
       [
         {
-          text: "Economists Michael A. Coon and Abigail R. Hall respond to the president's plan to cap credit card interest rates at 10%, arguing that the cap would worsen the affordability crisis rather than ease it.",
+          text: 'Public sentiment in the United States is clear: Things are unaffordable. Between inflation, tariffs and a cooling economy, many Americans are feeling the pinch.',
+        },
+      ],
+      [
+        {
+          text: 'To address this issue, the president recently announced plans to “cap” or limit credit card interest rates at 10%, a significant decrease from U.S. average of just under 24%. On the surface, this seems like a reasonable way to help households reduce their monthly expenditures. In the wake of high inflation after the pandemic, many households turned to credit cards to make ends meet. U.S. household credit card debt has grown from $735 billion in 2021 to $1.1 trillion today.',
+        },
+      ],
+      [
+        {
+          text: 'At the same time, the Federal Reserve has raised interest rates to fight inflation. This matters because credit card rates fluctuate with the rates set by the Fed. Higher rates mean higher rates. Taken together, increased credit card debt and higher interest rates act as a one-two punch for many households.',
+        },
+      ],
+      [
+        {
+          text: 'To many, limiting credit card interest rates seems like a quick and easy way to relieve financial pressure on working families. Floridians carry some of the highest credit card debts in the country, with an average balance of over $9,100. Many would welcome the lower rates.',
+        },
+      ],
+      [
+        {
+          text: 'There’s just one major problem: This policy will backfire — spectacularly.',
+        },
+      ],
+      [
+        {
+          text: 'It is important to understand that there is no single universal interest rate for credit. Whether it is a credit card, auto loan, mortgage or any other loan, the interest rate an individual pays depends on the perceived risk of default the lender expects from that individual. The interest rate is based on numerous individual characteristics (income, payment history, etc.) and measured by the borrower’s credit score.',
+        },
+      ],
+      [
+        {
+          text: 'Borrowers with high credit scores (low risk) pay lower interest rates than those with low credit scores (high risk). If you see a commercial for a car dealer offering zero percent interest on a new car, you will notice the fine print that says, “only for well-qualified borrowers.”',
+        },
+      ],
+      [
+        {
+          text: 'Although it may seem unfair to charge those with great credit (most likely wealthier borrowers) lower rates than those with bad credit (most likely poorer borrowers), the reality is that many poorer borrows would not get credit at all at lower rates.',
+        },
+      ],
+      [
+        {
+          text: 'Imagine, for example, you own a bank. Under the president’s proposal, you couldn’t charge more than 10% on a credit card. Would you give a card to someone with a 30% chance of default?',
+        },
+      ],
+      [{ text: 'Of course not. Neither would any other bank.' }],
+      [
+        {
+          text: 'So, where would those with a risky credit profile go if they needed to cover an immediate expense? Many turn to a payday lender, borrowing against their future income. While these companies provide a valuable service, it comes at a steep price.',
+        },
+      ],
+      [
+        {
+          text: 'Rather than charging interest in the same way as a typical credit card, payday lenders often charge a one-time “borrower fee.” For example, someone wishing to borrow $500 for a month might pay a $50 fee.',
+        },
+      ],
+      [
+        {
+          text: 'If this is a one-time need, paying an extra $50 to prevent getting the lights shut off or your car repossessed might seem like a great deal. In practice, however, many low-income households the use payday lenders find themselves in a “debt trap.” Strapped for cash to begin with (hence the need for the initial loan), they may not have any additional cushion come next payday when they must pay their regular bills and the payday loan.',
+        },
+      ],
+      [
+        {
+          text: 'So what do they do? They borrow again — and incur another $50 fee.',
+        },
+      ],
+      [
+        {
+          text: 'As this cycle continues, borrowers wind up paying hundreds, sometimes thousands, in fees over the course of a year. If one calculates the annual percentage rate, a borrower could easily be paying the equivalent of a 60% interest rate. Some studies have put the average effective annualized interest rate for payday loans at around 400%.',
+        },
+      ],
+      [
+        {
+          text: 'If credit card interest rates were capped, this would harm the very people such a policy aims to help. Not only would it fail to help borrowers, it would paradoxically make things less affordable. Lenders would only issue new credit cards to people with stellar credit. Those with fair credit would likely see their credit limits fall. And those at the bottom of the credit ladder? Shut out completely or pushed toward payday loans or black-market lending.',
+        },
+      ],
+      [
+        {
+          text: 'If the president were truly serious about helping consumers with affordability, he would do well to eliminate the tariffs he’s imposed his first year in office, which have served to increase the price of goods and services and led to a sluggish economy. The current proposal tries to fix the problems created by the previous policy by doubling down on bad economics.',
+        },
+      ],
+      [
+        {
+          text: 'Michael A. Coon and Abigail R. Hall are associate professors of economics at the University of Tampa',
         },
       ],
     ],
   },
   'credit-card-interest-rate-caps-threaten-americans-small-businesses': {
     slug: 'credit-card-interest-rate-caps-threaten-americans-small-businesses',
-    summary: true,
     source: {
       name: 'U.S. Chamber of Commerce',
       href: 'https://www.uschamber.com/finance/government-imposed-interest-rate-caps-could-cost-americans-and-small-businesses-more-money-not-less',
@@ -4996,12 +5361,99 @@ export const articles: Record<string, Article> = {
     paragraphs: [
       [
         {
-          text: "Mike Flood of the U.S. Chamber of Commerce's Center for Capital Markets Competitiveness argues that government-imposed caps on credit card interest rates, such as a 10% limit, would reduce access to credit for small businesses and lower-income households.",
+          text: 'Interest rate caps often lead to reduced credit access and higher costs for those who need financing the most.',
         },
       ],
       [
         {
-          text: 'He notes that the small business credit card market is roughly $2 trillion, about half of it underwritten as personal cards tied to business owners. Pointing to the years before the late 1970s, when usury limits meant mostly high-credit borrowers qualified for cards, he warns that lenders would pull back again and push borrowers toward costlier options such as payday loans, buy now, pay later products and cash advances.',
+          text: 'By Mike Flood, Senior Vice President, Center for Capital Markets Competitiveness, U.S. Chamber of Commerce',
+        },
+      ],
+      [{ text: 'Key Takeaways:' }],
+      [
+        {
+          text: 'A government-mandated interest rate cap would punish households and small businesses by limiting credit options and reducing access to affordable credit.',
+        },
+      ],
+      [
+        {
+          text: 'Capping credit card interest rates sounds helpful, but it would actually make banks lend less, so many small businesses and low-income families would lose access to credit cards.',
+        },
+      ],
+      [
+        {
+          text: 'If credit cards dry up, small businesses will struggle to cover urgent costs and will be pushed into more expensive and riskier loan options.',
+        },
+      ],
+      [
+        {
+          text: 'Credit card interest rate caps sound good as an immediate way to increase affordability. However, history has shown that price controls increase the cost and decrease the availability of affordable credit for those who need it the most.',
+        },
+      ],
+      [
+        {
+          text: 'Until the late 1970’s, many usury laws capped interest rates at 10%. Only those with the highest credit qualified for credit cards. Many low and moderate-income (LMI) households and small business were excluded entirely or relied upon on riskier—and higher priced alternatives (i.e., trade credit, layaway, payday lending, etc.). When caps lifted and banks could price risk into the interest rates, credit cards became widely available and financing more affordable.',
+        },
+      ],
+      [
+        {
+          text: 'Credit Cards are an Integral Form of Finance for Many Small Businesses',
+        },
+      ],
+      [
+        {
+          text: 'The small business credit card market is roughly $2 trillion, of which fifty percent is for small business underwritten as personal cards on the back of the owner.',
+        },
+      ],
+      [
+        {
+          text: 'The MetLife and U.S. Chamber Small Business Index reported that credit cards—alongside local banks and credit unions—remain among the top financing tools for small businesses.',
+        },
+      ],
+      [
+        {
+          text: 'When a restaurant’s freezer dies, when a contractor needs materials upfront, or when a boutique buys inventory, credit cards are often the only fast, frictionless, and affordable source of funding.',
+        },
+      ],
+      [
+        {
+          text: 'With a Hard Cap, Affordable, Reliable Credit Would Dry Up—Fast',
+        },
+      ],
+      [
+        {
+          text: 'A 10% cap ignores the real cost of lending. Banks evaluate risk, and small businesses—especially new ones—have higher risk profiles. If lenders cannot price risk, they simply stop lending.',
+        },
+      ],
+      [
+        {
+          text: 'Translation: Current small businesses credit card lines will shrink or disappear, and new card approvals will plummet.',
+        },
+      ],
+      [
+        {
+          text: 'Furthermore, many small businesses use credit cards to launch new products, test new markets, and upgrade tech. Pull away reliable credit, and the result will either be less investment or costlier financing.',
+        },
+      ],
+      [
+        {
+          text: 'Finally, banks will either reduce or eliminate credit offerings to lower and more moderate-income borrowers, or those with little or no established credit file.',
+        },
+      ],
+      [
+        {
+          text: 'This could lead to more expensive, riskier, and less transparent finance options for small businesses and LMI households (i.e., buy now, pay later; cash advances; trade credit; payroll-linked credit; wholesale finance; etc.).',
+        },
+      ],
+      [{ text: 'The U.S. Chamber has Consistently Opposed Price Controls' }],
+      [
+        {
+          text: 'In 2023, when President Joe Biden proposed capping card late fees, we successfully fought back as government intervention would force banks to reduce the availability of credit, especially to small businesses and Americans in need.',
+        },
+      ],
+      [
+        {
+          text: 'Bottom line: A government-mandated interest rate cap would punish households and small businesses by limiting credit options and reducing access to affordable credit.',
         },
       ],
     ],
