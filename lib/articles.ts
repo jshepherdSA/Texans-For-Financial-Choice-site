@@ -1,5 +1,5 @@
 /**
- * Full text of the 50 press articles, republished on this site rather than
+ * Full text of the 50 legacy press articles (plus summaries of later ones), republished on this site rather than
  * linked out to the legacy WordPress install.
  *
  * Scraped from texansforfinancialchoice.com. Body text is stored as segments —
@@ -17,6 +17,13 @@ export type Article = {
   slug: string;
   /** Where the piece originally ran, when the legacy page credited one. */
   source?: { name?: string; href?: string };
+  /**
+   * True when `paragraphs` is our own short summary rather than the full text.
+   * The 50 legacy articles were already republished on the old site; pieces
+   * added since are other publishers' work, so they are summarised and linked
+   * to the original instead of copied.
+   */
+  summary?: boolean;
   paragraphs: Segment[][];
 };
 
@@ -4863,6 +4870,138 @@ export const articles: Record<string, Article> = {
       [
         {
           text: 'As attractive, popular and politically expedient as interest rate caps may seem, such actions ultimately are painful medicine for the folks that really need the help. When it comes to running the largest economy in the world, more care and deliberation would go a long way to making it work better for everyone.',
+        },
+      ],
+    ],
+  },
+  'most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap':
+    {
+      slug: 'most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap',
+      summary: true,
+      source: {
+        name: 'PR Newswire',
+        href: 'https://www.prnewswire.com/news-releases/most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap-new-survey-finds-302908652.html',
+      },
+      paragraphs: [
+        [
+          {
+            text: 'A survey released by Advance America found that most people who use short-term borrowing are working adults covering the gap between paychecks. Of the 541 U.S. adults surveyed in January 2026, 87% had used a short-term borrowing method in the previous six months, and 76.2% of those borrowers had steady full-time or part-time income.',
+          },
+        ],
+        [
+          {
+            text: 'About 44% reported paying late fees, interest or overdraft charges while waiting for their next paycheck. Payday or small-dollar loans were the most common way to get cash before payday (64.5%), followed by cash advance apps (29.6%) and borrowing from friends or family (21.6%). Advance America notes that respondents were drawn from its own marketing channels and may not represent the wider U.S. population.',
+          },
+        ],
+      ],
+    },
+  'banks-widen-credit-access-to-low-score-borrowers': {
+    slug: 'banks-widen-credit-access-to-low-score-borrowers',
+    summary: true,
+    source: {
+      name: 'PYMNTS',
+      href: 'https://www.pymnts.com/credit-cards/2026/banks-widen-credit-access-low-score-borrowers/',
+    },
+    paragraphs: [
+      [
+        {
+          text: 'Large banks are opening more credit card accounts for borrowers with credit scores below 660, according to a Federal Reserve Bank of Philadelphia report cited by PYMNTS. Those borrowers made up 18.5% of new accounts in the second quarter of 2026, up from 16.1% a year earlier.',
+        },
+      ],
+      [
+        {
+          text: 'Banks are still limiting their exposure: the median starting credit line for these borrowers rose to $600, compared with $7,000 for borrowers scoring 720 or higher. PYMNTS Intelligence found that 35% of subprime consumers hold neither a credit card nor a store card, and card delinquency and charge-off rates have been falling for more than a year.',
+        },
+      ],
+    ],
+  },
+  'price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them':
+    {
+      slug: 'price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them',
+      summary: true,
+      source: {
+        name: 'Reason',
+        href: 'https://reason.com/2026/10/08/price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them/',
+      },
+      paragraphs: [
+        [
+          {
+            text: 'Veronique de Rugy looks at the bipartisan appeal of price controls, citing a Wall Street Journal poll in which nearly four in five voters supported a 10% cap on credit card interest rates.',
+          },
+        ],
+        [
+          {
+            text: 'She argues that such caps backfire: when lenders cannot price for risk, they turn away riskier borrowers, who are then pushed toward other, often costlier, options. She makes similar arguments about caps on child care and prescription drug prices, and concludes that price controls stay popular because their benefits are immediate and visible while their costs are hidden.',
+          },
+        ],
+      ],
+    },
+  'capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help': {
+    slug: 'capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help',
+    summary: true,
+    source: {
+      name: 'Texas Insider',
+      href: 'https://texasinsider.org/articles/capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help',
+    },
+    paragraphs: [
+      [
+        {
+          text: 'Gavin Nicholson, founder and CEO of the TexCap Policy Institute, argues that a federal cap on credit card interest rates, such as the 10% limit proposed by Senators Bernie Sanders and Josh Hawley, would reduce access to credit for the people it is meant to help.',
+        },
+      ],
+      [
+        {
+          text: 'Citing American Bankers Association estimates, he writes that 74% to 85% of open card accounts could be closed or have their credit lines cut, affecting more than 11 million Texans. He argues that risk-based pricing is what allows lenders to serve people with limited credit histories, and that transparency and competition are better tools than price caps.',
+        },
+      ],
+    ],
+  },
+  'capping-credit-card-rates-wont-make-america-more-affordable': {
+    slug: 'capping-credit-card-rates-wont-make-america-more-affordable',
+    summary: true,
+    source: {
+      name: 'Bloomberg Opinion',
+      href: 'https://www.bloomberg.com/opinion/articles/2026-01-29/capping-credit-card-rates-won-t-make-america-more-affordable',
+    },
+    paragraphs: [
+      [
+        {
+          text: 'Bloomberg Opinion argues that capping credit card interest rates at 10%, as the administration proposed in January 2026, would not make life more affordable for American households. The full article is available to Bloomberg subscribers.',
+        },
+      ],
+    ],
+  },
+  'a-10-credit-card-cap-would-make-the-affordability-crisis-worse': {
+    slug: 'a-10-credit-card-cap-would-make-the-affordability-crisis-worse',
+    summary: true,
+    source: {
+      name: 'Tampa Bay Times',
+      href: 'https://www.tampabay.com/viewpoints/2026/01/22/10-credit-card-cap-would-make-affordability-crisis-worse-column/',
+    },
+    paragraphs: [
+      [
+        {
+          text: "Economists Michael A. Coon and Abigail R. Hall respond to the president's plan to cap credit card interest rates at 10%, arguing that the cap would worsen the affordability crisis rather than ease it.",
+        },
+      ],
+    ],
+  },
+  'credit-card-interest-rate-caps-threaten-americans-small-businesses': {
+    slug: 'credit-card-interest-rate-caps-threaten-americans-small-businesses',
+    summary: true,
+    source: {
+      name: 'U.S. Chamber of Commerce',
+      href: 'https://www.uschamber.com/finance/government-imposed-interest-rate-caps-could-cost-americans-and-small-businesses-more-money-not-less',
+    },
+    paragraphs: [
+      [
+        {
+          text: "Mike Flood of the U.S. Chamber of Commerce's Center for Capital Markets Competitiveness argues that government-imposed caps on credit card interest rates, such as a 10% limit, would reduce access to credit for small businesses and lower-income households.",
+        },
+      ],
+      [
+        {
+          text: 'He notes that the small business credit card market is roughly $2 trillion, about half of it underwritten as personal cards tied to business owners. Pointing to the years before the late 1970s, when usury limits meant mostly high-credit borrowers qualified for cards, he warns that lenders would pull back again and push borrowers toward costlier options such as payday loans, buy now, pay later products and cash advances.',
         },
       ],
     ],

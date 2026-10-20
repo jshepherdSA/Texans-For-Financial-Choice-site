@@ -10,7 +10,7 @@ import { formatPressDate, pressItems } from '@/lib/press';
 
 type Params = { slug: string };
 
-/** Every article is known at build time, so all 50 prerender as static pages. */
+/** Every article is known at build time, so every one prerenders as a static page. */
 export function generateStaticParams(): Params[] {
   return pressItems.map((item) => ({ slug: item.slug }));
 }
@@ -148,16 +148,23 @@ export default async function ArticlePage({
             {article.source?.href ? (
               <div className="mt-12 max-w-[70ch] rounded-lg border border-border bg-surface-sunken p-6">
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  This article was originally published
-                  {article.source.name ? ` by ${article.source.name}` : ''} and
-                  is reproduced here for reference.{' '}
+                  {article.summary
+                    ? 'This is a summary of an article'
+                    : 'This article was'}{' '}
+                  originally published
+                  {article.source.name ? ` by ${article.source.name}` : ''}
+                  {article.summary
+                    ? '.'
+                    : ' and is reproduced here for reference.'}{' '}
                   <a
                     href={article.source.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-baseline gap-1 rounded-sm font-medium text-sky-700 underline decoration-sky-300 underline-offset-2 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                   >
-                    View the original
+                    {article.summary
+                      ? 'Read the full article'
+                      : 'View the original'}
                     <ArrowUpRight
                       className="size-3 self-center"
                       aria-hidden="true"
