@@ -306,6 +306,7 @@ export default function ConsequencesPage() {
         }}
         eyebrow="Cost of Restriction"
         title="Restricting Credit Access Has Big Consequences"
+        subtitle="If short-term borrowing is restricted or eliminated, where will Texans turn?"
         lede="Eliminating access to short-term borrowing does not eliminate the financial emergency. It simply changes how, and whether, a family can respond. Some may find another source of money, but others may face overdraft fees, delayed bills, utility shutoffs, unregulated online lenders or no workable option at all."
       />
 

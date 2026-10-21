@@ -41,6 +41,7 @@ const toneStyles: Record<
 export function PageHero({
   eyebrow,
   title,
+  subtitle,
   lede,
   tone = 'navy',
   image,
@@ -51,6 +52,8 @@ export function PageHero({
 }: {
   eyebrow: string;
   title: string;
+  /** A short line under the title, above the lede, in the eyebrow's blue. */
+  subtitle?: string;
   lede?: ReactNode;
   tone?: HeroTone;
   /** Seed for the placeholder artwork; omit for a text-only hero. */
@@ -94,6 +97,11 @@ export function PageHero({
               <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
                 {title}
               </h1>
+              {subtitle ? (
+                <p className="mt-4 max-w-[44ch] font-heading text-xl leading-snug font-bold text-sky-300 lg:text-2xl">
+                  {subtitle}
+                </p>
+              ) : null}
               {lede ? (
                 <div className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
                   {lede}
@@ -149,6 +157,11 @@ export function PageHero({
             <h1 className="mt-4 max-w-[44ch] font-heading text-3xl leading-[1.12] font-bold text-white sm:text-4xl lg:text-5xl">
               {title}
             </h1>
+            {subtitle ? (
+              <p className="mt-4 max-w-[44ch] font-heading text-xl leading-snug font-bold text-sky-300 lg:text-2xl">
+                {subtitle}
+              </p>
+            ) : null}
             {lede ? (
               <div className="mt-6 max-w-[62ch] text-lg leading-relaxed text-sky-100">
                 {lede}
@@ -181,6 +194,16 @@ export function PageHero({
             >
               {title}
             </h1>
+            {subtitle ? (
+              <p
+                className={cn(
+                  'mt-4 max-w-[44ch] font-heading text-xl leading-snug font-bold lg:text-2xl',
+                  t.eyebrow
+                )}
+              >
+                {subtitle}
+              </p>
+            ) : null}
             {lede ? (
               <div
                 className={cn(
