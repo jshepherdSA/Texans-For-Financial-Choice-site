@@ -38,6 +38,7 @@ export const pressItems: PressItem[] = [
       'Most Short-Term Borrowers Are Employed Adults Navigating a Paycheck Timing Gap, New Survey Finds',
     href: 'https://www.prnewswire.com/news-releases/most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap-new-survey-finds-302908652.html',
     slug: 'most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap',
+    image: '/press/most-short-term-borrowers-are-employed-adults-navigating-a-paycheck-timing-gap.jpg',
   },
   {
     year: 2026,
@@ -45,6 +46,7 @@ export const pressItems: PressItem[] = [
     title: 'Banks Widen Credit Access to Low-Score Borrowers',
     href: 'https://www.pymnts.com/credit-cards/2026/banks-widen-credit-access-low-score-borrowers/',
     slug: 'banks-widen-credit-access-to-low-score-borrowers',
+    image: '/press/banks-widen-credit-access-to-low-score-borrowers.jpg',
   },
   {
     year: 2026,
@@ -53,6 +55,7 @@ export const pressItems: PressItem[] = [
       "Price Controls Don't Work. So Why Do So Many Democrats and Republicans Love Them?",
     href: 'https://reason.com/2026/10/08/price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them/',
     slug: 'price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them',
+    image: '/press/price-controls-dont-work-so-why-do-so-many-democrats-and-republicans-love-them.jpg',
   },
   {
     year: 2026,
@@ -61,6 +64,7 @@ export const pressItems: PressItem[] = [
       'Capping Credit Card Interest Rates Hurts the People They Aim to Help',
     href: 'https://texasinsider.org/articles/capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help',
     slug: 'capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help',
+    image: '/press/capping-credit-card-interest-rates-hurts-the-people-they-aim-to-help.jpg',
   },
   {
     year: 2026,
@@ -68,6 +72,7 @@ export const pressItems: PressItem[] = [
     title: "Capping Credit Card Rates Won't Make America More Affordable",
     href: 'https://www.bloomberg.com/opinion/articles/2026-01-29/capping-credit-card-rates-won-t-make-america-more-affordable',
     slug: 'capping-credit-card-rates-wont-make-america-more-affordable',
+    image: '/press/capping-credit-card-rates-wont-make-america-more-affordable.jpg',
   },
   {
     year: 2026,
@@ -75,6 +80,7 @@ export const pressItems: PressItem[] = [
     title: 'A 10% credit card cap would make the affordability crisis worse',
     href: 'https://www.tampabay.com/viewpoints/2026/01/22/10-credit-card-cap-would-make-affordability-crisis-worse-column/',
     slug: 'a-10-credit-card-cap-would-make-the-affordability-crisis-worse',
+    image: '/press/a-10-credit-card-cap-would-make-the-affordability-crisis-worse.jpg',
   },
   {
     year: 2026,
@@ -83,6 +89,7 @@ export const pressItems: PressItem[] = [
       'Credit Card Interest Rate Caps Threaten Americans, Small Businesses',
     href: 'https://www.uschamber.com/finance/government-imposed-interest-rate-caps-could-cost-americans-and-small-businesses-more-money-not-less',
     slug: 'credit-card-interest-rate-caps-threaten-americans-small-businesses',
+    image: '/press/credit-card-interest-rate-caps-threaten-americans-small-businesses.jpg',
   },
   {
     year: 2025,
